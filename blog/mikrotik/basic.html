@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikrotik | Basic Config</title>
+
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                    <h1>Basic Config</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian/index-debian.html">Home Debian</a></li>
+                    <li><a href="/blog/debian/dhcp.html">DHCP Server</a></li>
+                    <li><a href="/blog/debian/ssh.html">SSH</a></li>
+                    <li><a href="/blog/debian/dns.html">DNS Server</a></li>
+                    <li><a href="/blog/debian/ftp.html">FTP Server</a></li>
+                    <li><a href="/blog/debian/apache.html">Web Server</a></li>
+                    <li><a href="/blog/debian/wordpress.html">Wordpress</a></li>
+                    <li><a href="/blog/debian/mail.html">Mail Server</a></li>
+                    <li><a href="/blog/debian/phpmyadmin.html">PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/index-mikrotik.html">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic.html">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan.html">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/static.html">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/dynamic.html">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot.html">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/blok.html">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth.html">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing.html">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge.html">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/index-cloud.html">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel.html">Install cPanel</a></li>
+                    <li><a href="/blog/aws/aws-wordpress.html">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx.html">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix.html">Install Zabbix & Database</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Toppologi</h1>
+                    <img src="/blog/mikrotik/img/ToppBasic.png" alt="" class="toppbasic">
+                <h1>Identity & Security</h1>
+                    <p>Login pada winbox lalu pergi ke menu <mark>System> Identity</mark> untuk mengubah Identity sebuah Router</p>
+                    <img src="/blog/mikrotik/img/Basic-Identity.png" alt="" class="bas-iden">
+                    <p>Berikan password agar tidak sembarang orang bisa Login ke Router kalian. Untuk memberi password ini ada pada menu <mark>System> Password</mark></p>
+                    <img src="/blog/mikrotik/img/Basic-Password.png" alt="" class="bas-pass">
+                    <p>Jika sebelumnya belum diberikan password, maka di bagian Old Password kosongkan saja. Sebaliknya jika pada sebelumnya sudah diberikan password, maka masukan password yang sudah di apply dulu.</p>
+                    <br><p>Selanjutnya tambahkan user untuk mengatur siapa aja yang punya kendali penuh untuk Router kalian.</p>
+                    <img src="/blog/mikrotik/img/Basic-User.png" alt="" class="bas-user">
+                    <p>Tambahkan nama user dan password sesuai selera kalian lalu atur group menjadi full agar bisa lihat dan edit. Default login router biasanya user admin yang mempunyai group full, tetapi disini kita ubah menjadi group read agar hanya bisa melihat tanpa mengedit konfigurasi. Ini juga menjadi salah satu cara untuk Security sebuah jaringan dan router.</p>
+                    <br><p>Lalu terakhir kita login ulang dengan menggunakan user yang telah kita buat tadi.</p>
+                    <img src="/blog/mikrotik/img/Basic-Login.png" alt="" class="bas-log">
+
+                <h1>Konfigurasi Basic</h1>
+                <h2>Interfaces</h2>
+                    <p>Konfigurasi sederhana untuk memberikan internet kepada client tanpa ada fitur yang lainnya. Pertama kita ganti nama Interface sesuai port yang ada dan digunakan untuk apa. Hal ini bertujuan agar kita tidak tertukar saat ingin konfig/mencoba tes Interface yang ada.</p>
+                    <img src="/blog/mikrotik/img/Basic-Interfaces.png" alt="" class="bas-int">
+                <h2>DHCP Client</h2>
+                    <p>DHCP client akan berfungsi dalam memastikan supaya perangkat yang terhubung di sebuah jaringan memperoleh alamat IP sesuai dengan yang diberikan server. Jadi kita meminta IP dari Server agar Client kita bisa mendapatkan Internet. Service DHCP Client ini berada pada menu <mark>IP> DHCP Client</mark></p>
+                    <img src="/blog/mikrotik/img/Basic-DHCPClient.png" alt="" class="bas-dhcpclient">
+                <h2>IP Address</h2>
+                    <p>Kita berikan IP Address untuk client sesuai dengan Interface yang akan digunakan yaitu "Interface - Jakarta". Untuk memberikan IP Address pada interface, berada pada menu <mark>IP> Addresses</mark></p>
+                    <img src="/blog/mikrotik/img/Basic-IpAddr.png" alt="" class="bas-ipaddr">
+                <h2>DNS</h2>
+                    <p>Centang "Allow Remote Request", hal ini memungkinkan Mikrotik menjadi DNS cache, sehingga mengarahkan DNS komputer ke IP Mikrotik untuk mengakses lebih cepat, Khusunya untuk DNS yang sudah terekam dicache Mikrotik. Service ini ada pada menu <mark>IP> DNS</mark></p>
+                    <img src="./img/Basic-DNS.png" alt="" class="bas-dns">
+                <h2>Firewall</h2>
+                    <p>Salah satu fitur firewall yang ada pada Mikrotik adalah Filter rules. Filter rule berfungsi membuat kriteria pada paket/data yang keluar ataupun masuk lalu mengeksekusi nya dengan Action yang berbeda-beda.</p>
+                    <ul>
+                        <li>"Foward" adalah paket data yang melewati router. Contoh kasusnya adalah ketika 2 computer yang saling terhubung dengan router melakukan PING satu sama lain.</li>
+                        <li>"Accept" ini berfungsi melakukan persetujuan pada paket.</li>
+                    </ul>
+                    <img src="/blog/mikrotik/img/Basic-FR.png" alt="" class="bas-fr">
+                    <p>Service ini berada pada menu <mark>IP> Firewall</mark> dan masuk dibagian "Filter Rules"</p>
+                    
+                    <br><p>Setelah itu kita pindah ke bagian "NAT"</p>
+                    <ul>
+                        <li>"Masquerade" berfungsi untuk menyembunyian IP address privat yang ada pada jaringan LAN sekaligus membuat mask (berlindung/bersembunyi) ke IP address yang terhubung langsung ke router ISP, sehingga IP address privat tadi tidak terlihat oleh jaringan internet (publik).</li>
+                        <li>"Src-nat" digunakan untuk menghubungka jaringan local ke internet menggunakan IP public static.</li>
+                    </ul>
+                    <img src="/blog/mikrotik/img/Basic-NAT.png" alt="" class="bas-nat">
+                <h2>DHCP Server</h2>
+                    <p>DHCP memiliki fungsi utama mendistribusikan IP Address secara otomatis kepada setiap client yang terhubung dengan jaringan komputer.Service ini berada di menu <mark>IP> DHCP Server</mark>. Kita pilih interface yang akan diberikan service DHCP Server ini untuk memberikan IP otomatis kepada client</p>
+                    <img src="./img/Basic-DHCPServ.png" alt="" class="bas-dhcpserver">
+                <h1>Hasil</h1>
+                    <p>Hubungkan PC dengan kabel ke interface yang telah kita berikan IP dan DHCP Server tadi.</p>
+                    <img src="/blog/mikrotik/img/Basic-Result.png" alt="" class="bas-result">
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

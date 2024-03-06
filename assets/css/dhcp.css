@@ -1,0 +1,788 @@
+*{
+    font-family: 'poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.header{
+    background-image: url(/assets/img/layered-waves-haikei\ \(dekstop\).png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.judul{
+    width: 300px;
+    height: 280px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(2px);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
+}
+
+.judul h1{
+    font-size: 45px;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #351C75;
+    position: relative;
+    flex: 1;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0,0,0,1);
+}
+
+.navigation h1{
+    color: #E69138;
+    align-items: start;
+}
+
+.sidebar{
+    background-color: #0C1623;
+    position: relative;
+    flex: 1;
+    padding-left: 20px;
+    max-width: 350px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,1);
+}
+
+
+.sidebar h1{
+    color: #E69138;
+}
+
+.sidebar ul li{
+    color: white;
+}
+
+.sidebar ul li a{
+    color: #f4f4f4;
+    transition: all .5s ease;
+}
+
+.sidebar ul li a:hover{
+    color: #4070f4;
+}
+
+.content{
+    background-color: #f4f4f4;
+    position: relative;
+    flex: 2;
+    margin: 5px;
+    padding-left: 20px;
+    max-width: 900px;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,1);
+    padding-bottom: 30px;
+}
+
+.content h1, h2{
+    color: #351C75;
+}
+
+.h2-wp{
+    color: black;
+}
+
+.daging{
+    background-color: #333333;
+    width: 90%;
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.daging pre{
+    align-items: center;
+    color: #f4f4f4;
+    font-size: 16px;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #351C75;
+    position: relative;
+    flex: 1;
+    margin-top: 30px;
+    height: 60px;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0,0,0,1);
+}
+
+.footer h1{
+    color: #E69138;
+    text-align: center;
+}
+
+.imgssh{
+    width: 450px;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.hasil-dhcp{
+    width: 500px;
+    height: 500px;
+}
+
+.imgdns1{
+    width: 800px;
+    height: 700px;
+}
+
+.imgdns2{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 600px;
+    height: 500px;
+}
+
+.imgdns3{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 600px;
+    height: 500px;
+}
+
+.imgconfigftp{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 700px;
+    height: 200px;
+}
+
+.imgftp{
+    width: 700px;
+    height: 300px;
+}
+
+.imgdefaultapache{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 700px;
+    height: 500px;
+}
+
+.imgapache{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 700px;
+    height: 450px;
+}
+
+.sql-install1, .sql-install2, .sql-install3, .sql-install4{
+    padding-top: 20px;
+    width: 800px;
+    height: 400px;
+}
+
+.phpconf{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.wpconf{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.wp-install1, .wp-install2, .wp-install3 {
+    padding-top: 20px;
+    width: 800px;
+    height: 500px;
+}
+
+.dsb-wp, .cnt-wp{
+    padding-top: 20px;
+    width: 800px;
+    height: 500px;
+}
+
+.log-php{
+    padding-top: 20px;
+    width: 400px;
+    height: 100%;
+}
+
+.dash-php{
+    padding-top: 20px;
+    width: 800px;
+    height: 500px;
+}
+
+/* MIKROTIK */
+
+.toppbasic{
+    width: 800px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.bas-iden{
+    width: 400px;
+    height: 200px; 
+}
+
+.bas-pass{
+    width: 400px;
+    height: 200px; 
+}
+
+.bas-user{
+    width: 500px;
+    height: 300px; 
+}
+
+.bas-log{
+    width: 500px;
+    height: 300px; 
+}
+
+.bas-int{
+    width: 500px;
+    height: 300px; 
+}
+
+.bas-dhcpclient{
+    width: 700px;
+    height: 300px; 
+}
+
+.bas-ipaddr{
+    width: 500px;
+    height: 300px; 
+}
+
+.bas-dns{
+    width: 700px;
+    height: 800px; 
+}
+
+.bas-fr{
+    width: 300px;
+    height: 200px; 
+}
+
+.bas-nat{
+    width: 300px;
+    height: 200px; 
+}
+
+.bas-dhcpserver{
+    width: 700px;
+    height: 300px; 
+}
+
+.bas-result{
+    width: 400px;
+    height: 500px; 
+}
+
+/* AWS */
+
+.ky-cybrpnel{
+    width: 400px;
+    height: 400px;
+}
+
+.sg-cybrpnel{
+    width: 700px;
+    height: 400px;
+}
+
+.ssh-cybr1, .ssh-cybr2{
+    width: 400px;
+    height: 400px;
+}
+
+.dash-cybr, .wp-cybr, .hasil-wp, .log-wp, .dash-wp{
+    padding-top: 20px;
+    width: 800px;
+    height: 500px;
+}
+
+/* Security */
+
+.top-sec1, .top-ssh, .top-ftp-web, .test-ftp1, .top-mitm, .top-ddos, .top-hack, .cek-tshark1, .cek-tshark2, .ddos, .top-snort{
+    width: 700px;
+    height: 400px;
+}
+
+.arp1, .arp2{
+    width: 400px;
+    height: 200px;
+}
+
+.arp-ftp1, .arp-ftp2{
+    width: 500px;
+    height: 200px;
+}
+
+.arp-http{
+    width: 700px;
+    height: 100px;
+}
+
+/* Debian11 */
+
+.top-deb11, .apache-win{
+    width: 700px;
+    height: 400px;
+}
+
+.dns-win{
+    width: 400px;
+    height: 400px;
+}
+
+
+@media screen and (max-width: 768px){
+    .sidebar{
+        max-width: 750px;
+        margin: 5px;
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,1);
+    }
+
+    .content{
+        max-width: 750px;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,1);
+    }
+
+    .imgssh{
+        width: 700px;
+        height: 600px;
+    }
+
+    .hasil-dhcp{
+        width: 400px;
+        height: 400px;
+    }
+
+    .imgdns1{
+        width: 700px;
+        height: 600px;
+    }
+
+    .imgdns2{
+        width: 700px;
+        height: 600px;
+    }
+
+
+    .imgdns3{
+        width: 700px;
+        height: 600px;
+    }
+
+
+    .imgconfigftp{
+        width: 630px;
+        height: 200px;
+    }
+
+    .imgftp{
+        width: 600px;
+        height: 300px;
+    }
+
+    .imgdefaultapache{
+        width: 600px;
+        height: 400px;
+    }
+
+    .imgapache{
+        width: 600px;
+        height: 400px;
+    }
+
+    .toppbasic{
+        width: 700px;
+        height: 500px;
+        border-radius: 20px;
+    }
+
+    .sql-install1, .sql-install2, .sql-install3, .sql-install4{
+        width: 700px;
+        height: 400px;
+    }
+
+    .phpconf{
+        width: 700px;
+        height: 200px;
+    }
+    
+    .wpconf{
+        width: 700px;
+        height: 200px;
+    }
+
+    .wp-install1, .wp-install2, .wp-install3{
+        width: 700px;
+        height: 400px;
+    }
+
+    .dsb-wp, .cnt-wp{
+        width: 700px;
+        height: 400px;
+    }
+
+    .log-php{
+        width: 400px;
+        height: 200px;
+    }
+
+    .dash-php{
+        width: 700px;
+        height: 400px;
+    }
+
+    /* MIKROTIK */
+
+    /* AWS */
+
+    .ky-cybrpnel{
+        width: 400px;
+        height: 400px;
+    }
+    
+    .sg-cybrpnel{
+        width: 600px;
+        height: 400px;
+    }
+
+    .ssh-cybr1, .ssh-cybr2{
+        width: 400px;
+        height: 400px;
+    }
+
+    .dash-cybr, .wp-cybr, .hasil-wp, .log-wp, .dash-wp{
+        padding-top: 20px;
+        width: 700px;
+        height: 400px;
+    }
+
+    /* Security */
+    
+    .top-sec1, .top-ssh, .top-ftp-web, .test-ftp1, .top-mitm, .top-ddos, .top-hack, .cek-tshark1, .cek-tshark2, .ddos, .top-snort{
+        width: 600px;
+        height: 400px;
+    }
+
+    .arp1, .arp2{
+        width: 330px;
+        height: 150px;
+    }
+    
+    .arp-ftp1, .arp-ftp2{
+        width: 400px;
+        height: 150px;
+    }
+    
+    .arp-http{
+        width: 700px;
+        height: 100px;
+    }
+
+    .otp1{
+        width: 700px;
+        height: 400px;
+    }
+
+    /* Debian11 */
+
+    .top-deb11, .apache-win{
+        width: 600px;
+        height: 400px;
+    }
+
+    .dns-win{
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 426px){
+    .header{
+        background-image: url(/assets/img/layered-waves-haikei\ \(mobile\).png);
+    }
+
+    .content{
+        margin: 0;
+        padding-left: 0;
+        padding-bottom: 30px;
+        padding-left: 10px;
+        max-width: 400px;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,1);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .daging{
+        background-color: #333333;
+        width: 90%;
+        border-radius: 5px;
+        padding-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .daging pre{
+        align-items: center;
+        color: #f4f4f4;
+        font-size: 11px;
+    }
+
+    img{
+        width: 350px;
+        height: 300px;
+        border-radius: 10px;
+    }
+
+    .imgssh{
+        width: 350px;
+        height: 300px;
+    }
+
+    .hasil-dhcp{
+        width: 250px;
+        height: 250px;
+    }
+
+    .imgdns1{
+        width: 350px;
+        height: 300px;
+    }
+
+    .imgdns2{
+        width: 350px;
+        height: 300px;
+    }
+
+    .imgdns3{
+        width: 350px;
+        height: 300px;
+    }
+
+    .imgconfigftp{
+        width: 300px;
+        height: 100px;
+    }
+
+    .imgftp{
+        width: 300px;
+        height: 150px;
+    }
+
+    .imgdefaultapache{
+        width: 300px;
+        height: 230px;
+    }
+
+    .imgapache{
+        width: 300px;
+        height: 230px;
+    }
+
+    .sql-install1, .sql-install2, .sql-install3, .sql-install4{
+        width: 350px;
+        height: 230px;
+    }
+
+    .phpconf{
+        width: 380px;
+        height: 180px;
+    }
+
+    .wpconf{
+        width: 380px;
+        height: 180px;
+    }
+
+    .wp-install1, .wp-install2, .wp-install3{
+        width: 350px;
+        height: 230px;
+    }
+
+    .dsb-wp, .cnt-wp{
+        width: 350px;
+        height: 230px;
+    }
+
+    .log-php{
+        width: 200px;
+        height: 200px;
+    }
+
+    .dash-php{
+        width: 350px;
+        height: 230px;
+    }
+
+    /* MIKROTIK */
+
+    .footer h1{
+        font-size: 28px;
+    }
+
+    .toppbasic{
+        width: 370px;
+        height: 300px;
+        border-radius: 20px;
+    }
+    
+    .bas-iden{
+        width: 300px;
+        height: 150px; 
+    }
+    
+    .bas-pass{
+        width: 300px;
+        height: 150px; 
+    }
+    
+    .bas-user{
+        width: 370px;
+        height: 300px; 
+    }
+    
+    .bas-log{
+        width: 300px;
+        height: 200px; 
+    }
+    
+    .bas-int{
+        width: 370px;
+        height: 300px; 
+    }
+    
+    .bas-dhcpclient{
+        width: 370px;
+        height: 200px; 
+    }
+    
+    .bas-ipaddr{
+        width: 370px;
+        height: 250px; 
+    }
+    
+    .bas-dns{
+        width: 370px;
+        height: 400px; 
+    }
+    
+    .bas-fr{
+        width: 300px;
+        height: 200px; 
+    }
+    
+    .bas-nat{
+        width: 300px;
+        height: 200px; 
+    }
+    
+    .bas-dhcpserver{
+        width: 370px;
+        height: 250px; 
+    }
+    
+    .bas-result{
+        width: 370px;
+        height: 500px; 
+    }
+
+    /* AWS */
+
+    .ky-cybrpnel{
+        width: 250px;
+        height: 250px;
+    }
+    
+    .sg-cybrpnel{
+        width: 300px;
+        height: 200px;
+    }
+
+    .ssh-cybr1, .ssh-cybr2{
+        width: 250px;
+        height: 250px;
+    }
+
+    .dash-cybr, .wp-cybr, .hasil-wp, .log-wp, .dash-wp{
+        padding-top: 20px;
+        width: 350px;
+        height: 230px;
+    }
+
+    /* Security */
+
+    .top-sec1, .top-ssh, .top-ftp-web, .test-ftp1, .top-mitm, .top-ddos, .top-hack, .cek-tshark1, .cek-tshark2, .ddos, .top-snort{
+        width: 300px;
+        height: 200px;
+    }
+
+    .arp1, .arp2{
+        width: 300px;
+        height: 150px;
+    }
+    
+    .arp-ftp1, .arp-ftp2{
+        width: 300px;
+        height: 130px;
+    }
+    
+    .arp-http{
+        width: 350px;
+        height: 80px;
+    }
+
+    .otp1{
+        width: 350px;
+        height: 250px;
+    }
+
+    /* Debian11 */
+
+    .top-deb11, .apache-win{
+        width: 300px;
+        height: 200px;
+    }
+
+    .dns-win{
+        width: 250px;
+        height: 250px;
+    }
+}

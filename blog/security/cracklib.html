@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cracklib</title>
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                    <h1>Cracklib</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian/index-debian.html">Home Debian</a></li>
+                    <li><a href="/blog/debian/dhcp.html">Superlab-DHCP Server</a></li>
+                    <li><a href="/blog/debian/ssh.html">Superlab-SSH</a></li>
+                    <li><a href="/blog/debian/dns.html">Superlab-DNS Server</a></li>
+                    <li><a href="/blog/debian/ftp.html">Superlab-FTP Server</a></li>
+                    <li><a href="/blog/debian/apache.html">Superlab-Web Server</a></li>
+                    <li><a href="/blog/debian/wordpress.html">Superlab-Wordpress</a></li>
+                    <li><a href="/blog/debian/phpmyadmin.html">Superlab-PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/index-mikrotik.html">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic.html">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan.html">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/static.html">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/dynamic.html">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot.html">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/blok.html">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth.html">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing.html">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge.html">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/index-cloud.html">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel.html">Install cPanel</a></li>
+                    <li><a href="/blog/aws/aws-wordpress.html">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx.html">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix.html">Install Zabbix & Database</a></li>
+                </ul>
+                <h1>Security</h1>
+                <ul>
+                    <li><a href="/blog/security/index-security.html">Home Security</a></li>
+                    <li><a href="/blog/security/install.html">Installasi</a></li>
+                    <li><a href="/blog/security/iptables.html">IP Tables</a></li>
+                    <li><a href="/blog/security/cracklib.html">Craklib</a></li>
+                    <li><a href="/blog/security/port.html">Port Forwarding</a></li>
+                    <li><a href="/blog/security/hack.html">MITM&DDOS</a></li>
+                    <li><a href="/blog/security/snort.html">Snort</a></li>
+                    <li><a href="/blog/security/otp.html">Generated OTP</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Pengertian</h1>
+                <p>Cracklib adalah library untuk memeriksa apakah kata sandi mudah dipecahkan atau tidak. Ia memeriksa apakah kata sandi tidak didasarkan pada pola karakter sederhana atau kata kamus. Tujuan utama dari paket ini adalah untuk menghentikan pengguna memilih kata sandi yang mudah ditebak/diretas. Ia mencoba menghasilkan kata-kata dari kolom nama pengguna dan gecos (entri di file /etc/passwd) dan memeriksa kata sandinya.
+                </p>
+                <p>Perhatikan bahwa cracklib bukanlah pengganti program kata sandi, dan harus digunakan bersama dengan program kata sandi yang sudah ada. Instal jika Anda ingin memastikan bahwa kata sandi setidaknya aman secara minimal.</p>
+                <h1>Konfigurasi</h1>
+                <h2>Debian 10- Server</h2>
+                    <h2 class="h2-wp">Interfaces</h2>
+                    <p>
+                    ens33 LAN : 11.1.25.1/24 <br>
+                    gateway : 11.1.25.254
+                    </p>
+                    <h2 class="h2-wp">Package</h2>
+                    <ul>
+                        <li>net-tools</li>
+                        <li>iptables-persistent</li>
+                        <li>netfilter-persistent</li>
+                        <li>apache2</li>
+                        <li>proftpd</li>
+                        <li>libpam-cracklib (new)</li>
+                    </ul>
+                <p>Sebelum itu kita harus login atau ssh ke <strong>Debian 10- Server</strong> dengan cara masuk terlebih dahulu ke <strong>Debian 10- Router</strong> lalu kita bisa jump ssh. Bagaimana contohnya?</p>
+                <div class="daging">
+<pre>
+ssh rizwan1@192.168.91.150
+password : 123
+
+lalu jump ssh ke Server
+
+ssh rizwan2@11.1.25.1
+password : 123
+</pre>
+                </div>
+                <h2>Flash Disk</h2>
+                <p>Jika kita ingin mengaktifkan atau agar flash disk bisa terbaca oleh sistem linux, kita harus mengetik command</p>
+                <div class="daging">
+<pre>
+mount /dev/sdb1 /mnt
+</pre>
+                </div>
+                <p>Coba kita cek apakah flash disk sudah bisa terbaca oleh sistem linux atau belum. Cara untuk kita cek adalah masuk ke direktory yang telah kita tentukan tadi yaitu <mark>/mnt</mark></p>
+                <div class="daging">
+<pre>
+cd /mnt
+
+ls
+</pre>
+                </div>
+                <p>Buat file no-usb menggunakan nano pada direktori modprob</p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">
+echo ‘install usb-storage /bin/true’ &gt;&gt; /etc/modprobe.d/disable-usb-storage.conf
+</p>
+                </div>
+                <p>Jika kita ingin menonaktifkan flash disk bisa mengetik command</p>
+                <div class="daging">
+<pre>
+umount /dev/sdb1 /mnt
+</pre>
+                </div>
+                <p>Maka hasilnya jika kita masuk ke directory <mark>/mnt</mark> maka semua isi file yang ada di flash disk akan menghilang</p>
+
+                <h2>Blok Ping</h2>
+                <p>Untuk blok ping dari luar bisa mengetik command</p>
+                <div class="daging">
+<pre>
+echo &quot;1&quot; &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all
+</pre>
+                </div>
+                <p>Jika ingin mengembalikan lagi agar bisa ping ke luar bisa dengan menggunakan command</p>
+                <div class="daging">
+<pre>
+echo &quot;0&quot; &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all
+</pre>
+                </div>
+                <p>Jika ingin blok ping secara permanen dari luar maka bisa ganti isi file dibawah ini:</p>
+                <div class="daging">
+<pre>
+nano /etc/ sysctl.conf
+
+tambahkan baris
+net.ipv4.icmp_echo_ignore_all = 1
+</pre>
+                </div>
+                <p>Lalu reload konfigurasi terlebih dahulu agar bisa berjalan dengan baik dan benar</p>
+                <div class="daging">
+<pre>
+sysctl -p
+</pre>
+                </div>
+                <h2>Strong Password</h2>
+                <h2 class="h2-wp">Install Package</h2>
+                <div class="daging">
+<pre>
+apt-get install libpam-cracklib
+</pre>
+                </div>
+                <p>Perintah untuk mengetahui informasi tanggal kadaluarsa suatu kata sandi</p>
+                <div class="daging">
+<pre>
+chage (user)
+
+chage rizwan2
+chage -l rizwan2
+</pre>
+                </div>
+                <p>Meminta user untuk menggunakan kata sandi yang cukup aman dengan kombinasi yang rumit</p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">
+nano /etc/pam.d/system-auth <br><br>
+
+tambahkan <br>
+/lib/security/$ISA/pam_cracklib.so retry=3 minlen=8 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=-1
+</p>
+                </div>
+                <p>Lalu kita cek apakah konfigurasi tadi sudah berhasil atau belum. Cara cek bisa dengan ganti password user dengan katasandi yang mudah.</p>
+                <div class="daging">
+<pre>
+passwd (user)
+
+passwd rizwan2
+password : rizwan2
+</pre>
+                </div>
+                <p>Lalu kita akan konfigurasi software libpam-cracklib agar saat mengganti password user tidak bisa dengan menggunakan katasandi yang mudah. Hal ini tentu saja akan meningkatkan kualitas security kita agar tidak mudah diketahui oleh orang lain.</p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">
+nano /etc/pam.d/common-password <br><br>
+
+pada text <br>
+password requisite pam_cracklib.so retry=3 minlen=8 difok=3 <br><br>
+
+ditambahkan menjadi <br>
+password requisite pam_cracklib.so retry=3 minlen=9 dcredit=-1 ucredit=-1 lcredit=-1 ocredit=-1 difok=3
+</p>
+                </div>
+                <p>Lalu kita cek apakah konfigurasi tadi sudah berhasil atau belum. Cara cek bisa dengan ganti password user dengan katasandi yang mudah. Jika saat kita mengganti password dengan menggunakan katasandi yang mudah ditolak itu artinya konfigurasi telah berhasil. Maka yang kita harus lakukan adalah mengganti password dengan menggunakan katasandi yang lebih rumit.</p>
+                <div class="daging">
+<pre>
+passwd (user)
+
+passwd rizwan2
+password : rizwan2
+(ditolak)
+password : R1zw4n2@123
+(diterima)
+</pre>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

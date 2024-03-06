@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Port Forwarding</title>
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                    <h1>Port Forward</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian/index-debian.html">Home Debian</a></li>
+                    <li><a href="/blog/debian/dhcp.html">Superlab-DHCP Server</a></li>
+                    <li><a href="/blog/debian/ssh.html">Superlab-SSH</a></li>
+                    <li><a href="/blog/debian/dns.html">Superlab-DNS Server</a></li>
+                    <li><a href="/blog/debian/ftp.html">Superlab-FTP Server</a></li>
+                    <li><a href="/blog/debian/apache.html">Superlab-Web Server</a></li>
+                    <li><a href="/blog/debian/wordpress.html">Superlab-Wordpress</a></li>
+                    <li><a href="/blog/debian/phpmyadmin.html">Superlab-PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/index-mikrotik.html">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic.html">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan.html">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/static.html">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/dynamic.html">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot.html">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/blok.html">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth.html">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing.html">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge.html">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/index-cloud.html">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel.html">Install cPanel</a></li>
+                    <li><a href="/blog/aws/aws-wordpress.html">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx.html">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix.html">Install Zabbix & Database</a></li>
+                </ul>
+                <h1>Security</h1>
+                <ul>
+                    <li><a href="/blog/security/index-security.html">Home Security</a></li>
+                    <li><a href="/blog/security/install.html">Installasi</a></li>
+                    <li><a href="/blog/security/iptables.html">IP Tables</a></li>
+                    <li><a href="/blog/security/cracklib.html">Craklib</a></li>
+                    <li><a href="/blog/security/port.html">Port Forwarding</a></li>
+                    <li><a href="/blog/security/hack.html">MITM&DDOS</a></li>
+                    <li><a href="/blog/security/snort.html">Snort</a></li>
+                    <li><a href="/blog/security/otp.html">Generated OTP</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Toppologi</h1>
+                <h2>SSH</h2>
+                <img src="img/top-ssh.png" alt="" class="top-ssh">
+                <p>Dimateri kali ini saat seseorang akan SSH akan ada 2 kemungkinan.</p>
+                <ul>
+                    <li>Saat SSH ke port 22, dia diarahkan ke Debian 10- Router</li>
+                    <li>Saat SSH ke port 222, dia diarahkan ke Debian 10- Server</li>
+                </ul>
+                <h2>FTP&Web Server</h2>
+                <img src="img/top-ftp&web.png" alt="" class="top-ftp-web">
+                <p>Saat seseorang mengakses FTP&Web Server 192.168.91.0/24 akan diarahkan ke 11.1.25.1/24</p>
+                <h1>Konfigurasi</h1>
+                <p>Sebelum itu kita akan konfigurasi semua ini didalam <mark>Debian 10- Router</mark></p>
+                <h2>SSH</h2>
+                <p>Konfigurasi IPTABLES DMZ (SSH)</p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">
+iptables -A INPUT -p tcp -m multiport -d 192.168.91.150 --dport 22 -j ACCEPT <br><br>
+iptables -A FORWARD -p tcp -m multiport -d 11.1.25.1 --dport 22 -j ACCEPT <br><br>
+iptables -t nat -A PREROUTING -p tcp -m multiport -d 192.168.91.150 --dport 222 -j DNAT --to 11.1.25.1:22
+</p>
+                </div>
+                <h2>Web Server</h2>
+                <p>Konfigurasi IPTABLES DMZ (HTTP server)</p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">
+iptables -A INPUT -p tcp -m multiport -d 192.168.91.150 --dport 80 -j ACCEPT <br><br>
+iptables -A FORWARD -p tcp -m multiport -d 11.1.25.1 --dport 80 -j ACCEPT <br><br>
+iptables -t nat -A PREROUTING -p tcp -m multiport -d 192.168.91.150 --dport 80 -j DNAT --to 11.1.25.1:80 
+</p>
+                </div>
+                <h2>FTP</h2>
+                <h2 class="h2-wp">Debian 10- Router</h2>
+                <h2 class="h2-wp">Interfaces</h2>
+                <p>
+                ens33 NAT : 192.168.91.0/24 <br>
+                ens36 LAN : 11.1.25.254/24 <br>
+                </p>
+                <h2 class="h2-wp">Package</h2>
+                <ul>
+                    <li>net-tools</li>
+                    <li>iptables-persistent</li>
+                    <li>netfilter-persistent</li>
+                    <li>proftpd</li>
+                    <li>vsftpd (new)</li>
+                </ul>
+                <h2>Perbedaan</h2>
+                <p>Proftpd dan vsftpd dua server FTP yang sangat populer untuk sistem Unix / Linux. Meskipun mereka sangat mirip dalam hal fungsi, ada beberapa perbedaan penting.</p>
+                <ol>
+                    <li>Manfaat utama dari proftpd adalah bahwa ia memiliki sebuah file konfigurasi yang sangat mudah dikelola. Sintaks dari proftpd.conf sangat mirip dengan file konfigurasi Apache. Hal ini membuat untuk standarisasi cukup efisien file konfigurasi. Hal ini mudah dikenali karena arsitektur modular.</li>
+                    <li>vsftpd adalah FTP server default untuk Ubuntu, CentOS, Fedora, dan Red Hat. Hal ini membuatnya sangat mudah untuk menginstal dibandingkan dengan proftpd, tetapi tidak hadir semudah dari file konfigurasi. vsftpd juga dilaporkan lebih aman.</li>
+                </ol>
+                <div class="daging">
+<pre>
+apt install vsftpd
+</pre>
+                </div>
+                <p>Selanjutnya kita perlu merubah beberapa isi dari file vsftpd tersebut</p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">
+nano /etc/vsftpd.conf <br><br>
+
+#write_enable=YES <br>
+Ubah jadi <br>
+write_enable=YES <br><br>
+
+#chroot_local_user=YES <br>
+Ubah jadi <br>
+chroot_local_user=YES <br><br>
+
+#chroot_list_enable=YES <br>
+Ubah jadi <br>
+chroot_list_enable=YES <br><br>
+
+#chroot_list_file=/etc/vsftpd.chroot_list <br>
+Ubah jadi <br>
+chroot_list_file=/etc/vsftpd.chroot_list <br><br>
+
+ssl_enable=NO (tetap tidak usah dirubahh), jika default ada tanda # dibuang
+</p>
+                </div>
+                <p>Selanjutkan kita harus menentukan user siapa yang boleh mengakses ftp milik vsftpd</p>
+                <div class="daging">
+<pre>
+echo rizwan1 >> /etc/vsftpd.chroot_list
+</pre>
+                </div>
+                <p>Knfigurasi IPTABLES DMZ (FTP)</p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;"> 
+iptables -A INPUT -p tcp -m multiport -d 192.168.91.150 --dport 21 -j ACCEPT <br><br>
+iptables -A FORWARD -p tcp -m multiport -d 11.1.25.1 --dport 21 -j ACCEPT <br><br>
+iptables -t nat -A PREROUTING -p tcp -m multiport -d 192.168.91.150 --dport 21 -j DNAT --to 11.1.25.1:21
+</p>
+                </div>
+                <h1>Konfigurasi Selesai</h1>
+                <h2>Cek SSH</h2>
+                <p>Untuk cek hasil konfigurasi iptables dmz ssh bisa dengan cara buka cmd atau putty untuk akses ssh dengan IP internet dari <mark>Windows- Host</mark>. Untuk skenario pertama itu menggunakan port 22, dan skenario kedua itu menggunakan port 222. Contoh</p>
+                <div class="daging">
+<pre>
+ssh root@192.168.91.150 -p 22
+maka hasilnya kita akan masuk ke Debian10-Router
+
+ssh root@192.168.91.150 -p 222
+maka hasilnya kita akan masuk ke Debian10-Server
+</pre>
+                </div>
+                <h2>Cek FTP</h2>
+                <p>Untuk cek hasil konfigurasi iptables dmz ftp bisa dengan cara buka browser dari <mark>Windows- Client</mark> lalu ketik:</p>
+                <div class="daging">
+<pre>
+ftp://192.168.91.150
+
+username : rizwan2
+password : R1zw4n@123
+</pre>
+                </div>
+                <h2>Cek Web Server</h2>
+                <p>Untuk cek hasil konfigurasi iptables dmz HTTP bisa dengan cara buka browser lalu ketik:</p>
+                <div class="daging">
+<pre>
+(dari windows- host)
+http://192.168.91.150
+
+(dari windows- client)
+http://11.1.25.1
+</pre>
+                </div>
+                <p>Untuk hasil http web server pastikan <strong>Debian 10- Router</strong> tidak memiliki service web server. Dan pastikan juga tampilan web server dari Windows- Client dan Windows- Host itu sama.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

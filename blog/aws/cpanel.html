@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud | cPanel</title>
+
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                    <h1>Cyber Panel</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian/index-debian.html">Home Debian</a></li>
+                    <li><a href="/blog/debian/dhcp.html">Superlab-DHCP Server</a></li>
+                    <li><a href="/blog/debian/ssh.html">Superlab-SSH</a></li>
+                    <li><a href="/blog/debian/dns.html">Superlab-DNS Server</a></li>
+                    <li><a href="/blog/debian/ftp.html">Superlab-FTP Server</a></li>
+                    <li><a href="/blog/debian/apache.html">Superlab-Web Server</a></li>
+                    <li><a href="/blog/debian/wordpress.html">Superlab-Wordpress</a></li>
+                    <li><a href="/blog/debian/phpmyadmin.html">Superlab-PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/index-mikrotik.html">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic.html">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan.html">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/static.html">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/dynamic.html">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot.html">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/blok.html">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth.html">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing.html">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge.html">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/index-cloud.html">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel.html">Install cPanel</a></li>
+                    <li><a href="/blog/aws/aws-wordpress.html">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx.html">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix.html">Install Zabbix & Database</a></li>
+                </ul>
+                <h1>Security</h1>
+                <ul>
+                    <li><a href="/blog/security/index-security.html">Home Security</a></li>
+                    <li><a href="/blog/security/install.html">Installasi</a></li>
+                    <li><a href="/blog/security/iptables.html">IP Tables</a></li>
+                    <li><a href="/blog/security/cracklib.html">Craklib</a></li>
+                    <li><a href="/blog/security/port.html">Port Forwarding</a></li>
+                    <li><a href="/blog/security/hack.html">MITM&DDOS</a></li>
+                    <li><a href="/blog/security/snort.html">Snort</a></li>
+                    <li><a href="/blog/security/otp.html">Generated OTP</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Pengertian CyberPanel</h1>
+                <p>CyberPanel adalah salah satu control panel
+                    hosting terbaik untuk melakukan manajemen
+                    VPS. Control panel hosting ini bersifat
+                    opensources, menggunakan web server
+                    OpenLiteSpeed yang gratis dan tampilan
+                    antarmuka yang user friendly.
+                    Untuk asal usulnya CyberPanel dikenal di
+                    kalangan webmaster pada tahun 2018
+                    sebagai alternatif cPanel.</p>
+                    <h1>Keunggulan Cyber Panel</h1>
+                    <ol>
+                        <li>Interface manager yang User Friendly</li>
+                        <li>Ringan dan cepat karena dukungan OpenLiteSpeed (gratis) dan LiteSpeed Enterprise
+                            (berbayar).</li>                        
+                        <li>Memiliki fitur Backup-Restore.</li>                        
+                        <li>Support Multi PHP.</li>                        
+                        <li>Mendukung Apache .htaccess</li>                        
+                        <li>Tersedia versi gratis dan berbayar (Enterprise).</li>                        
+                        <li>Proses instalasi yang mudah.</li>                        
+                        <li>Interface WebMail yang menarik karena menggunakan Rainloop.</li>                        
+                    </ol>
+                <h1>Kekurangan CyberPanel</h1>
+                    <ol>
+                        <li>Username di web panel berbeda dengan username Linux. <br>
+                            Kekurangan ini akan menjadi masalah ketika terjadi kesalah pada databases, jika tiba-tiba
+                            MySQL macet maka CyberPanel tidak dapat digunakan. Masalah ini bisa di selesaikan
+                            dengan masuk sebagai root.</li><br>
+                        <li>DNS Zone tidak sepenuhnya otomatis. <br>
+                            Saat ini zona DNS CyberPanel tidak sepenuhnya otomatis saat kami menambahkan situs.
+                            Ada beberapa entri rentan untuk zona DNS ini yang harus diperhatikan saat menambahkan
+                            server nama.</li><br>
+                        <li>Perlu penyesuaian untuk user baru terutama untuk yang sudah terbiasa menggunakan
+                            cPanel atau Plesk.</li>
+                    </ol>
+                <h1>Konfigurasi AWS</h1>
+                <p>Masuk ke dashboard AWS management console lalu akses services EC2. EC2 adalah layanan virtual server yang berjalan di cloud.</p>
+                <p><mark>Service> Compute> EC2</mark></p>
+
+                <h2 class="h2-wp">IP Public</h2>
+                <p>Setelah itu kita akan membuat IP Public agar IP yang kita punya nanti tidak berubah-rubah seiring berjalannya waktu. Untuk membuat IP Public klik pada bagian menu:</p>
+                <p><mark>Network & Security> Elastic IPs</mark> lalu kita klik pada <strong>"Allocate Elastic IP Address"</strong> untuk membuat IP Static baru</p>
+                <div class="daging">
+<pre>
+Network Border GroupInfo: us-east-1
+
+Public IPv4 address pool: Amazon's pool of IPv4 addresses
+
+(Add New Tag)
+
+Key: Name
+
+Value: IP-CyberPanel
+
+"Allocate"
+</pre>
+                </div>
+
+                <h2 class="h2-wp">EC2</h2>
+                <p>Amazon Elastic Compute Cloud (Amazon EC2) adalah layanan web yang menyediakan kapasitas komputasi yang aman dan dapat diubah ukurannya di cloud. Amazon EC2 menawarkan banyak opsi yang membantu Anda membangun dan menjalankan hampir semua aplikasi. Dengan kemungkinan ini, EC2 dapat dimulai dengan cepat dan mudah.</p>
+                <p>Klik pada menu <mark>Instances> Instances</mark> lalu klik pada bagian <strong>"Launch Instances"</strong> untuk membuat EC2 yang baru</p>
+
+                <div class="daging">
+<pre>
++(Name&Tag)
+Key: Name
+Value: CyberPanel
+Resource types: Instances
+
++(OS Image)
+Ubuntu 20.04
+64-bit
+
++(Instance Type)
+t2.micro
+
++(Key Pair)
+Create new KeyPair
+
+KeyPair Name: .ppk-Rizwan
+KeyPair Type: RSA
+File Format:
+.ppk (putty)
+.pem (openssh)
+
+<img src="/blog/aws/img/keypair-cyberpanel.png" alt="" class="ky-cybrpnel">
+
++(Network Setting)
+Create SecurityGroup
+
+SG Name: SG-CyberPanel
+Inbound Security Group Rules:
+Type: SSH
+Source type Info: Anywhere
+
+<img src="/blog/aws/img/sg-cyberpanel.png" alt="" class="sg-cybrpnel">
+
++(Configure Storage)
+10GB
+
+"Launch Instance"
+</pre>
+                </div>
+                <h2 class="h2-wp">Associate Elastic IP to EC2 CyberPanel</h2>
+                <p>Mengaitkan IP Elastic dengan EC2 bertujuan agar IP EC2 tidak akan pernah berubah saat kita ingin mengakses menggunakan ssh ataupun saat kita ingin mengakses service yang ada di EC2 tersebut.<br>
+                Pergi ke menu <strong>"Elastic IP"</strong> lalu klik <mark>Action> Associate Elastic IP Address</mark></p>
+
+                <div class="daging">
+<pre>
+Resource Type: Instance
+Instance: CyberPanel
+
+"Associate"
+</pre>
+                </div>
+                <h1>Konfigurasi EC2</h1>
+                <p>Sekarang kita akan melakukan konfigurasi untuk EC2 yang telah dibuat. Kita akan mengakses EC2 tersebut melalui putty. Copy IP Elastic yang telah kita kaitkan dengan EC2 : <mark>44.218.204.5</mark></p>
+
+                <img src="/blog/aws/img/ssh-cybr1.png" alt="" class="ssh-cybr1">
+                <p>Lalu pada bagian <strong>"Category"</strong> klik pada menu <mark>SSH> Auth> Credentials</mark> Selanjutkan kita masukan file SSH-Keygen yang telah kita buat tadi <br>
+                Contoh: .ppk-Rizwan</p>
+                <img src="/blog/aws/img/ssh-cybr2.png" alt="" class="ssh-cybr2">
+                <p>Login as : ubuntu</p>
+
+                <h2 class="h2-wp">Update Package</h2>
+                <div class="daging">
+<pre>
+apt update && apt upgrade -y
+</pre>
+                </div>
+
+                <h2 class="h2-wp">Install CyberPanel</h2>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">sh <(curl https://cyberpanel.net/install.sh || wget -O - https://cyberpanel.net/install.sh)
+</p><br>
+<p style="color: white; font-size: 14px;">
+    CyberPanel Installer v2.3.5 <br>
+    1. Install CyberPanel. <br>
+    2. Exit. <br>
+    Please enter the number[1-2]: 1 <br><br>
+    
+    1. Install CyberPanel with OpenLiteSpeed. <br>
+    2. Install Cyberpanel with LiteSpeed Enterprise. <br>
+    3. Exit. <br>
+    Please enter the number[1-3]: 1 <br><br>
+
+    Install Full service for CyberPanel? This will include PowerDNS, Postfix and Pure-FTPd. <br>
+    Full installation [Y/n]: y <br><br>
+
+    Do you want to setup Remote MySQL? (This will skip installation of local MySQL) <br>
+    (Default = No) Remote MySQL [y/N]: n <br><br>
+
+    Press Enter key to continue with latest version or Enter specific version such as: 1.9.4 , 2.0.1 , 2.0.2 ...etc <br>
+    Branch name set to v2.3.5 <br><br>
+
+    Please choose to use default admin password 1234567, randomly generate one (recommended) or specify the admin password? <br>
+    Choose [d]fault, [r]andom or [s]et password: [d/r/s] <br>
+    Admin password will be provided once installation is completed... <br><br>
+
+    Do you wish to install Memcached process and its PHP extension? <br>
+    Please select [Y/n]: y <br><br>
+    
+    Do you wish to install Redis process and its PHP extension? <br>
+    Please select [Y/n]: y <br><br>
+
+    Would you like to set up a WatchDog (beta) for Web service and Database service ? <br>
+    The watchdog script will be automatically started up after installation and server reboot <br>
+    If you want to kill the watchdog , run watchdog kill <br>
+    Please type Yes or no (with capital Y, default Yes): y
+</p>
+                </div>
+                <p>Setelah menentukan konfigurasinya, Kita tinggal
+                    menunggu proses instalasi. Proses ini mungkin
+                    akan berlangsung cukup lama, sesuai dengan
+                    kecepatan internet kita.
+                    Pastikan koneksi internet <strong>kita aman dan stabil</strong>
+                    agar tidak terjadi error saat proses instalasi.
+                </p>
+                <p>Selanjutnya kita harus mengganti password admin untuk CyberPanel dengan command</p>
+                <div class="daging">
+<pre>
+adminPass (password)
+
+adminPass TJKT123
+</pre>
+                </div>
+                <h1>Konfigurasi Selesai</h1>
+                <p>Access CyberPanel Dashboard dengan alamat <mark>http://IP-Server:8090</mark></p>
+                <div class="daging">
+<pre>
+http://44.218.204.5:8090
+
+username: admin
+password: TJKT123
+</pre>
+                </div>
+                <img src="/blog/aws/img/dash-cybr.png" alt="" class="dash-cybr">
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated OTP</title>
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                    <h1>OTPW</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian/index-debian.html">Home Debian</a></li>
+                    <li><a href="/blog/debian/dhcp.html">Superlab-DHCP Server</a></li>
+                    <li><a href="/blog/debian/ssh.html">Superlab-SSH</a></li>
+                    <li><a href="/blog/debian/dns.html">Superlab-DNS Server</a></li>
+                    <li><a href="/blog/debian/ftp.html">Superlab-FTP Server</a></li>
+                    <li><a href="/blog/debian/apache.html">Superlab-Web Server</a></li>
+                    <li><a href="/blog/debian/wordpress.html">Superlab-Wordpress</a></li>
+                    <li><a href="/blog/debian/phpmyadmin.html">Superlab-PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/index-mikrotik.html">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic.html">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan.html">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/static.html">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/dynamic.html">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot.html">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/blok.html">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth.html">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing.html">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge.html">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/index-cloud.html">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel.html">Install cPanel</a></li>
+                    <li><a href="/blog/aws/aws-wordpress.html">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx.html">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix.html">Install Zabbix & Database</a></li>
+                </ul>
+                <h1>Security</h1>
+                <ul>
+                    <li><a href="/blog/security/index-security.html">Home Security</a></li>
+                    <li><a href="/blog/security/install.html">Installasi</a></li>
+                    <li><a href="/blog/security/iptables.html">IP Tables</a></li>
+                    <li><a href="/blog/security/cracklib.html">Craklib</a></li>
+                    <li><a href="/blog/security/port.html">Port Forwarding</a></li>
+                    <li><a href="/blog/security/hack.html">MITM&DDOS</a></li>
+                    <li><a href="/blog/security/snort.html">Snort</a></li>
+                    <li><a href="/blog/security/otp.html">Generated OTP</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Konfigurasi</h1>
+                <h2 class="h2-wp">Debian 10- Router</h2>
+                <h2 class="h2-wp">Interfaces</h2>
+                <p>
+                ens33 NAT : 192.168.91.0/24 <br>
+                ens36 LAN : 11.1.25.254/24 <br>
+                </p>
+                <h2 class="h2-wp">Package</h2>
+                <ul>
+                    <li>net-tools</li>
+                    <li>iptables-persistent</li>
+                    <li>netfilter-persistent</li>
+                    <li>proftpd</li>
+                    <li>vsftpd</li>
+                    <li>snort</li>
+                    <li>otwp (new)</li>
+                </ul>
+                <p>OTPW adalah sistem kata sandi satu kali yang kuat terhadap pencurian daftar kata sandi dan berpacu dengan serangan digit terakhir. Paket ini berisi program yang digunakan untuk mengatur OTPW bagi pengguna dan menghasilkan daftar kata sandi.</p>
+                <p>Install dua software sekaligus</p>
+                <div class="daging">
+<pre>
+apt-get install otpw-bin libpam-otpw
+</pre>
+                </div>
+                <p>Buka file konfigurasi sshd menggunakan editor</p>
+                <div class="daging">
+<pre>
+nano /etc/pam.d/sshd
+
+beri tanda # pada @include common-auth sehingga menjadi:
+# Standard Un*x authentication
+#@include common-auth
+
+Pada baris akhir tambahkan :
+auth    required    pam_otpw.so
+session optional    pam_otpw.so
+</pre>
+                </div>
+                <p>Buka file sshd_config menggunakan nano </p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">
+nano /etc/ssh/sshd_config <br><br>
+
+pastikan parameter dibwah ini tetap digunakan (tidak ada tanda # sesuai dengan parameter dibawah) : <br><br>
+
+PubkeyAuthentication yes <br>
+PasswordAuthentication no <br>
+ChallengeResponseAuthentication yes <br>
+UsePAM yes <br>
+</p>
+                </div>
+                <p>Restart service SSH agar bisa berjalan dengan baik dan benar</p>
+                <div class="daging">
+<pre>
+/etc/init.d/ssh restart
+</pre>
+                </div>
+                <p>Pada direktori root Pastikan berada pada <strong>root@rizwan1:~#</strong></p>
+                <p>Lalu generate password otomatis dan masukan password key</p>
+                <div class="daging">
+<pre>
+otpw-gen > temppasswd.txt
+
+Enter new prefix password: admin
+Reenter prefix password: admin
+</pre>
+                </div>
+                <p>Buka file temppasswd.txt (sebagai acuan referensi password password)</p>
+                <div class="daging">
+<pre>
+nano temppasswd.txt
+</pre>
+                </div> <br>
+                <img src="img/otp1.png" alt="" class="otp1">
+                <p>Lalu jika ingin login ssh menuju <strong>Debian 10- Router</strong> maka akan ada tampilan yang mengharuskan kita memasukan kode OTP tersebut</p>
+                <img src="img/otp2.png" alt="" class="otp2">
+                <p>Terlihat disana kita memerlukan kode OTP bernomor <strong>009</strong> maka kita lihat di Virtual Machine Debian 10- Router tadi untuk copy/melihat kode OTP tersebut.</p>
+                <div class="daging">
+<pre>
+password : admin
+kode OTP : rRMu BGDa
+
+maka jika ingin login ssh : adminrRMuBGDa
+</pre>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

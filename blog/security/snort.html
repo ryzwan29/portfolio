@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snort</title>
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                    <h1>Snort</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian/index-debian.html">Home Debian</a></li>
+                    <li><a href="/blog/debian/dhcp.html">Superlab-DHCP Server</a></li>
+                    <li><a href="/blog/debian/ssh.html">Superlab-SSH</a></li>
+                    <li><a href="/blog/debian/dns.html">Superlab-DNS Server</a></li>
+                    <li><a href="/blog/debian/ftp.html">Superlab-FTP Server</a></li>
+                    <li><a href="/blog/debian/apache.html">Superlab-Web Server</a></li>
+                    <li><a href="/blog/debian/wordpress.html">Superlab-Wordpress</a></li>
+                    <li><a href="/blog/debian/phpmyadmin.html">Superlab-PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/index-mikrotik.html">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic.html">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan.html">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/static.html">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/dynamic.html">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot.html">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/blok.html">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth.html">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing.html">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge.html">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/index-cloud.html">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel.html">Install cPanel</a></li>
+                    <li><a href="/blog/aws/aws-wordpress.html">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx.html">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix.html">Install Zabbix & Database</a></li>
+                </ul>
+                <h1>Security</h1>
+                <ul>
+                    <li><a href="/blog/security/index-security.html">Home Security</a></li>
+                    <li><a href="/blog/security/install.html">Installasi</a></li>
+                    <li><a href="/blog/security/iptables.html">IP Tables</a></li>
+                    <li><a href="/blog/security/cracklib.html">Craklib</a></li>
+                    <li><a href="/blog/security/port.html">Port Forwarding</a></li>
+                    <li><a href="/blog/security/hack.html">MITM&DDOS</a></li>
+                    <li><a href="/blog/security/snort.html">Snort</a></li>
+                    <li><a href="/blog/security/otp.html">Generated OTP</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Toppologi</h1>
+                <img src="img/top-snort.png" alt="" class="top-snort">
+                <h2 class="h2-wp">Kali Linux</h2>
+                <p>Kali ini kita ganti Interfaces Network untuk <strong>KaliLinux</strong> menjadi NAT atau Bridge. Ini artinya dia akan mendapatkan IP Internet yang satu segment dengan Router, yaitu : 192.168.91.0/24</p>
+                <h2 class="h2-wp">Debian 10- Router</h2>
+                <h2 class="h2-wp">Interfaces</h2>
+                <p>
+                ens33 NAT : 192.168.91.0/24 <br>
+                ens36 LAN : 11.1.25.254/24 <br>
+                </p>
+                <h2 class="h2-wp">Package</h2>
+                <ul>
+                    <li>net-tools</li>
+                    <li>iptables-persistent</li>
+                    <li>netfilter-persistent</li>
+                    <li>proftpd</li>
+                    <li>vsftpd</li>
+                    <li>snort (new)</li>
+                </ul>
+                <p>Snort sendiri adalah Open Source yang tersedia di berbagai variasi Unix (termasuk Linux) dan juga Microsoft Windows. Sebuah NIDS akan memperhatikan seluruh segmen jaringan dimana dia berada, berbeda dengan host based IDS yang hanya memperhatikan sebuah mesin dimana software host based IDS tersebut di pasang.</p>
+                <h1>Konfigurasi</h1>
+                <p>Install snort pada <strong>Debian 10- Router</strong></p>
+                <div class="daging">
+<pre>
+apt install snort
+</pre>
+                </div>
+                <p>Selanjutnya kita akan mengganti isi file tersebut</p>
+                <div class="daging">
+<pre>
+ipvar HOME_NET
+menjadi 
+ipvar HOME_NET 192.168.91.0/24    
+</pre>
+                </div>
+                <p>Lalu tambahkan file konfigurasi aturan</p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">
+nano /etc/snort/rules/local.rules <br><br>
+
+alert icmp any any -> any any (msg:"PING DETECTED!";sid:10000001;rev:0) <br>
+alert tcp any any -> any 161 (msg:"NMAP SCAN DETECTED";sid:10000002;rev:1) <br>
+alert tcp any any -> any 22 (msg:"SSH login DETECTED";sid:10000003;rev:1)
+
+</p>
+                </div>
+                <p>Restart service snort agar bisa berjalan dengan baik dan benar</p>
+                <div class="daging">
+<pre>
+/etc/init.d/snort restart
+</pre>
+                </div>
+                <p>Jalankan snort agar ada pertanda/pemberitahuan dari sistem</p>
+                <div class="daging">
+<p style="color: white; font-size: 15px;">
+snort -A console -q -c /etc/snort/snort.conf -i ens33
+</p>
+                </div>
+                <h2 class="h2-wp">KaliLinux</h2>
+                <p>Pada KaliLinux buka command prompt lalu ketik</p>
+                <div class="daging">
+<pre>
+nmap -sN (IP Debian10-Router)
+
+nmap -sN 192.168.91.150
+</pre>
+                </div>
+                <p>Pastikan di Debian 10- Router terdapat pemberitahuan jika ada yang sedang melakukan port scanning.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
