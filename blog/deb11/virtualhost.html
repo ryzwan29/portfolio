@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mikrotik | VLAN</title>
+    <title>VirtualHost</title>
 
     <link rel="stylesheet" href="/assets/css/dhcp.css">
 </head>
@@ -12,7 +12,7 @@
         <div class="row">
             <div class="header">
                 <div class="judul">
-                    <h1>SABAR</h1>
+                    <h1>VirtualHost</h1>
                 </div>
             </div>
         </div>
@@ -77,7 +77,101 @@
                 </ul>
             </div>
             <div class="content">
-                <h1>SABAR CUY LAGI PROSES</h1>
+                <h1>Penjelasan</h1>
+                <p>Apache merupakan salah satu webserver favorit dan banyak digunakan karena termasuk webserver yang powerful, dan mudah diintegrasikan dengan banyak platform seperti cPanel, Plesk, VestaCP, dsb. Secara default pada webserver hanya bisa menggunakan satu domain. Maka dari itu pada webserver apache memiliki konfigurasi khusus yang bernama Virtual Host. Virtual host adalah konfigurasi pada webserver yang memungkinan anda menggunakan lebih dari satu domain pada sebuah server. Dengan virtual host anda dapat membuat lebih dari satu website dengan konten yang berbeda dalam sebuah server.</p>
+
+                <h1>Konfigurasi</h1>
+                <h2>Router</h2>
+                <p>Kita akan ubah file DNS dengan menambahkan subdomain dengan cara : <br>
+                    <strong>cd /etc/bind</strong>
+                </p>
+
+                <h2 class="h2-wp">Edit db.10</h2>
+                <p><strong>nano db.10</strong></p>
+                <div class="daging">
+<pre>
+#tambahkan
+20      IN      PTR     static.rizwanpemula.com.
+20      IN      PTR     dinamis.rizwanpemula.com.
+20      IN      PTR     dvwa.rizwanpemula.com.
+</pre>
+                </div>
+                <h2 class="h2-wp">Edit db.rizwan</h2>
+                <p><strong>nano db.rizwan</strong></p>
+                <div class="daging">
+<pre>
+#tambahkan
+static  IN      A	20.1.1.20
+dinamis IN      A	20.1.1.20
+dvwa    IN      A	20.1.1.20
+</pre>
+                </div>
+                <h2 class="h2-wp">Restart DNS</h2>
+                <div class="daging">
+<pre>
+systemctl restart bind9
+</pre>
+                </div>
+                <h2>Server</h2>
+                <h2 class="h2-wp">Tambahkan Directory</h2>
+                <p>Tambahkan directory untuk menyimpan file virtualhost. <br>
+                    <strong>cd /var/www</strong>
+                </p>
+                <div class="daging">
+<pre>
+mkdir static dinamis dvwa myweb wordpress php
+</pre>
+                </div>
+                <h2 class="h2-wp">Copy file VirtualHost</h2>
+                <p><strong>cd /etc/apache2/sites-available/</strong></p>
+                <div class="daging">
+<pre>
+cp 000-default.conf myweb.conf
+cp 000-default.conf static.conf
+cp 000-default.conf dinamis.conf
+cp 000-default.conf dvwa.conf
+</pre>
+                </div>
+                <h2 class="h2-wp">Konfigurasi File</h2>
+                <div class="daging">
+<pre>
+# myweb #
+nano myweb.conf
+
+ServerName myweb.rizwanpemula.com
+ServerAdmin webmaster@myweb.rizwanpemula.com
+DocumentRoot /var/www/myweb
+
+# static #
+nano static.conf
+
+ServerName static.rizwanpemula.com
+ServerAdmin webmaster@static.rizwanpemula.com
+DocumentRoot /var/www/static
+
+# dinamis #
+nano dinamis.conf
+
+ServerName dinamis.rizwanpemula.com
+ServerAdmin webmaster@dinamis.rizwanpemula.com
+DocumentRoot /var/www/dinamis
+
+# dvwa #
+nano dvwa.conf
+
+ServerName dvwa.rizwanpemula.com
+ServerAdmin webmaster@dvwa.rizwanpemula.com
+DocumentRoot /var/www/dvwa
+</pre>
+                </div>
+                <h2 class="h2-wp">Aktifkan Konfigurasi</h2>
+                <p>Setelah itu kita perlu mengaktifkan Konfigurasi VirtualHost yang telah kita edit tadi</p>
+                <div class="daging">
+<pre>
+a2ensite static.conf dinamis.conf dvwa.conf myweb.conf
+systemctl reload apache2
+</pre>
+                </div>
             </div>
         </div>
         <div class="row">

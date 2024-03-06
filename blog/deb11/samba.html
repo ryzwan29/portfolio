@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samba</title>
+
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                    <h1>Samba</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian/index-debian.html">Home Debian</a></li>
+                    <li><a href="/blog/debian/dhcp.html">Superlab-DHCP Server</a></li>
+                    <li><a href="/blog/debian/ssh.html">Superlab-SSH</a></li>
+                    <li><a href="/blog/debian/dns.html">Superlab-DNS Server</a></li>
+                    <li><a href="/blog/debian/ftp.html">Superlab-FTP Server</a></li>
+                    <li><a href="/blog/debian/apache.html">Superlab-Web Server</a></li>
+                    <li><a href="/blog/debian/wordpress.html">Superlab-Wordpress</a></li>
+                    <li><a href="/blog/debian/phpmyadmin.html">Superlab-PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/index-mikrotik.html">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic.html">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan.html">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/static.html">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/dynamic.html">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot.html">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/blok.html">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth.html">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing.html">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge.html">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/index-cloud.html">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel.html">Install cPanel</a></li>
+                    <li><a href="/blog/aws/aws-wordpress.html">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx.html">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix.html">Install Zabbix & Database</a></li>
+                </ul>
+                <h1>Security</h1>
+                <ul>
+                    <li><a href="/blog/security/index-security.html">Home Security</a></li>
+                    <li><a href="/blog/security/install.html">Installasi</a></li>
+                    <li><a href="/blog/security/iptables.html">IP Tables</a></li>
+                    <li><a href="/blog/security/cracklib.html">Craklib</a></li>
+                    <li><a href="/blog/security/port.html">Port Forwarding</a></li>
+                    <li><a href="/blog/security/hack.html">MITM&DDOS</a></li>
+                    <li><a href="/blog/security/snort.html">Snort</a></li>
+                    <li><a href="/blog/security/otp.html">Generated OTP</a></li>
+                </ul>
+                <h1>Debian 11</h1>
+                <ul>
+                    <li><a href="/blog/deb11/index-deb11.html">Home Debian11</a></li>
+                    <li><a href="/blog/deb11/install.html">Install 3VM</a></li>
+                    <li><a href="/blog/deb11/dns.html">DNS</a></li>
+                    <li><a href="/blog/deb11/sftp.html">SFTP</a></li>
+                    <li><a href="/blog/deb11/samba.html">Samba</a></li>
+                    <li><a href="/blog/deb11/virtualhost.html">VirtualHost</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Pengertian</h1>
+                <p>Samba merupakan perangkat lunak yang menggunakan protokol SMB. Samba merupakan aplikasi yang berfungsi untuk berbagi sumber daya (seperti data, printer) antar komputer yang terhubung di jaringan. Samba selama ini lebih dikenal digunakan untuk pertukaran data antara perangkat yang menggunakan sistem operasi Windows, namun Samba server juga dapat digunakan pada sistem operasi berbasis Unix dan Linux. Samba server banyak dipakai karena mudah dikonfigurasi dan digunakan.</p>
+                <h1>Fungsi</h1>
+                <ol>
+                    <li>Samba memungkinkan kita untuk berbagi berkas dan direktori antara komputer berbeda dalam jaringan. Ini memungkinkan pengguna sistem operasi Windows untuk mengakses berkas yang di simpan di server Samba (Linux) seolah-olah berkas tersebut ada didalam komputer Windows.</li>
+                    <li>Kita bisa menggunakan Samba untuk berbagi printer dengan komputer-komputer lain dalam jaringan, termasuk komputer dengan sistem operasi Windows.</li>
+                    <li>Samba mendukung authentikasi pengguna, yang berarti kita dapat mengatur izin akses terhadap berkas dan printer yang dibagikan berdasarkan pengguna atau grup pengguna.</li>
+                    <li>Samba bisa berfungsi dengan baik dalam lingkungan jaringan Windows yang sudah ada.</li>
+                    <li>Selain berfungsi sebagai server berbagi berkas, Samba juga bisa erfungsi sebagai kontroller domain, yang memungkinkan pengaturan dan menejemen domain pengguna dalam jaringan.</li>
+                </ol>
+
+                <h1>Konfigurasi</h1>
+                <h2>Server</h2>
+                <h2 class="h2-wp">Interfaces</h2>
+                <p>
+                    ens33 LAN (Server): 20.1.1.20/24
+                </p>
+                <h2 class="h2-wp">Package</h2>
+                <ul>
+                    <li>SSH</li>
+                    <li>Apache2</li>
+                    <li>Proftpd</li>
+                    <li>Samba (New)</li>
+                </ul>
+                <h2 class="h2-wp">Install Package</h2>
+                <div class="daging">
+<pre>
+apt install samba
+</pre>
+                </div>
+                <h1>Full Access</h1>
+                <p>Setting Samba ini untuk membagikan folder secara penuh, yang artinya siapa saja bisa
+                    mengakses folder yang dishare tanpa harus login dan bisa memodifikasi (tambah, ubah,
+                    hapus) isi folder tersebut
+                </p>
+                <h2 class="h2-wp">Buat Directory</h2>
+                <div class="daging">
+<pre>
+mkdir -p /home/public/share
+</pre>
+                </div>
+                <h2 class="h2-wp">Hak Akses Full</h2>
+                <div class="daging">
+<pre>
+chmod 777 /home/public/share
+</pre>
+                </div>
+                <h2 class="h2-wp">Copy File</h2>
+                <p>Kita akan copy file sebagai backup yang akan berguna ketika kita melakukan kesalahan terlalu jauh. kita tinggal mencopy file smb.conf.backup ke nama file samba default.</p>
+                <div class="daging">
+<pre>
+cp /etc/samba/smb.conf /etc/samba/smb.conf.backup
+</pre>
+                </div>
+                <h2 class="h2-wp">Ubah File</h2>
+                <p><strong>nano /etc/samba/smb.conf</strong></p>
+                <div class="daging">
+<pre>
+#Full Access
+[Share-Public Access]
+    path = /home/public/share
+    writable = yes
+    guest ok = yes
+    guest only = yes
+    force create mode = 777
+    force directory = 777
+</pre>
+                </div>
+                <h2 class="h2-wp">Restart Samba</h2>
+                <div class="daging">
+<pre>
+systemctl restart smbd
+</pre>
+                </div>
+                <h1>Limit Access</h1>
+                <p>Pada konfigurasi kedua ini, kita akan membuat akses terbatas ke Folder yang dishare, pembatasan tersebut adalah authentikasi login yang harus di isi oleh pengguna sebelum mengakses Folder Samba. Penulis menggunakan limit akses bedasarkan group.</p>
+<p style="font-size: 18px;">
+Group  : <strong>tjkt, pplg, mplb</strong> <br>
+User    : <strong>rizwan-tjkt, rizwan-pplg, rizwan-mplb</strong> <br>
+Path    : <strong>/home/share/ (tjkt, pplg, mplb)</strong> <br>
+</p>
+                <h2 class="h2-wp">Tambahkan Group</h2>
+                <div class="daging">
+<pre>
+groupadd tjkt
+groupadd pplg
+groupadd mplb
+</pre>
+                </div>
+                <h2 class="h2-wp">Tambahkan User</h2>
+                <div class="daging">
+<pre>
+adduser --ingroup tjkt --shell /bin/false rizwan-tjkt
+adduser --ingroup pplg --shell /bin/false rizwan-pplg
+adduser --ingroup mplb --shell /bin/false rizwan-mplb    
+</pre>
+                </div>
+                <h2 class="h2-wp">Ubah Permission</h2>
+                <div class="daging">
+<pre>
+usermod -aG tjkt rizwan-tjkt
+usermod -aG pplg rizwan-pplg
+usermod -aG mplb rizwan-mplb
+</pre>
+                </div>
+                <h2 class="h2-wp">Ganti Password Samba</h2>
+                <div class="daging">
+<pre>
+smbpasswd -a rizwan-tjkt
+smbpasswd -a rizwan-pplg
+smbpasswd -a rizwan-mplb
+</pre>
+                </div>
+                <h2 class="h2-wp">Buat Directory</h2>
+                <p>Pastikan kita berada di default directory dengan cara : <br>
+                    <strong>cd ~</strong>
+                </p>
+                <div class="daging">
+<pre>
+mkdir -p /home/share/tjkt
+mkdir -p /home/share/pplg
+mkdir -p /home/share/mplb
+</pre>
+                </div>
+                <h2 class="h2-wp">Verifikasi Group</h2>
+                <div class="daging">
+<pre>
+chgrp tjkt /home/share/tjkt
+chgrp pplg /home/share/pplg
+chgrp mplb /home/share/mplb
+</pre>
+                </div>
+                <h2 class="h2-wp">Ubah Permission Directory</h2>
+                <div class="daging">
+<pre>
+chmod 770 /home/share/tjkt
+chmod 770 /home/share/pplg
+chmod 770 /home/share/mplb
+</pre>
+                </div>
+                <h2 class="h2-wp">Konfigurasi File Samba</h2>
+                <p><strong>nano /etc/samba/smb.conf</strong></p>
+                <div class="daging">
+<pre>
+#Group tjkt
+[Share-Group tjkt]
+    path = /home/share/tjkt
+    writable = yes
+    guest ok = no
+    valid users = @tjkt
+    force gruop = tjkt
+    force create mode = 770
+    force directory = 770
+    inherit permissions = yes
+
+#Group pplg
+[Share-Group pplg]
+    path = /home/share/pplg
+    writable = yes
+    guest ok = no
+    valid users = @pplg
+    force gruop = pplg
+    force create mode = 770
+    force directory = 770
+    inherit permissions = yes
+
+#Group mplb
+[Share-Group mplb]
+    path = /home/share/mplb
+    writable = yes
+    guest ok = no
+    valid users = @mplb
+    force gruop = mplb
+    force create mode = 770
+    force directory = 770
+    inherit permissions = yes
+</pre>
+                </div>
+                <h2 class="h2-wp">Restart Samba</h2>
+                <div class="daging">
+<pre>
+systemctl restart smbd
+systemctl status smbd
+</pre>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
