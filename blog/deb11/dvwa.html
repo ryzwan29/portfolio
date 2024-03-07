@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debian | PhpMyAdmin</title>
+    <title>DVWA</title>
 
     <link rel="stylesheet" href="/assets/css/dhcp.css">
 </head>
@@ -12,7 +12,7 @@
         <div class="row">
             <div class="header">
                 <div class="judul">
-                    <h1>PhpMyAdmin</h1>
+                    <h1>DVWA Web</h1>
                 </div>
             </div>
         </div>
@@ -81,132 +81,94 @@
                 </ul>
             </div>
             <div class="content">
-                <h1>Install Package</h1>
-                <h2 class="h2-wp">PHP</h2>
+                <h1>Penjelasan</h1>
+                <p>Singkatan dari Damn Vulnerable Web App adalah sebuah aplikasi web PHP/MySQL yang sangan rentan terhadap berbagai serangan keamanan siber. DVWA digunakan untuk pelatihan web, pentester, dan profesional Cyber Security. Dengan gunakan DVWA sebagai alat belajar athical hacker, penetration tester atau Cyber Security Analyst yang dapat mempraktikkan dan tingkatkan kemampuan dalam mengatasi berbagai masalah kerentanan keamanan pada aplikasi web.</p>
+                <h1>Konfigurasi</h1>
+                <h2>Server</h2>
+                <h2 class="h2-wp">Interfaces</h2>
+                <p>
+                    ens33 LAN (Server): 20.1.1.20/24
+                </p>
+                <h2 class="h2-wp">Package</h2>
+                <ul>
+                    <li>SSH</li>
+                    <li>Apache2</li>
+                    <li>Proftpd</li>
+                    <li>Samba</li>
+                    <li>Git</li>
+                    <li>Mariadb (New)</li>
+                    <li>php (New)</li>
+                    <li>Docker (New)</li>
+                </ul>
+                <h2 class="h2-wp">Install Package</h2>
                 <div class="daging">
-                    <p style="color: white; font-size: 15px;">
-                        apt install php php-cgi php-mysqli php-pear php-mbstring php-gettext libapache2-mod-php php-common php-phpseclib php-mysql -y
-                    </p>
+<p style="font-size: 16px; color: white;">
+apt install apache2 mariadb-server mariadb-client php php-mysqli php-gd libapache2-mod-php docker -y
+</p>
                 </div>
-                <p>Untuk mengecek versi php kita bisa menggunakan command</p>
-                <p style="font-style: italic;"><mark>php --version</mark></p>
-                <h2 class="h2-wp">MariaDB</h2>
-                <div class="daging">
-                    <p style="color: white; font-size: 16px;">apt install mariadb-server mariadb-client -y</p>
-                </div>
-                <h1>Konfigurasi Database</h1>
-                <p>Selanjutnya kita lakukan konfigurasi awal database MariaDB menggunakan perintah berikut:</p>
+                <h2 class="h2-wp">Setup mysql</h2>
+                <p>mysql_secure_installation adalah script shell yang terdapat dalam sistem Unix dan memungkinkan provers dalam mengembangkan keamanan MariaDB yang dimiliki dengan beberapa cara seperti: Provers dapat membuat password untuk akun root. Provers dapat menghapus akun root yang dapat diakses dari luar local host.</p>
                 <div class="daging">
 <pre>
 mysql_secure_installation
-
-(Set password root : 123 = agar mudah di ingat)
-
-Enter current password for root (enter for none): 123
-
-Set root password? [Y/n] y
-New password: 123
-Re-enter new password: 123
-
-Remove anonymous users? [Y/n] y
-
-Disallow root login remotely? [Y/n] y
-
-Remove test database and access to it? [Y/n] y
-
-Reload privilege tables now? [Y/n] y
+#tekan 'y' untuk semua pilihan#
 </pre>
                 </div>
-                <h1>Membuat Database</h1>
-                <p>Kali ini kita akan membuat database baru di MariaDB dengan menggunakan command</p>
+                <h2 class="h2-wp">Database & User</h2>
+                <p><mark><strong>mysql -u root -p</strong></mark></p>
                 <div class="daging">
 <pre>
-mysql -u root -p
-</pre>
-                </div>
-                <p>Contoh : saya akan membuat database dengan nama "db_pemula" dan user "rizwanpemula" dengan password "123". Maka ini command yang harus dijalankan.
-                </p>
-                <div class="daging">
-<pre>
-CREATE DATABASE db_pemula;
-
-CREATE USER 'rizwanpemula'@'localhost' IDENTIFIED BY '123';
-    
-GRANT ALL PRIVILEGES ON *.* TO 'rizwanpemula'@'localhost';
-    
+CREATE DATABASE dvwa_rizwan;
+CREATE USER 'admin'@'127.0.0.1' IDENTIFIED BY '12345678';
+GRANT ALL PRIVILEGES ON dvwa_rizwan.* TO 'admin'@'127.0.0.1';
 FLUSH PRIVILEGES;
-    
 EXIT;
 </pre>
                 </div>
-                <h2 class="h2-wp">Install gnupg</h2>
+                <h2 class="h2-wp">Install DVWA</h2>
                 <div class="daging">
-<pre>
-apt-get -y install gnupg
-</pre>
-                </div>
-                <h2 class="h2-wp">Membuat Directory</h2>
-                <p>Kita akan membuat direktori untuk menyimpan file phpmyadmin</p>
-                <div class="daging">
-<pre>
-mkdir /var/www/phpmyadmin
-
-(lalu masuk ke direktori yang telah dibuat)
-
-cd /var/www/phpmyadmin
-</pre>
-                </div>
-                <h1>Install paket installer phpMyAdmin</h1>
-                <div class="daging">
-<p style="color: white; font-size: 13px;">
-wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz --no-check-certificate
-<br><br>
-wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz.asc --no-check-certificate
+<p style="font-size: 17px; color: white;">
+git clone https://github.com/digininja/DVWA.git /var/www/dvwa
 </p>
                 </div>
-                <p>Cek digital signature file installernya menggunakan gpg/gnupg</p>
-                <div class="daging">
-<p style="color: white; font-size: 14px;">
-wget https://files.phpmyadmin.net/phpmyadmin.keyring --no-check-certificate
-<br><br>
-gpg --import phpmyadmin.keyring
-</p>
-                </div>
-                <p>Unpack file installer konfigurasi phpMyAdmin</p>
-                <div class="daging">
-<p style="color: white; font-size: 15px;">
-tar xvf phpMyAdmin-latest-all-languages.tar.gz --strip-components=1 -C /var/www/phpmyadmin
-</p>
-                </div>
-                <h1>Konfigurasi virtualhost untuk PhpMyAdmin</h1>
-                <p>Buat dan Konfigurasi file virtualhost phpmyadmin.conf</p>
-                <p><mark>nano /etc/apache2/sites-available/phpmyadmin.conf</mark></p>
+                <h2 class="h2-wp">Ubah Permission</h2>
                 <div class="daging">
 <pre>
-&lt;VirtualHost *:80&gt;
-    ServerAdmin rizwan@rizwanpemula.com
-    ServerName phpmyadmin.rizwanpemula.com
-    DocumentRoot /var/www/phpmyadmin
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-&lt;/VirtualHost&gt;
+chmod 777 /var/www/dvwa/
 </pre>
                 </div>
-                <p>Aktifkan virtualhost phpmyadmin.conf</p>
+                <h2 class="h2-wp">Copy File</h2>
                 <div class="daging">
 <pre>
-a2ensite phpmyadmin.conf
-
-systemctl reload apache2
+cd /var/www/dvwa/config
+cp config.inc.php.dist config.inc.php
 </pre>
                 </div>
-                <h1>Konfigurasi Selesai</h1>
-                <p>Untuk pengetesan gunakan domain yang kalian pakai. Disini saya menggunakan sub domain <mark>phpmyadmin.rizwanpemula.com</mark></p>
-                <p>Login menggunakan user dan password yang kita sudah buat di mysql</p>
-                <img src="../debian/img/log phpmyadmin.png" alt="" class="log-php">
-                
-                <p>Ini adalah tampilan dashboard phpmyadmin ketika kita telah berhasil login</p>
-                <img src="../debian/img/dash phpmyadmin.png" alt="" class="dash-php">
+                <h2 class="h2-wp">Ubah File</h2>
+                <p><mark><strong>nano config.inc.php</strong></mark></p>
+                <div class="daging">
+<pre>
+$_DVWA = array();
+$_DVWA[ 'db_server' ]   = getenv('DB_SERVER') ?: '127.0.0.1';
+$_DVWA[ 'db_database' ] = 'dvwa';
+$_DVWA[ 'db_user' ]     = 'admin';
+$_DVWA[ 'db_password' ] = '12345678';
+$_DVWA[ 'db_port']      = '3306';    
+</pre>
+                </div>
+                <h2 class="h2-wp">Restart Service</h2>
+                <div class="daging">
+<pre>
+systemctl restart apache2 mariadb mysql
+</pre>
+                </div>
+                <p><strong>
+                    #Browsing ke dvwa.rizwanpemula.com# <br>
+                    #Login menggunakan user 'admin' dan password '12345678'#  <br>
+                    #Lalu klik setup.php dan kemudian login kembali# <br>
+                    #Setelah itu kita login dengan user 'admin' dan password 'password'#
+                </strong></p>
+                <img src="img/dvwa.png" alt="" class="dvwa">
             </div>
         </div>
         <div class="row">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debian | PhpMyAdmin</title>
+    <title>MyWeb</title>
 
     <link rel="stylesheet" href="/assets/css/dhcp.css">
 </head>
@@ -12,7 +12,7 @@
         <div class="row">
             <div class="header">
                 <div class="judul">
-                    <h1>PhpMyAdmin</h1>
+                    <h1>My Web</h1>
                 </div>
             </div>
         </div>
@@ -81,132 +81,60 @@
                 </ul>
             </div>
             <div class="content">
-                <h1>Install Package</h1>
-                <h2 class="h2-wp">PHP</h2>
-                <div class="daging">
-                    <p style="color: white; font-size: 15px;">
-                        apt install php php-cgi php-mysqli php-pear php-mbstring php-gettext libapache2-mod-php php-common php-phpseclib php-mysql -y
-                    </p>
-                </div>
-                <p>Untuk mengecek versi php kita bisa menggunakan command</p>
-                <p style="font-style: italic;"><mark>php --version</mark></p>
-                <h2 class="h2-wp">MariaDB</h2>
-                <div class="daging">
-                    <p style="color: white; font-size: 16px;">apt install mariadb-server mariadb-client -y</p>
-                </div>
-                <h1>Konfigurasi Database</h1>
-                <p>Selanjutnya kita lakukan konfigurasi awal database MariaDB menggunakan perintah berikut:</p>
+                <h1>Konfigurasi</h1>
                 <div class="daging">
 <pre>
-mysql_secure_installation
-
-(Set password root : 123 = agar mudah di ingat)
-
-Enter current password for root (enter for none): 123
-
-Set root password? [Y/n] y
-New password: 123
-Re-enter new password: 123
-
-Remove anonymous users? [Y/n] y
-
-Disallow root login remotely? [Y/n] y
-
-Remove test database and access to it? [Y/n] y
-
-Reload privilege tables now? [Y/n] y
+nano /var/www/myweb/index.html
 </pre>
                 </div>
-                <h1>Membuat Database</h1>
-                <p>Kali ini kita akan membuat database baru di MariaDB dengan menggunakan command</p>
-                <div class="daging">
-<pre>
-mysql -u root -p
-</pre>
-                </div>
-                <p>Contoh : saya akan membuat database dengan nama "db_pemula" dan user "rizwanpemula" dengan password "123". Maka ini command yang harus dijalankan.
-                </p>
-                <div class="daging">
-<pre>
-CREATE DATABASE db_pemula;
-
-CREATE USER 'rizwanpemula'@'localhost' IDENTIFIED BY '123';
-    
-GRANT ALL PRIVILEGES ON *.* TO 'rizwanpemula'@'localhost';
-    
-FLUSH PRIVILEGES;
-    
-EXIT;
-</pre>
-                </div>
-                <h2 class="h2-wp">Install gnupg</h2>
-                <div class="daging">
-<pre>
-apt-get -y install gnupg
-</pre>
-                </div>
-                <h2 class="h2-wp">Membuat Directory</h2>
-                <p>Kita akan membuat direktori untuk menyimpan file phpmyadmin</p>
-                <div class="daging">
-<pre>
-mkdir /var/www/phpmyadmin
-
-(lalu masuk ke direktori yang telah dibuat)
-
-cd /var/www/phpmyadmin
-</pre>
-                </div>
-                <h1>Install paket installer phpMyAdmin</h1>
-                <div class="daging">
-<p style="color: white; font-size: 13px;">
-wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz --no-check-certificate
-<br><br>
-wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz.asc --no-check-certificate
-</p>
-                </div>
-                <p>Cek digital signature file installernya menggunakan gpg/gnupg</p>
-                <div class="daging">
-<p style="color: white; font-size: 14px;">
-wget https://files.phpmyadmin.net/phpmyadmin.keyring --no-check-certificate
-<br><br>
-gpg --import phpmyadmin.keyring
-</p>
-                </div>
-                <p>Unpack file installer konfigurasi phpMyAdmin</p>
-                <div class="daging">
-<p style="color: white; font-size: 15px;">
-tar xvf phpMyAdmin-latest-all-languages.tar.gz --strip-components=1 -C /var/www/phpmyadmin
-</p>
-                </div>
-                <h1>Konfigurasi virtualhost untuk PhpMyAdmin</h1>
-                <p>Buat dan Konfigurasi file virtualhost phpmyadmin.conf</p>
-                <p><mark>nano /etc/apache2/sites-available/phpmyadmin.conf</mark></p>
-                <div class="daging">
-<pre>
-&lt;VirtualHost *:80&gt;
-    ServerAdmin rizwan@rizwanpemula.com
-    ServerName phpmyadmin.rizwanpemula.com
-    DocumentRoot /var/www/phpmyadmin
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-&lt;/VirtualHost&gt;
-</pre>
-                </div>
-                <p>Aktifkan virtualhost phpmyadmin.conf</p>
-                <div class="daging">
-<pre>
-a2ensite phpmyadmin.conf
-
-systemctl reload apache2
-</pre>
-                </div>
-                <h1>Konfigurasi Selesai</h1>
-                <p>Untuk pengetesan gunakan domain yang kalian pakai. Disini saya menggunakan sub domain <mark>phpmyadmin.rizwanpemula.com</mark></p>
-                <p>Login menggunakan user dan password yang kita sudah buat di mysql</p>
-                <img src="../debian/img/log phpmyadmin.png" alt="" class="log-php">
                 
-                <p>Ini adalah tampilan dashboard phpmyadmin ketika kita telah berhasil login</p>
-                <img src="../debian/img/dash phpmyadmin.png" alt="" class="dash-php">
+                <br>
+
+                <div class="daging">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Web Server Success&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 align="center"&gt;Selamat Datang di Website myweb.rizwanpemula.com&lt;/h1&gt;
+    &lt;center&gt;&lt;table border="1" cellpadding="10"&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Nama&lt;/td&gt;
+            &lt;td&gt;Rizwan Fairuz Mamduh&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;NIS&lt;/td&gt;
+            &lt;td&gt;12108740&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Rombel&lt;/td&gt;
+            &lt;td&gt;TJKT XII-I&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Rayon&lt;/td&gt;
+            &lt;td&gt;Cicurug 4&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;&lt;/center&gt;
+    &lt;marquee direction="right"&gt;Konfigurasi Berhasil !!!&lt;/marquee&gt;
+    &lt;h2 align="center"&gt;Kunjungi Website Lainnya:&lt;/h2&gt;
+    &lt;ul align="center" style="list-style: none"&gt;
+        &lt;li&gt;&lt;a href="http://static.rizwanpemula.com"&gt;Static&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="http://dinamis.rizwanpemula.com"&gt;Dinamis&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="http://dvwa.rizwanpemula.com"&gt;DVWA&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="http://wordpress.rizwanpemula.com"&gt;Wordpress&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+                </div>
+                <h2 class="h2-wp">Restart Apache2</h2>
+                <div class="daging">
+<pre>
+systemctl restart apache2
+</pre>
+                </div>
             </div>
         </div>
         <div class="row">

@@ -354,7 +354,7 @@ body{
 
 /* Debian11 */
 
-.top-deb11, .apache-win{
+.top-deb11, .apache-win, .dvwa, .top-ansible{
     width: 700px;
     height: 400px;
 }
@@ -522,7 +522,7 @@ body{
 
     /* Debian11 */
 
-    .top-deb11, .apache-win{
+    .top-deb11, .apache-win, .dvwa, .top-ansible{
         width: 600px;
         height: 400px;
     }
@@ -776,7 +776,7 @@ body{
 
     /* Debian11 */
 
-    .top-deb11, .apache-win{
+    .top-deb11, .apache-win, .dvwa, .top-ansible{
         width: 300px;
         height: 200px;
     }
