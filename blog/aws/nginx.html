@@ -6,13 +6,14 @@
     <title>Cloud | NGINX</title>
 
     <link rel="stylesheet" href="/assets/css/dhcp.css">
+    <link rel="icon" href="/assets/img/aws.webp">
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="header">
                 <div class="judul">
-                    <h1>SABAR</h1>
+                    <h1>NGINX</h1>
                 </div>
             </div>
         </div>
@@ -81,7 +82,75 @@
                 </ul>
             </div>
             <div class="content">
-                <h1>SABAR CUY LAGI PROSES</h1>
+                <h1>Penjelasan</h1>
+                <p>Web server nginx adalah salah satu web server paling populer dan andal. Ini adalah pilihan
+                    yang sangat baik jika kita ingin meng-host situs web di AWS EC2. AWS EC2 (Elastic
+                    Compute Cloud) adalah layanan cloud computing yang memungkinkan kita untuk
+                    menyewa server virtual dan mengelolanya di cloud AWS.
+                </p>
+                <h1>Konfigurasi</h1>
+                <h2>Membuat EC2</h2>
+                <div class="daging">
+<p style="color: white; font-size: 16px;">
+Name : Nginx-Rizwan <br>
+OS  : Ubuntu 22.04 <br>
+Instance Type : t2.micro <br>
+KeyPair: Vocker (.pem) <br>
+Security Group : Open SSH & HTTP <br>
+Storage : 10GB
+</p>
+                </div>
+                <h2>Konfig EC2</h2>
+                <h2 class="h2-wp">Masuk Melalui SSH</h2>
+                <p>Karena keypair kita menggunakan file .pem, maka kita bisa ssh melalui Command Prompt</p>
+                <div class="daging">
+<pre>
+cd Downloads
+ssh -i labauser.pem ubuntu@&lt;ip-addr-ec2&gt;
+
+ssh -i labsuser.pem ubuntu@54.173.123.12
+</pre>
+                </div>
+                <h2 class="h2-wp">Pindah ke root</h2>
+                <div class="daging">
+<pre>
+sudo -i
+</pre>
+                </div>
+                <h2 class="h2-wp">Install Package</h2>
+                <div class="daging">
+<pre>
+apt install nginx php-fpm
+</pre>
+                </div>
+                <h2 class="h2-wp">Tambahkan file php</h2>
+                <p><strong>nano /var/www/html/info.php</strong></p>
+                <br>
+                <div class="daging">
+<pre>
+&lt;?php
+phpinfo();
+?&gt;
+</pre>
+                </div>
+                <p><strong>nano /etc/nginx/sites-available/default</strong></p>
+                <div class="daging">
+<pre>
+# Add index.php to the list if you are using PHP
+index index.html index.htm index.nginx-debian.html index.php;   
+
+# pass PHP scripts to FastCGI server
+#
+location ~ \.php$ {
+	include snippets/fastcgi-php.conf;
+
+        # With php-fpm (or other unix sockets):
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+        # With php-cgi (or other tcp sockets):
+        #fastcgi_pass 127.0.0.1:9000;
+}
+</pre>
+                </div>
             </div>
         </div>
         <div class="row">
