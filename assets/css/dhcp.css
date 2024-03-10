@@ -324,7 +324,7 @@ body{
     height: 400px;
 }
 
-.dash-cybr, .wp-cybr, .hasil-wp, .log-wp, .dash-wp{
+.dash-cybr, .wp-cybr, .hasil-wp, .log-wp, .dash-wp, .top1{
     padding-top: 20px;
     width: 800px;
     height: 500px;
@@ -487,7 +487,7 @@ body{
         height: 400px;
     }
 
-    .dash-cybr, .wp-cybr, .hasil-wp, .log-wp, .dash-wp{
+    .dash-cybr, .wp-cybr, .hasil-wp, .log-wp, .dash-wp, .top1{
         padding-top: 20px;
         width: 700px;
         height: 400px;
@@ -741,7 +741,7 @@ body{
         height: 250px;
     }
 
-    .dash-cybr, .wp-cybr, .hasil-wp, .log-wp, .dash-wp{
+    .dash-cybr, .wp-cybr, .hasil-wp, .log-wp, .dash-wp, .top1{
         padding-top: 20px;
         width: 350px;
         height: 230px;
