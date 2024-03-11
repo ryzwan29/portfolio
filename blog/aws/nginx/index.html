@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud | NGINX</title>
+
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+    <link rel="icon" href="/assets/img/aws.webp">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                    <h1>NGINX</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian10/">Home Debian</a></li>
+                    <li><a href="/blog/debian10/dhcp-server/">Superlab-DHCP Server</a></li>
+                    <li><a href="/blog/debian10/ssh/">Superlab-SSH</a></li>
+                    <li><a href="/blog/debian10/dns/">Superlab-DNS Server</a></li>
+                    <li><a href="/blog/debian10/ftp/">Superlab-FTP Server</a></li>
+                    <li><a href="/blog/debian10/apache2/">Superlab-Web Server</a></li>
+                    <li><a href="/blog/debian10/wordpress/">Superlab-Wordpress</a></li>
+                    <li><a href="/blog/debian10/phpmyadmin/">Superlab-PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic-config/">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan/">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/route-static/">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/route-dynamic/">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot/">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/block/">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth/">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing/">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge/">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel/">Install cPanel</a></li>
+                    <li><a href="/blog/aws/wordpress/">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx/">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix/">Install Zabbix & Database</a></li>
+                    <li><a href="/blog/aws/add-host-for-zabbix/">Add Host For Monitoring</a></li>
+                    <li><a href="/blog/aws/vpc/">Virtual Private Network</a></li>
+                    <li><a href="/blog/aws/webstatic/">Website Static</a></li>
+                    <li><a href="/blog/aws/nagios/">Install Nagios</a></li>
+                    <li><a href="/blog/aws/nagios-for-webserver/">Nagios at WebServer</a></li>
+                    <li><a href="/blog/aws/nagios-for-database/">Nagios at Database</a></li>
+                </ul>
+                <h1>Security</h1>
+                <ul>
+                    <li><a href="/blog/security/">Home Security</a></li>
+                    <li><a href="/blog/security/installation/">Installasi</a></li>
+                    <li><a href="/blog/security/iptables/">IP Tables</a></li>
+                    <li><a href="/blog/security/cracklib/">Craklib</a></li>
+                    <li><a href="/blog/security/port/">Port Forwarding</a></li>
+                    <li><a href="/blog/security/mitm-and-ddos/">MITM&DDOS</a></li>
+                    <li><a href="/blog/security/snort/">Snort</a></li>
+                    <li><a href="/blog/security/otp/">Generated OTP</a></li>
+                </ul>
+                <h1>Debian 11</h1>
+                <ul>
+                    <li><a href="/blog/debian11/">Home Debian11</a></li>
+                    <li><a href="/blog/debian11/installation/">Install 3VM</a></li>
+                    <li><a href="/blog/debian11/dns/">DNS</a></li>
+                    <li><a href="/blog/debian11/sftp/">SFTP</a></li>
+                    <li><a href="/blog/debian11/samba/">Samba</a></li>
+                    <li><a href="/blog/debian11/virtualhost/">VirtualHost</a></li>
+                    <li><a href="/blog/debian11/myweb/">MyWeb</a></li>
+                    <li><a href="/blog/debian11/static/">Static</a></li>
+                    <li><a href="/blog/debian11/dvwa/">DVWA</a></li>
+                    <li><a href="/blog/debian11/ansible/">Automation</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Penjelasan</h1>
+                <p>Web server nginx adalah salah satu web server paling populer dan andal. Ini adalah pilihan
+                    yang sangat baik jika kita ingin meng-host situs web di AWS EC2. AWS EC2 (Elastic
+                    Compute Cloud) adalah layanan cloud computing yang memungkinkan kita untuk
+                    menyewa server virtual dan mengelolanya di cloud AWS.
+                </p>
+                <h1>Konfigurasi</h1>
+                <h2>Membuat EC2</h2>
+                <div class="daging">
+<p style="color: white; font-size: 16px;">
+Name : Nginx-Rizwan <br>
+OS  : Ubuntu 22.04 <br>
+Instance Type : t2.micro <br>
+KeyPair: Vocker (.pem) <br>
+Security Group : Open SSH & HTTP <br>
+Storage : 10GB
+</p>
+                </div>
+                <h2>Konfig EC2</h2>
+                <h2 class="h2-wp">Masuk Melalui SSH</h2>
+                <p>Karena keypair kita menggunakan file .pem, maka kita bisa ssh melalui Command Prompt</p>
+                <div class="daging">
+<pre>
+cd Downloads
+ssh -i labauser.pem ubuntu@&lt;ip-addr-ec2&gt;
+
+ssh -i labsuser.pem ubuntu@54.173.123.12
+</pre>
+                </div>
+                <h2 class="h2-wp">Pindah ke root</h2>
+                <div class="daging">
+<pre>
+sudo -i
+</pre>
+                </div>
+                <h2 class="h2-wp">Install Package</h2>
+                <div class="daging">
+<pre>
+apt install nginx php-fpm
+</pre>
+                </div>
+                <h2 class="h2-wp">Tambahkan file php</h2>
+                <p><strong>nano /var/www/html/info.php</strong></p>
+                <br>
+                <div class="daging">
+<pre>
+&lt;?php
+phpinfo();
+?&gt;
+</pre>
+                </div>
+                <p><strong>nano /etc/nginx/sites-available/default</strong></p>
+                <div class="daging">
+<pre>
+# Add index.php to the list if you are using PHP
+index index.html index.htm index.nginx-debian.html index.php;   
+
+# pass PHP scripts to FastCGI server
+#
+location ~ \.php$ {
+	include snippets/fastcgi-php.conf;
+
+        # With php-fpm (or other unix sockets):
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+        # With php-cgi (or other tcp sockets):
+        #fastcgi_pass 127.0.0.1:9000;
+}
+</pre>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

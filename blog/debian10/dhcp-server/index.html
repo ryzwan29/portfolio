@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debian | DHCP</title>
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+    <link rel="icon" href="/assets/img/linux.png">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                <h1>DHCP Server</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian10/">Home Debian</a></li>
+                    <li><a href="/blog/debian10/dhcp-server/">Superlab-DHCP Server</a></li>
+                    <li><a href="/blog/debian10/ssh/">Superlab-SSH</a></li>
+                    <li><a href="/blog/debian10/dns/">Superlab-DNS Server</a></li>
+                    <li><a href="/blog/debian10/ftp/">Superlab-FTP Server</a></li>
+                    <li><a href="/blog/debian10/apache2/">Superlab-Web Server</a></li>
+                    <li><a href="/blog/debian10/wordpress/">Superlab-Wordpress</a></li>
+                    <li><a href="/blog/debian10/phpmyadmin/">Superlab-PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic-config/">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan/">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/route-static/">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/route-dynamic/">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot/">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/block/">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth/">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing/">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge/">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel/">Install cPanel</a></li>
+                    <li><a href="/blog/aws/wordpress/">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx/">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix/">Install Zabbix & Database</a></li>
+                    <li><a href="/blog/aws/add-host-for-zabbix/">Add Host For Monitoring</a></li>
+                    <li><a href="/blog/aws/vpc/">Virtual Private Network</a></li>
+                    <li><a href="/blog/aws/webstatic/">Website Static</a></li>
+                    <li><a href="/blog/aws/nagios/">Install Nagios</a></li>
+                    <li><a href="/blog/aws/nagios-for-webserver/">Nagios at WebServer</a></li>
+                    <li><a href="/blog/aws/nagios-for-database/">Nagios at Database</a></li>
+                </ul>
+                <h1>Security</h1>
+                <ul>
+                    <li><a href="/blog/security/">Home Security</a></li>
+                    <li><a href="/blog/security/installation/">Installasi</a></li>
+                    <li><a href="/blog/security/iptables/">IP Tables</a></li>
+                    <li><a href="/blog/security/cracklib/">Craklib</a></li>
+                    <li><a href="/blog/security/port/">Port Forwarding</a></li>
+                    <li><a href="/blog/security/mitm-and-ddos/">MITM&DDOS</a></li>
+                    <li><a href="/blog/security/snort/">Snort</a></li>
+                    <li><a href="/blog/security/otp/">Generated OTP</a></li>
+                </ul>
+                <h1>Debian 11</h1>
+                <ul>
+                    <li><a href="/blog/debian11/">Home Debian11</a></li>
+                    <li><a href="/blog/debian11/installation/">Install 3VM</a></li>
+                    <li><a href="/blog/debian11/dns/">DNS</a></li>
+                    <li><a href="/blog/debian11/sftp/">SFTP</a></li>
+                    <li><a href="/blog/debian11/samba/">Samba</a></li>
+                    <li><a href="/blog/debian11/virtualhost/">VirtualHost</a></li>
+                    <li><a href="/blog/debian11/myweb/">MyWeb</a></li>
+                    <li><a href="/blog/debian11/static/">Static</a></li>
+                    <li><a href="/blog/debian11/dvwa/">DVWA</a></li>
+                    <li><a href="/blog/debian11/ansible/">Automation</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Konfigurasi IP Address</h1>
+                <p>Sebelumnya masuk sebagai user "root" lalu konfigurasi IP Address di menu interfaces</p>
+                <div class="daging">
+<pre>
+nano /etc/network/interfaces
+</pre>
+                </div>
+                <p>edit file menjadi</p>
+                <div class="daging">
+<pre>
+# The primary network interface
+auto ens33
+iface ens33 inet dhcp
+    
+auto ens36
+iface ens36 inet static
+        address 10.1.31.1
+        network 255.255.255.0
+</pre>
+                </div>
+                <p>tekan ctrl + x ,(y) lalu save dan enter</p>
+                <h1>Install Package DHCP</h1>
+                <p>Sebelum itu lebih baik update & upgrade repository debian kita dengan cara</p>
+                <div class="daging">
+<pre>
+apt update && apt upgrade -y
+</pre>
+                </div>
+                <p>Selanjutnya kita install package DHCP Server</p>
+                <div class="daging">
+<pre>
+apt install isc-dhcp-server
+</pre>
+                </div>
+                <h1>Konfigurasi Package</h1>
+                <p>Masuk kedalam Direktory dhcp.conf</p>
+                <div class="daging">
+<pre>
+nano /etc/dhcp/dhcpd.conf
+</pre>
+                </div>
+                <p>Lalu edit dari isi file tersebut dan hapus pagar nya "#"</p>
+                <div class="daging">
+<pre>
+# A slightly different configuration for an internal subnet.
+subnet 10.1.31.0 netmask 255.255.255.0 {
+    range 10.1.31.2 10.1.31.254;
+    option domain-name-servers ns1.internal.example.org;
+    option domain-name "internal.example.org";
+    option routers 10.1.31.1;
+    option broadcast-address 10.1.31.255;
+    default-lease-time 600;
+    max-lease-time 7200;
+}
+</pre>
+                </div>
+                <p>Edit juga pada bagian isc-dhcp-server</p>
+                <div class="daging">
+<pre>
+nano /etc/default/isc-dhcp-server
+</pre>
+                </div>
+                <p>Masukan interfaces yang akan diberikan DHCP Server tersebut</p>
+                <div class="daging">
+<pre>
+INTERFACESv4="ens36"
+INTERFACESv6=""
+</pre>
+                </div>
+                <h1>Restart Package</h1>
+                <p>Untuk mengaktifkan konfigurasi yang telah kita lakukan, baiknya kita melakukan restart terlebih dahulu</p>
+                <div class="daging">
+<pre>
+/etc/init.d/isc-dhcp-server restart
+/** === atau === **/
+systemctl isc-dhcp-server restart
+</pre>
+                </div>
+                <h1>Konfigurasi Selesai</h1>
+                <p>Selamat kita telah berhasil konfigurasi DHCP Server pada Debian 10. Untuk pengetesan silahkan Disable kemudian Enable kembali Interfaces yang digunakan untuk DHCP Server tersebut pada bagian Komputer Host kita. Hasilnya bisa dilihat seperti ini</p>
+                <img src="/blog/debian10/img/Screenshot hasil dhcp.png" alt="" class="hasil-dhcp">
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

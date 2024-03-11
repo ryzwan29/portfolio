@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debian | SSH</title>
+    <link rel="stylesheet" href="/assets/css/dhcp.css">
+    <link rel="icon" href="/assets/img/linux.png">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <div class="judul">
+                    <h1>SSH</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navigation">
+                <h1>Dokumentasi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar">
+                <h1>Debian 10</h1>
+                <ul>
+                    <li><a href="/blog/debian10/">Home Debian</a></li>
+                    <li><a href="/blog/debian10/dhcp-server/">Superlab-DHCP Server</a></li>
+                    <li><a href="/blog/debian10/ssh/">Superlab-SSH</a></li>
+                    <li><a href="/blog/debian10/dns/">Superlab-DNS Server</a></li>
+                    <li><a href="/blog/debian10/ftp/">Superlab-FTP Server</a></li>
+                    <li><a href="/blog/debian10/apache2/">Superlab-Web Server</a></li>
+                    <li><a href="/blog/debian10/wordpress/">Superlab-Wordpress</a></li>
+                    <li><a href="/blog/debian10/phpmyadmin/">Superlab-PhpMyAdmin</a></li>
+                </ul>
+                <h1>Mikrotik</h1>
+                <ul>
+                    <li><a href="/blog/mikrotik/">Home Mikrotik</a></li>
+                    <li><a href="/blog/mikrotik/basic-config/">Basic Config</a></li>
+                    <li><a href="/blog/mikrotik/vlan/">VLAN</a></li>
+                    <li><a href="/blog/mikrotik/route-static/">Routing Static</a></li>
+                    <li><a href="/blog/mikrotik/route-dynamic/">Routing Dynamic</a></li>
+                    <li><a href="/blog/mikrotik/hotspot/">Hotspot Login</a></li>
+                    <li><a href="/blog/mikrotik/block/">Blok SSH, Telnet, HTTP</a></li>
+                    <li><a href="/blog/mikrotik/bandwidth/">Bandwidth</a></li>
+                    <li><a href="/blog/mikrotik/load-balancing/">Load Balanding</a></li>
+                    <li><a href="/blog/mikrotik/bridge/">Bridge</a></li>
+                </ul>
+                <h1>AWS Cloud</h1>
+                <ul>
+                    <li><a href="/blog/aws/">Home Cloud</a></li>
+                    <li><a href="/blog/aws/cpanel/">Install cPanel</a></li>
+                    <li><a href="/blog/aws/wordpress/">Install Wordpress</a></li>
+                    <li><a href="/blog/aws/nginx/">Install NginX</a></li>
+                    <li><a href="/blog/aws/zabbix/">Install Zabbix & Database</a></li>
+                    <li><a href="/blog/aws/add-host-for-zabbix/">Add Host For Monitoring</a></li>
+                    <li><a href="/blog/aws/vpc/">Virtual Private Network</a></li>
+                    <li><a href="/blog/aws/webstatic/">Website Static</a></li>
+                    <li><a href="/blog/aws/nagios/">Install Nagios</a></li>
+                    <li><a href="/blog/aws/nagios-for-webserver/">Nagios at WebServer</a></li>
+                    <li><a href="/blog/aws/nagios-for-database/">Nagios at Database</a></li>
+                </ul>
+                <h1>Security</h1>
+                <ul>
+                    <li><a href="/blog/security/">Home Security</a></li>
+                    <li><a href="/blog/security/installation/">Installasi</a></li>
+                    <li><a href="/blog/security/iptables/">IP Tables</a></li>
+                    <li><a href="/blog/security/cracklib/">Craklib</a></li>
+                    <li><a href="/blog/security/port/">Port Forwarding</a></li>
+                    <li><a href="/blog/security/mitm-and-ddos/">MITM&DDOS</a></li>
+                    <li><a href="/blog/security/snort/">Snort</a></li>
+                    <li><a href="/blog/security/otp/">Generated OTP</a></li>
+                </ul>
+                <h1>Debian 11</h1>
+                <ul>
+                    <li><a href="/blog/debian11/">Home Debian11</a></li>
+                    <li><a href="/blog/debian11/installation/">Install 3VM</a></li>
+                    <li><a href="/blog/debian11/dns/">DNS</a></li>
+                    <li><a href="/blog/debian11/sftp/">SFTP</a></li>
+                    <li><a href="/blog/debian11/samba/">Samba</a></li>
+                    <li><a href="/blog/debian11/virtualhost/">VirtualHost</a></li>
+                    <li><a href="/blog/debian11/myweb/">MyWeb</a></li>
+                    <li><a href="/blog/debian11/static/">Static</a></li>
+                    <li><a href="/blog/debian11/dvwa/">DVWA</a></li>
+                    <li><a href="/blog/debian11/ansible/">Automation</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>Install Package SSH</h1>
+                <p>Install SSH dengan menggunakan command</p>
+                <div class="daging">
+<pre>
+apt install ssh
+</pre>
+                </div>
+                <p>Lalu masuk pada menu ssh</p>
+                <div class="daging">
+<pre>
+nano /etc/ssh/sshd_config
+</pre>
+                </div>
+                <h1>Konfigurasi Package</h1>
+                <p>Edit file ssh tersebut dengan menghapus "#" pada bagian "PermitRootLogin" dan setel nilainya menjadi "yes"</p>
+                <div class="daging">
+<pre>
+#LoginGraceTime 2m
+PermitRootLogin yes
+#StrictModes yes
+</pre>
+                </div>
+                <p>Lalu restart package ssh</p>
+                <div class="daging">
+<pre>
+/etc/init.d/ssh restart
+</pre>
+                </div>
+                <h1>Konfigurasi Selesai</h1>
+                <p>Selamat kita telah berhasil konfigurasi SSH pada Debian 10. Untuk pengetesan silahkan buka putty/command prompt lalu ketikan IP Address Server dan username sekaligus Passwordnya. Contoh: </p>
+                <img src="../img/Screenshot hasil ssh.png" alt="" class="imgssh">
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer">
+                <h1>Created By : Rizwan Fairuz Mamduh</h1>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

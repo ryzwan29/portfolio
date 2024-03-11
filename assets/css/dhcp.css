@@ -112,7 +112,7 @@ body{
 
 .daging{
     background-color: #333333;
-    width: 90%;
+    width: 93%;
     border-radius: 5px;
     padding-left: 30px;
     padding-top: 5px;
@@ -769,8 +769,8 @@ body{
         height: 80px;
     }
 
-    .otp1{
-        width: 350px;
+    .otp1, .otp2{
+        width: 330px;
         height: 250px;
     }
 
