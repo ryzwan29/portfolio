@@ -1,40 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/assets/css/index-debian.css">
+      <!--=============== Icon ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" 
+      crossorigin="">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+      <!-- Bootsraps 5 Icon -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Bootstraps 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Bootstraps 5 -->
+      <!-- Bootstraps 5 -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css
+      ">
 
-    <!-- Animated on scroll -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- Animated on scroll -->
+      <!-- Animated On Scroll -->
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+      <!--=============== SWIPER CSS ===============-->
+      <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="/assets/css/blog.css">
 
-    <link rel="icon" href="/assets/img/linux.png">
+      <!-- Head Icon -->
+      <link rel="icon" href="/assets/img/linux.png">
 
-    <title id="index-debian">Rizwan | Debian11</title>
-</head>
-<body>
+      <title>My Project</title>
+   </head>
+   <body>
+        <!-- Navbar Start -->
+        <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
 
-    <!-- === HEADER === -->
-    <div class="navigasi">
-        <nav class="navbar sticky-top" style="background-color: #F5FFFA;">
+        <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Rizwan | Debian 11</a>
+              <a class="navbar-brand" href="#">MyProject <i class="bi bi-heart-fill text-danger"></i> </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -46,24 +47,68 @@
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+                      <a class="nav-link active" aria-current="page" href="../../"><i class="bi bi-house"></i> Home</a>
                     </li>
+                    <!-- Social -->
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Project
+                        Social
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="../debian10/">Debian 10</a></li>
-                        <li><a class="dropdown-item" href="../debian11/">Debian 11</a></li>
-                        <li><a class="dropdown-item" href="../mikrotik/">Mikrotik</a></li>
-                        <li><a class="dropdown-item" href="../aws/">Amazon Web Service</a></li>
-                        <li><a class="dropdown-item" href="../security/">Security</a></li>
-                        <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a target="_blank" class="dropdown-item" href="https://wa.me/628979620353"><i class="bi bi-whatsapp text-success"></i> Whatsapp</i></a></li>
+
+                            <li>
+                        <hr class="dropdown-divider">
+                            </li>
+
+                            <li><a target="_blank" class="dropdown-item" href="https://www.linkedin.com/in/rizwan-fairuz-mamduh"><i class="bi bi-linkedin text-primary"></i> Linkedin</a></li>
+
+                            <li>
+                        <hr class="dropdown-divider">
+                            </li>
+
+                            <li><a target="_blank" class="dropdown-item" href="https://www.instagram.com/ryzwannn13/"><i class="bi bi-instagram text-danger"></i> Instagram</a></li>
+
+                            <li>
+                        <hr class="dropdown-divider">
+                            </li>
+
+                            <li><a target="_blank" class="dropdown-item" href="https://github.com/ryzwan29"><i class="bi bi-github"></i> Github</a></li>
                       </ul>
                     </li>
+                    <!-- Project -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Project
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/blog/debian10/"><i class="bi bi-1-circle"></i> Debian 10</i></a></li>
+
+                            <li>
+                        <hr class="dropdown-divider">
+                            </li>
+
+                            <li><a class="dropdown-item" href="/blog/debian11/"><i class="bi bi-2-circle"></i> Debian 11</a></li>
+
+                            <li>
+                        <hr class="dropdown-divider">
+                            </li>
+
+                            <li><a class="dropdown-item" href="/blog/aws/"><i class="bi bi-3-circle"></i> Amazon Web Service</a></li>
+
+                            <li>
+                        <hr class="dropdown-divider">
+                            </li>
+
+                            <li><a class="dropdown-item" href="/blog/mikrotik/"><i class="bi bi-4-circle"></i> Mikrotik</a></li>
+
+                            <li>
+                        <hr class="dropdown-divider">
+                            </li>
+        
+                            <li><a class="dropdown-item" href="/blog/security/"><i class="bi bi-5-circle"></i> Security</a></li>
+                      </ul>
+                      </li>
                   </ul>
                   <form class="d-flex mt-3" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -73,209 +118,134 @@
               </div>
             </div>
           </nav>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0d6efd" fill-opacity="1" d="M0,256L48,234.7C96,213,192,171,288,149.3C384,128,480,128,576,138.7C672,149,768,171,864,154.7C960,139,1056,85,1152,96C1248,107,1344,181,1392,218.7L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
-    </div>
+          
+        </div>
 
-    <div data-aos="fade-down" 
-    data-aos-easing="linear"
-    data-aos-duration="800">
-    <div class="banner">
-        <img src="/assets/img/about_1.jpg" alt="" class="animate__animated animate__fadeIn">
-        <h1 class="animate__animated animate__fadeIn">Hai, Saya <span>Rizwan</span></h1>
-        <p class="animate__animated animate__fadeIn">Selamat Datang di Tutorial <u>Debian11</u></p>
-    </div>
-    </div>
+        <!-- Navbar End -->
 
-    <section class="work">
-        
-        <div data-aos="fade-up"
-        data-aos-easing="linear"
-         data-aos-duration="10">
-        <div class="slide-container swiper">
-            <div class="slide-content">
-                <div class="card-wrapper swiper-wrapper">
-                    <div class="card swiper-slide" style="display: block;">
-                        <div class="image-content">
-                            <span class="overlay"></span>
+        <!-- Card Slider -->
+        <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
 
-                            <div class="card-image">
-                                <img src="img/install-vm.png" alt="" class="card-img">
-                            </div>
-                        </div>
+      <section class="container">
+         <div class="card__container swiper">
+            <div class="card__content">
+               <div class="swiper-wrapper">
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="/assets/img/avatar-1.png" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Kell Dawx</h3>
+                        <p class="card__description">
+                           Passionate about development and design, 
+                           I carry out projects at the request of users.
+                        </p>
+      
+                        <a href="#" class="card__button">View More</a>
+                     </div>
+                  </article>
+      
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="/assets/img/avatar-2.png" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Lotw Fox</h3>
+                        <p class="card__description">
+                           Passionate about development and design, 
+                           I carry out projects at the request of users.
+                        </p>
+      
+                        <a href="#" class="card__button">View More</a>
+                     </div>
+                  </article>
+      
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="/assets/img/avatar-3.png" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Sara Mit</h3>
+                        <p class="card__description">
+                           Passionate about development and design, 
+                           I carry out projects at the request of users.
+                        </p>
+      
+                        <a href="#" class="card__button">View More</a>
+                     </div>
+                  </article>
+      
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="/assets/img/avatar-4.png" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Jenny Wert</h3>
+                        <p class="card__description">
+                           Passionate about development and design, 
+                           I carry out projects at the request of users.
+                        </p>
+      
+                        <a href="#" class="card__button">View More</a>
+                     </div>
+                  </article>
 
-                        <div class="card-content">
-                            <h2 class="name">Installasi 3 VM</h2>
-                            <p class="description">Network Address Translation (NAT) digunakan untuk mengubah alamat IP pribadi menjadi alamat IP publik dan juga sebaliknya, dari alamat IP publik menjadi alamat IP pribadi. DHCP (Dynamic Host Configuration Protocol) adalah protokol yang berbasis arsitektur client/server yang dipakai untuk memudahkan pengalokasian alamat IP dalam satu jaringan.</p>
-                            <a href="installation/">
-                            <button class="button">Lihat Tutorial</button></a>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide" style="display: block;">
-                        <div class="image-content">
-                            <span class="overlay"></span>
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="/assets/img/avatar-5.png" alt="image" class="card__img">
+                        <div class="card__shadow"></div>
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Lexa Kin</h3>
+                        <p class="card__description">
+                           Passionate about development and design, 
+                           I carry out projects at the request of users.
+                        </p>
+      
+                        <a href="#" class="card__button">View More</a>
+                     </div>
+                  </article>
+               </div>
+            </div>
 
-                            <div class="card-image">
-                                <img src="img/dns&apache.png" alt="" class="card-img">
-                            </div>
-                        </div>
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next">
+               <i class="ri-arrow-right-s-line"></i>
+            </div>
+            
+            <div class="swiper-button-prev">
+               <i class="ri-arrow-left-s-line"></i>
+            </div>
 
-                        <div class="card-content">
-                            <h2 class="name">DNS & Apache2</h2>
-                            <p class="description"> DNS adalah server yang bisa melayani permintaan untuk mengetahui sebuah IP address yang digunakan oleh suatu domain. Apache adalah sebuah nama web server yang bertanggung jawab pada request-response HTTP dan logging informasi secara detail (kegunaan dasarnya). Selain itu, Apache juga diartikan sebagai suatu web server yang kompak, modular, mengikuti standar protokol HTTP, dan tentu saja sangat digemari.</p>
-                            <a href="dns/">
-                            <button class="button">Lihat Tutorial</button></a>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide" style="display: block;">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="img/sftp.png" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">SFTP</h2>
-                            <p class="description">SFTP adalah singkatan dari SSH File Transfer Protocol. SFTP merupakan cara umum bagi pengguna untuk mendownload atau mengupload file ke Internet. Dengan SFTP, data dapat ditransfer secara aman menggunakan enkripsi dan data file teks yang jelas tidak akan ikut ditransfer.</p>
-                            <a href="sftp/">
-                            <button class="button">Lihat Tutorial</button></a>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide" style="display: block;">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="img/samba.png" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Samba</h2>
-                            <p class="description">Samba adalah program yang bersifat sumber terbuka yang menyediakan layanan berbagi berkas (file service) dan berbagi alat pencetak (print service), resolusi nama NetBIOS, dan pengumuman layanan (NetBIOS service announcement/browsing).
-                            </p>
-                            <a href="samba/">
-                            <button class="button">Lihat Tutorial</button></a>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide" style="display: block;">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="img/virtualhost.png" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">VirtualHost</h2>
-                            <p class="description">Virtual host adalah konfigurasi pada webserver yang memungkinan anda menggunakan lebih dari satu domain pada sebuah server. Dengan virtual host anda dapat membuat lebih dari satu website dengan konten yang berbeda dalam sebuah server.</p>
-                            <a href="virtualhost/">
-                            <button class="button">Lihat Tutorial</button></a>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide" style="display: block;">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="img/myweb.png" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">MyWeb</h2>
-                            <p class="description">Website sederhana yang didalamnya terdapat tabel informasi tentang Nama, NIS, Rombel, dan Rayon. Disana juga terdapat link anchor untuk lompat ke website yang lainnya.</p>
-
-                            <a href="myweb/"><button class="button">Lihat Tutorial</button></a>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide" style="display: block;">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="img/static.png" alt="" class="card-img">
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">Static</h2>
-                            <p class="description">Web Static sederhana yang menggunakan tools git untuk melakukan clone dari repository Github. Didalam nya terdapat website portfolio yang saya ambil dari Repository Github saya sendiri yaitu : https://github.com/rizwannnn13/portfolio.git</p>
-
-                            <a href="static/"><button class="button">Lihat Tutorial</button></a>
-                        </div>
-                    </div>
-
-                    <div class="card swiper-slide" style="display: block;">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="img/DVWA1.png" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">DVWA</h2>
-                            <p class="description">Singkatan dari Damn Vulnerable Web App adalah sebuah aplikasi web PHP/MySQL yang sangan rentan terhadap berbagai serangan keamanan siber. DVWA digunakan untuk pelatihan web, pentester, dan profesional Cyber Security.</p>
-                            <a href="dvwa/">
-                            <button class="button">Lihat Tutorial</button></a>
-                        </div>
-                    </div>
-
-                    <div class="card swiper-slide" style="display: block;">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="img/ansible.png" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Automation With Ansible</h2>
-                            <p class="description">Ansible merupakan salah satu automation tool yang tersedia secara open source. Kita dapat melakukan provisioning server, deployment aplikasi di server maupaun mengkonfigurasi management menggunakan Ansible.</p>
-                            <a href="ansible/">
-                            <button class="button">Lihat Tutorial</button></a>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
+            <!-- Pagination -->
             <div class="swiper-pagination"></div>
-        </div>
-        </div>
-    </section>
+         </div>
+      </section>
+      </div>
+      
+      <!--=============== SWIPER JS ===============-->
+      <script src="/assets/js/swiper-bundle.min.js"></script>
 
-    <footer class="footer">
-        <h2 class="footer__title">Rizwan Fairuz Mamduh</h2>
-        <div class="footer__social">
-            <a href="https://www.instagram.com/ryzwannn13/" class="footer__icon" target="_blank"><i class="ri-instagram-line"></i></a>
-                <a href="https://wa.me/628979620353" class="footer__icon" target="_blank"><i class="ri-whatsapp-line"></i></a>
-                <a href="https://github.com/ryzwan29" class="footer__icon"><i class="ri-github-fill"></i></a>
-                <a href="#" class="footer__icon"><i class="ri-facebook-circle-fill"></i></a>
-                <a href="https://www.linkedin.com/in/rizwan-fairuz-mamduh" class="footer__icon"><i class="ri-linkedin-box-fill"></i></a>
-        </div>
-    </footer>
+      <!--=============== MAIN JS ===============-->
+      <script src="/assets/js/swiper.js"></script>
 
-    <!-- Bootstraps 5 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Bootstraps 5 -->
+      <!-- Bootstraps 5 -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js
+      "></script>
 
-    <!-- Animated on scroll -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <!-- Animated on scroll -->
-
-</body>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-    <script src="/assets/js/swiper.js"></script>
-
+      <!-- Animated On Scroll -->
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+   </body>
 </html>
