@@ -156,7 +156,7 @@
           pilihan yang sangat baik jika kita ingin meng-host situs web di AWS EC2. AWS EC2 (Elastic Compute Cloud) adalah layanan cloud computing yang memungkinkan kita untuk menyewa server virtual dan mengelolanya di cloud AWS.
         </p>
 
-        <hr>
+        <hr />
         <h2>Configuration AWS</h2>
         <h3>Create a New EC2 Instance</h3>
         <pre class="important">
@@ -168,19 +168,19 @@ Security Group : Open SSH, HTTP, and HTTPS
 Storage : 10GB</pre
         >
 
-        <hr>
+        <hr />
         <h2>Configuration EC2 Instance</h2>
         <h3>SSH to EC2 Instance</h3>
         <p>Open CMD or GitBash</p>
         <pre class="important">
 cd Downloads
-ssh -i labsuser.pem ubuntu@&lt;ip-addr-ec2&gt;
-        </pre>
+ssh -i labsuser.pem ubuntu@&lt;ip-addr-ec2&gt;</pre
+        >
         <h3>Update Repository</h3>
         <pre class="important">
 sudo -i
-apt update && apt upgrade -y
-        </pre>
+apt update && apt upgrade -y</pre
+        >
         <h3>Install Package</h3>
         <pre class="important">apt install nginx php-fpm</pre>
         <h3>Add php info File</h3>

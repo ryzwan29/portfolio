@@ -71,15 +71,17 @@ span{
 
 /* Image */
 .img-xl{
-  width: 70%;
-  height: 80%;
-  margin: 30px;
+  width: 90%;
+  height: 90%;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .img-xl-top{
-  width: 70%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 @media screen and (max-width: 426px) {
   .all {
