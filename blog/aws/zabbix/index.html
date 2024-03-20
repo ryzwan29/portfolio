@@ -1,268 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud | Zabbix</title>
-    
-    <link rel="stylesheet" href="/assets/css/dhcp.css">
-    <link rel="icon" href="/assets/img/aws.webp">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="header">
-                <div class="judul">
-                    <h1>Zabbix</h1>
-                </div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloud | Zabbix Monitoring</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- Icon Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/dhcp.css" />
+
+    <!-- Icon HTML -->
+    <link rel="icon" href="/assets/img/aws.webp" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top" style="background-color: #909294">
+      <div class="container-md">
+        <!-- Dark&Light Mode -->
+        <div class="dropdown">
+          <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sun-fill theme-icon-active" data-theme-icon-active="bi-sun-fill"></i></button>
+          <ul class="dropdown-menu">
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="light">
+                <i class="bi bi-sun-fill me-2 opacity-50" data-theme-icon="bi-sun-fill"></i>
+                Light
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="dark">
+                <i class="bi bi-moon-stars-fill me-2 opacity-50" data-theme-icon="bi-moon-stars-fill"></i>
+                Dark
+              </button>
+            </li>
+          </ul>
         </div>
-        <div class="row">
-            <div class="navigation">
-                <h1>Dokumentasi</h1>
-            </div>
+        <!-- Dark&Light Mode -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Rizwan <i class="bi bi-heart-fill text-danger"></i> AWS Cloud</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- Debian 10 -->
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 10 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian10/">Home-Debian 10</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dhcp-server/">1. DHCP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ssh/">2. SSH</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dns/">3. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ftp/">4. FTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/apache2/">5. Apache2 WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/wordpress/">6. Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/phpmyadmin/">7. PhpMyAdmin</a></li>
+                </ul>
+              </li>
+              <!-- Debian 11 -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 11 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian11/">Home-Debian 11</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/installation/">q. Install 3VM</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dns/">2. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/sftp/">3. SFTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/samba/">4. File Sharing Samba</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/virtualhost/">5. Virtual Host</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/myweb/">6. MyWeb</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/static/">7. Static Website</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dvwa/">8. Setup DVWA Web</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/ansible/">9. Automation With Ansible</a></li>
+                </ul>
+              </li>
+              <!-- Mikrotik -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Mikrotik </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/mikrotik/">Home-Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/basic-config/">1. Basic Config Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/vlan/">2. Configuration VLAN on the Swicth</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-static/">3. Routing Static; or</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-dynamic/">4. Routing Dynamic</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/hotspot/">5. Create Hotspot Login</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/block/">6. Block SSH, Telnet, and HTTP</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bandwidth/">7. Add Simple Queque (Bandwidth)</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/load-balancing/">8. Load Balancing</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bridge/">9. Bridge</a></li>
+                </ul>
+              </li>
+              <!-- AWS Cloud -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> AWS Cloud </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/aws/">Home-AWS Cloud</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/cpanel/">1. Install cPanel</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/wordpress/">2. Install Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nginx/">3. Install NginX</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/zabbix/">4. Install Zabbix & Database</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/add-host-for-zabbix/">5. Add Host For Monitoring</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/vpc/">6. Virtual Private Network</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/webstatic/">7. Website Static</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios/">8. Install Nagios in New EC2</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-webserver/">9. Nagios at WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-database/">10. Nagios at Database</a></li>
+                </ul>
+              </li>
+              <!-- Security -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Security </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/security/">Home-Security</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/installation/">1. Installasi</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/iptables/">2. IP Tables</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/cracklib/">3. Craklib</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/port/">4. Port Forwarding</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/mitm-and-ddos/">5. MITM & DDOS</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/snort/">6. Snort</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/otp/">7. Generated OTP</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="row">
-            <div class="sidebar">
-                <h1>Debian 10</h1>
-                <ul>
-                    <li><a href="/blog/debian10/">Home Debian</a></li>
-                    <li><a href="/blog/debian10/dhcp-server/">Superlab-DHCP Server</a></li>
-                    <li><a href="/blog/debian10/ssh/">Superlab-SSH</a></li>
-                    <li><a href="/blog/debian10/dns/">Superlab-DNS Server</a></li>
-                    <li><a href="/blog/debian10/ftp/">Superlab-FTP Server</a></li>
-                    <li><a href="/blog/debian10/apache2/">Superlab-Web Server</a></li>
-                    <li><a href="/blog/debian10/wordpress/">Superlab-Wordpress</a></li>
-                    <li><a href="/blog/debian10/phpmyadmin/">Superlab-PhpMyAdmin</a></li>
-                </ul>
-                <h1>Mikrotik</h1>
-                <ul>
-                    <li><a href="/blog/mikrotik/">Home Mikrotik</a></li>
-                    <li><a href="/blog/mikrotik/basic-config/">Basic Config</a></li>
-                    <li><a href="/blog/mikrotik/vlan/">VLAN</a></li>
-                    <li><a href="/blog/mikrotik/route-static/">Routing Static</a></li>
-                    <li><a href="/blog/mikrotik/route-dynamic/">Routing Dynamic</a></li>
-                    <li><a href="/blog/mikrotik/hotspot/">Hotspot Login</a></li>
-                    <li><a href="/blog/mikrotik/block/">Blok SSH, Telnet, HTTP</a></li>
-                    <li><a href="/blog/mikrotik/bandwidth/">Bandwidth</a></li>
-                    <li><a href="/blog/mikrotik/load-balancing/">Load Balanding</a></li>
-                    <li><a href="/blog/mikrotik/bridge/">Bridge</a></li>
-                </ul>
-                <h1>AWS Cloud</h1>
-                <ul>
-                    <li><a href="/blog/aws/">Home Cloud</a></li>
-                    <li><a href="/blog/aws/cpanel/">Install cPanel</a></li>
-                    <li><a href="/blog/aws/wordpress/">Install Wordpress</a></li>
-                    <li><a href="/blog/aws/nginx/">Install NginX</a></li>
-                    <li><a href="/blog/aws/zabbix/">Install Zabbix & Database</a></li>
-                    <li><a href="/blog/aws/add-host-for-zabbix/">Add Host For Monitoring</a></li>
-                    <li><a href="/blog/aws/vpc/">Virtual Private Network</a></li>
-                    <li><a href="/blog/aws/webstatic/">Website Static</a></li>
-                    <li><a href="/blog/aws/nagios/">Install Nagios</a></li>
-                    <li><a href="/blog/aws/nagios-for-webserver/">Nagios at WebServer</a></li>
-                    <li><a href="/blog/aws/nagios-for-database/">Nagios at Database</a></li>
-                </ul>
-                <h1>Security</h1>
-                <ul>
-                    <li><a href="/blog/security/">Home Security</a></li>
-                    <li><a href="/blog/security/installation/">Installasi</a></li>
-                    <li><a href="/blog/security/iptables/">IP Tables</a></li>
-                    <li><a href="/blog/security/cracklib/">Craklib</a></li>
-                    <li><a href="/blog/security/port/">Port Forwarding</a></li>
-                    <li><a href="/blog/security/mitm-and-ddos/">MITM&DDOS</a></li>
-                    <li><a href="/blog/security/snort/">Snort</a></li>
-                    <li><a href="/blog/security/otp/">Generated OTP</a></li>
-                </ul>
-                <h1>Debian 11</h1>
-                <ul>
-                    <li><a href="/blog/debian11/">Home Debian11</a></li>
-                    <li><a href="/blog/debian11/installation/">Install 3VM</a></li>
-                    <li><a href="/blog/debian11/dns/">DNS</a></li>
-                    <li><a href="/blog/debian11/sftp/">SFTP</a></li>
-                    <li><a href="/blog/debian11/samba/">Samba</a></li>
-                    <li><a href="/blog/debian11/virtualhost/">VirtualHost</a></li>
-                    <li><a href="/blog/debian11/myweb/">MyWeb</a></li>
-                    <li><a href="/blog/debian11/static/">Static</a></li>
-                    <li><a href="/blog/debian11/dvwa/">DVWA</a></li>
-                    <li><a href="/blog/debian11/ansible/">Automation</a></li>
-                </ul>
-            </div>
-            <div class="content">
-                <h1>Penjelasan</h1>
-                <p>Zabbix adalah salah satu software opensource yang dapat digunakan
-                    untuk memonitoring jaringan dan status dari berbagai macam jenis
-                    device, server, dan network hardware lainnya. Software ini diciptakan
-                    oleh Alexei Vladishev. <br>
-                    Dengan Zabbix, user dapat dengan mudah mengetahui status server,
-                    kondisi jaringan dan mendapatkan notifikasi jika terjadi gangguan.
-                </p>
-                <h1>Arsitektur NMS Zabbix</h1>
-                <ol>
-                    <li>Zabbix Server : adalah proses utama atau komponen utama dari NMS Zabbix, komponen ini berisi konfigurasi dari
-                        Zabbix dan service network. Zabbix server menggunakan port 10051.</li>
-                    <li>Zabbix Agent : adalah UNIX daemon yang berjalan pada host yang sedang dipantau (monitoring), agent ini
-                        mengumpulkan informasi, menantau peforma host, dan mengirimkan informasi-informasi tersebut ke
-                        Zabbix Server. Zabbix agent menggunakan port 10050.</li>
-                    <li>Zabbix Proxy : Adalah sebuah proses yang berugas untuk mengumpulkan hasil kinerja dan ketersediaan dari satu
-                        atau lebih perangkat yang di monitor dan mengirimkan data tersebut ke server Zabbix.</li>
-                </ol>
-                <h1>Konfigurasi</h1>
-                <h2 class="h2-wp">Membuat EC2</h2>
-                <div class="daging">
-<pre>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Article -->
+    <div class="all">
+      <div class="judul">
+        <hr />
+        <h1>Install Zabbix For EC2 Monitoring & How To Connect To Databases On Different Resources</h1>
+        <hr />
+        <div class="gambar">
+          <img src="../img/zabbix.jpg" alt="" class="img-xl" />
+        </div>
+      </div>
+      <div class="article">
+        <h3>Introduction</h3>
+        <h4>Zabbix Monitoring</h4>
+        <p>
+          Zabbix adalah salah satu software opensource yang dapat digunakan untuk memonitoring jaringan dan status dari berbagai macam jenis device, server, dan network hardware lainnya. Software ini diciptakan oleh Alexei Vladishev. Dengan
+          Zabbix, user dapat dengan mudah mengetahui status server, kondisi jaringan dan mendapatkan notifikasi jika terjadi gangguan.
+        </p>
+        <h4>Amazon RDS</h4>
+        <p>
+          Amazon Relational Database Service (Amazon RDS) adalah layanan web yang mempermudah pengaturan, pengoperasian, dan penskalaan basis data relasional di AWS Cloud Cloud. Layanan ini menyediakan kapasitas yang hemat biaya dan dapat
+          diubah ukurannya untuk basis data relasional standar industri serta mengelola tugas administrasi basis data umum. Amazon RDS menyediakan metrik Amazon CloudWatch untuk instans basis data Anda tanpa biaya tambahan. Anda dapat
+          menggunakan Konsol Amazon RDS untuk melihat metrik operasional utama, termasuk penggunaan kapasitas komputasi/memori/penyimpanan, aktivitas I/O, dan koneksi instans.
+        </p>
+        <h4>Zabbix NMS Architecture</h4>
+        <ol>
+          <li><span>Zabbix Server </span>: adalah proses utama atau komponen utama dari NMS Zabbix, komponen ini berisi konfigurasi dari Zabbix dan service network. Zabbix server menggunakan port 10051.</li>
+          <li>
+            <span>Zabbix Agent </span>: adalah UNIX daemon yang berjalan pada host yang sedang dipantau (monitoring), agent ini mengumpulkan informasi, menantau peforma host, dan mengirimkan informasi-informasi tersebut ke Zabbix Server.
+            Zabbix agent menggunakan port 10050.
+          </li>
+          <li><span>Zabbix Proxy </span>: Adalah sebuah proses yang berugas untuk mengumpulkan hasil kinerja dan ketersediaan dari satu atau lebih perangkat yang di monitor dan mengirimkan data tersebut ke server Zabbix.</li>
+        </ol>
+
+        <hr />
+        <h2>Configuration AWS</h2>
+        <h3>Create a New EC2 Instance</h3>
+        <pre class="important">
 Name : Server-Zabbix
 Ubuntu 22.04 (t2.small)
 keypair : vockey (pem)
 Create new SG
-"SG-All TCP Open"
-</pre>
-                </div>
-                <h2 class="h2-wp">SSH EC2</h2>
-                <div class="daging">
-<pre>
+"SG-All TCP Open"</pre
+        >
+        <h3>Create Database RDS</h3>
+        <pre class="important">
+MariaDB 10.6.10
+DB Instance Identity : db-zabbix
+Master-username : root
+Master-password : rootDBpass
+Free tier
+db.t2.micro
+SG VPC: (Choose exiting) default
+
+endpoint RDS : db-zabbix.c52qu2eqwb8t.us-east-1.rds.amazonaws.com</pre
+        >
+        <h4>Modify SecurityGroup "SG-default"</h4>
+        <p>Edit Inbound rules SG-default</p>
+        <pre class="important">MySQL/Aurora | TCP | 3306 | Custom (SG-All TCP Open)</pre>
+        <h4>Create RDS Group Parameters</h4>
+        <pre class="important">
+Parameter group family: mariadb10.6
+Group name: parameter-zabbix
+Description: permit zabbix server to replicated databases</pre
+        >
+        <h4>Edit parameter-zabbix</h4>
+        <pre class="important">log_bin_trust_function_creators : Value 1</pre>
+        <h4>Modify Database</h4>
+        <pre class="important">
+Database option : parameter-zabbix
+"apply immediately"
+
+#Reboot Database#</pre
+        >
+        <h3>SSH to EC2 Instance</h3>
+        <p>Open CMD or GitBash</p>
+        <pre class="important">
 cd Downloads
-ssh -i labauser.pem ubuntu@&lt;ip-addr-ec2&gt;
-
-ssh -i labsuser.pem ubuntu@54.89.174.237
-</pre>
-                </div>
-                <h2 class="h2-wp">Install Package</h2>
-                <div class="daging">
-<p style="color: white; font-size: 14px;">
-wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-4+ubuntu$(lsb_release -rs)_all.deb <br><br>
-sudo dpkg -i zabbix-release_6.0-4+ubuntu$(lsb_release -rs)_all.deb <br><br>
-sudo apt update <br><br>
-sudo apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent 
-</p>
-                </div>
-                <h2 class="h2-wp">Membuat RDS</h2>
-                <div class="daging">
-<p style="color: white; font-size: 16px;">
-MariaDB 10.6.10 <br>
-DB Instance Identity : db-zabbix <br>
-Master-username : root <br>
-Master-password : rootDBpass <br>
-Free tier <br>
-db.t2.micro <br>
-SG VPC: (Choose exiting) default <br><br>
-
-endpoint RDS : db-zabbix.c52qu2eqwb8t.us-east-1.rds.amazonaws.com
-</p>
-                </div>
-                <h2 class="h2-wp">Edit SG-default</h2>
-                <p>Edit Inbound rules SG-default</p>
-                <div class="daging">
-<pre>
-MySQL/Aurora TCP 3306 Custom (SG-All TCP Open)
-</pre>
-                </div>
-                <h2 class="h2-wp">Install Mariadb</h2>
-                <div class="daging">
-<pre>
-apt install mariadb-client
-</pre>
-                </div>
-                <h2 class="h2-wp">Hubungkan ke Database</h2>
-                <div class="daging">
-<pre>
-sudo mysql -uroot -p'rootDBpass' -h &lt;endpoint-rds&gt;
-
+ssh -i pem-rizwan.pem ubuntu@&lt;ip-addr-pub-ec2-zabbix-server&gt;</pre
+        >
+        <h3>Update Repository</h3>
+        <pre class="important">
+sudo -i
+apt update && apt upgrade -y</pre
+        >
+        <h3>Install Package</h3>
+        <pre class="important">
+wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-4+ubuntu$(lsb_release -rs)_all.deb
+sudo dpkg -i zabbix-release_6.0-4+ubuntu$(lsb_release -rs)_all.deb
+sudo apt update
+sudo apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+apt install mariadb-client</pre
+        >
+        <h3>Connect to Database</h3>
+        <pre class="important">sudo mysql -uroot -p'rootDBpass' -h &lt;endpoint-rds&gt;</pre>
+        <h3>Create a Database</h3>
+        <pre class="important">
 create database zabbix character set utf8 collate utf8_bin;
 create user 'zabbix'@'%' identified by 'zabbixDBpass';
 grant all privileges on zabbix.* to 'zabbix'@'%' identified by 'zabbixDBpass';
-exit;
-</pre>
-                </div>
-                <h2 class="h2-wp">Membuat Parameter Group RDS</h2>
-                <div class="daging">
-<p style="color: white; font-size: 16px;">
-Parameter group family: mariadb10.6 <br>
-Group name: parameter-zabbix <br>
-Description: permit zabbix server to replicated databases
-</p>
-                </div>
-                <h2 class="h2-wp">Edit parameter-zabbix</h2>
-                <div class="daging">
-<p style="color: white; font-size: 16px;">
-log_bin_trust_function_creators : Value 1
-</p>
-                </div>
-                <h2 class="h2-wp">Modify Database</h2>
-                <div class="daging">
-<p style="color: white; font-size: 16px;">
-Database option : parameter-zabbix <br>
-"apply immediately" <br><br>
-
-#Reboot Database#
-</p>
-                </div>
-                <h2 class="h2-wp">Konfigurasi Database</h2>
-                <div class="daging">
-<p style="color: white; font-size: 16px;">
-sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -f --default-character-set=utf8mb4 -uzabbix -p'zabbixDBpass' -h &lt;endpoint-rds&gt; zabbix
-</p>
-                </div>
-                <h2 class="h2-wp">Verifikasi Database</h2>
-                <p><strong>nano /etc/zabbix/zabbix_server.conf</strong></p>
-                <div class="daging">
-<pre>
+exit;</pre
+        >
+        <h3>Configuration Database</h3>
+        <pre class="important">sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -f --default-character-set=utf8mb4 -uzabbix -p'zabbixDBpass' -h &lt;endpoint-rds&gt; zabbix</pre>
+        <h3>Database Verification</h3>
+        <p><strong>nano /etc/zabbix/zabbix_server.conf</strong></p>
+        <pre class="important">
 DBHost=&lt;endpoint-rds&gt;
-DBPassword=zabbixDBpass
-</pre>
-                </div>
-                <h2 class="h2-wp">Restart Firewall</h2>
-                <div class="daging">
-<pre>
+DBPassword=zabbixDBpass</pre
+        >
+        <h3>Restart Firewall</h3>
+        <pre class="important">
 ufw allow 10050/tcp
 ufw allow 10051/tcp
 ufw allow 80/tcp
 ufw reload
 
-#if cannot reload firewall, enable firewall first#
+*note: if unable to reload firewall, enable firewall first
 ufw enable
-ufw reload
-</pre>
-                </div>
-                <h2 class="h2-wp">Restart Zabbix</h2>
-                <div class="daging">
-<p style="color: white; font-size: 16px;">
-sudo systemctl restart zabbix-server zabbix-agent <br>
-sudo systemctl enable zabbix-server zabbix-agent
-</p>
-                </div>
-                <h2 class="h2-wp">Konfigurasi Timezone</h2>
-                <p><strong>nano /etc/zabbix/apache.conf</strong></p>
-                <div class="daging">
-<p style="color: white; font-size: 16px;">
-php_value date.timezone Asia/Jakarta
-</p>
-                </div>
-                <h2 class="h2-wp">Setup Zabbix</h2>
-                <p><strong>Buka Browser &lt;ip-addr-ec2/zabbix&gt;</strong></p>
-                <div class="daging">
-<p style="color: white; font-size: 16px;">
-Database type : MySQL <br>
-Database host : &lt;endpoint-rds&gt; <br>
-Database name : zabbix <br>
-User : zabbix <br>
-Password : zabbixDBpass <br>
-Database TLS encryption : yes
-</p>
-                </div>
-                <h2 class="h2-wp">Login Zabbix</h2>
-                <div class="daging">
-<pre>
+ufw reload</pre
+        >
+        <h3>Restart Zabbix Service</h3>
+        <pre class="important">
+systemctl restart zabbix-server zabbix-agent
+systemctl enable zabbix-server zabbix-agent</pre
+        >
+        <h3>Timezone configuration</h3>
+        <p><strong>nano /etc/zabbix/apache.conf</strong></p>
+        <pre class="important">php_value date.timezone Asia/Jakarta</pre>
+
+        <hr />
+        <h2>Configuration Zabbix</h2>
+        <h3>Setup Zabbix in Browser</h3>
+        <p><strong>&lt;ip-addr-pub-ec2-zabbix-server/zabbix&gt;</strong></p>
+        <pre class="important">
+Database type : MySQL
+Database host : &lt;endpoint-rds&gt;
+Database name : zabbix
+User : zabbix
+Password : zabbixDBpass
+Database TLS encryption : yes</pre
+        >
+        <h3>Login to Zabbix Dashboard</h3>
+        <pre class="important">
 User: Admin
-Pass: zabbix
-</pre>
-                </div>
-            </div>
+Pass: zabbix</pre
+        >
+      </div>
+      <!-- Article End -->
+
+      <!-- Footer -->
+      <div class="footer">
+        <hr />
+        <div class="name-footer">
+          <h2>Rizwan Fairuz Mamduh</h2>
+          <p>Contact me:</p>
         </div>
-        <div class="row">
-            <div class="footer">
-                <h1>Created By : Rizwan Fairuz Mamduh</h1>
-            </div>
+        <div class="icon-footer">
+          <div class="icon1">
+            <a href="https://wa.me/628979620353" target="_blank"><i class="bi bi-whatsapp text-success"></i></a>
+          </div>
+          <div class="icon2">
+            <a href="https://www.instagram.com/ryzwannn13/" target="_blank"><i class="bi bi-instagram text-danger"></i></a>
+          </div>
+          <div class="icon3">
+            <a href="https://www.linkedin.com/in/rizwan-fairuz-mamduh" target="_blank"><i class="bi bi-linkedin text-primary"></i></a>
+          </div>
+          <div class="icon4">
+            <a href="https://github.com/ryzwan29" target="_blank"><i class="bi bi-github text-primary"></i></a>
+          </div>
         </div>
+      </div>
+      <!-- Footer End -->
     </div>
-</body>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- JS Dark&Light Mode -->
+    <script src="/assets/js/mode.js"></script>
+  </body>
 </html>

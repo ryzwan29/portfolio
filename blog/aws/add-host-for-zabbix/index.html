@@ -159,7 +159,7 @@ Firewall : SG-All TCP Open</pre
         <h3>Access "Host-Debian" From SSH</h3>
         <pre class="important">
 cd Downloads
-ssh -i labsuser.pem admin@&lt;ip-addr-ec2-debian&gt;</pre
+ssh -i labsuser.pem admin@&lt;ip-addr-pub-ec2-debian&gt;</pre
         >
         <h3>Install Zabbix</h3>
         <p>Change to User Root</p>
@@ -178,7 +178,7 @@ apt install zabbix-agent -y</pre
         </p>
         <h3>Login To Dashboard Zabbix</h3>
         <pre class="important">
-&lt;ip-addr-ec2-zabbix&gt;
+&lt;ip-addr-pub-ec2-zabbix&gt;
 User : Admin
 Pass : zabbix
 </pre

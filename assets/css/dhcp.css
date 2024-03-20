@@ -59,11 +59,27 @@ h4 {
   font-size: 20px;
 }
 
+span{
+  color: #378ce7;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.ul-list a{
+  text-decoration: none;
+}
+
 /* Image */
 .img-xl{
   width: 70%;
   height: 80%;
   margin: 30px;
+}
+
+.img-xl-top{
+  width: 70%;
+  height: 80%;
+  margin-top: 10px;
 }
 @media screen and (max-width: 426px) {
   .all {

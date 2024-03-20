@@ -1,196 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cloud | VPC</title>
 
-    <link rel="stylesheet" href="/assets/css/dhcp.css">
-    <link rel="icon" href="/assets/img/aws.webp">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="header">
-                <div class="judul">
-                    <h1>VPC</h1>
-                </div>
-            </div>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- Icon Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/dhcp.css" />
+
+    <!-- Icon HTML -->
+    <link rel="icon" href="/assets/img/aws.webp" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top" style="background-color: #909294">
+      <div class="container-md">
+        <!-- Dark&Light Mode -->
+        <div class="dropdown">
+          <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sun-fill theme-icon-active" data-theme-icon-active="bi-sun-fill"></i></button>
+          <ul class="dropdown-menu">
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="light">
+                <i class="bi bi-sun-fill me-2 opacity-50" data-theme-icon="bi-sun-fill"></i>
+                Light
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="dark">
+                <i class="bi bi-moon-stars-fill me-2 opacity-50" data-theme-icon="bi-moon-stars-fill"></i>
+                Dark
+              </button>
+            </li>
+          </ul>
         </div>
-        <div class="row">
-            <div class="navigation">
-                <h1>Dokumentasi</h1>
-            </div>
+        <!-- Dark&Light Mode -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Rizwan <i class="bi bi-heart-fill text-danger"></i> AWS Cloud</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- Debian 10 -->
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 10 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian10/">Home-Debian 10</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dhcp-server/">1. DHCP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ssh/">2. SSH</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dns/">3. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ftp/">4. FTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/apache2/">5. Apache2 WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/wordpress/">6. Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/phpmyadmin/">7. PhpMyAdmin</a></li>
+                </ul>
+              </li>
+              <!-- Debian 11 -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 11 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian11/">Home-Debian 11</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/installation/">q. Install 3VM</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dns/">2. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/sftp/">3. SFTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/samba/">4. File Sharing Samba</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/virtualhost/">5. Virtual Host</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/myweb/">6. MyWeb</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/static/">7. Static Website</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dvwa/">8. Setup DVWA Web</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/ansible/">9. Automation With Ansible</a></li>
+                </ul>
+              </li>
+              <!-- Mikrotik -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Mikrotik </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/mikrotik/">Home-Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/basic-config/">1. Basic Config Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/vlan/">2. Configuration VLAN on the Swicth</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-static/">3. Routing Static; or</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-dynamic/">4. Routing Dynamic</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/hotspot/">5. Create Hotspot Login</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/block/">6. Block SSH, Telnet, and HTTP</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bandwidth/">7. Add Simple Queque (Bandwidth)</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/load-balancing/">8. Load Balancing</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bridge/">9. Bridge</a></li>
+                </ul>
+              </li>
+              <!-- AWS Cloud -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> AWS Cloud </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/aws/">Home-AWS Cloud</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/cpanel/">1. Install cPanel</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/wordpress/">2. Install Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nginx/">3. Install NginX</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/zabbix/">4. Install Zabbix & Database</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/add-host-for-zabbix/">5. Add Host For Monitoring</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/vpc/">6. Virtual Private Network</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/webstatic/">7. Website Static</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios/">8. Install Nagios in New EC2</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-webserver/">9. Nagios at WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-database/">10. Nagios at Database</a></li>
+                </ul>
+              </li>
+              <!-- Security -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Security </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/security/">Home-Security</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/installation/">1. Installasi</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/iptables/">2. IP Tables</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/cracklib/">3. Craklib</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/port/">4. Port Forwarding</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/mitm-and-ddos/">5. MITM & DDOS</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/snort/">6. Snort</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/otp/">7. Generated OTP</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="row">
-            <div class="sidebar">
-                <h1>Debian 10</h1>
-                <ul>
-                    <li><a href="/blog/debian10/">Home Debian</a></li>
-                    <li><a href="/blog/debian10/dhcp-server/">Superlab-DHCP Server</a></li>
-                    <li><a href="/blog/debian10/ssh/">Superlab-SSH</a></li>
-                    <li><a href="/blog/debian10/dns/">Superlab-DNS Server</a></li>
-                    <li><a href="/blog/debian10/ftp/">Superlab-FTP Server</a></li>
-                    <li><a href="/blog/debian10/apache2/">Superlab-Web Server</a></li>
-                    <li><a href="/blog/debian10/wordpress/">Superlab-Wordpress</a></li>
-                    <li><a href="/blog/debian10/phpmyadmin/">Superlab-PhpMyAdmin</a></li>
-                </ul>
-                <h1>Mikrotik</h1>
-                <ul>
-                    <li><a href="/blog/mikrotik/">Home Mikrotik</a></li>
-                    <li><a href="/blog/mikrotik/basic-config/">Basic Config</a></li>
-                    <li><a href="/blog/mikrotik/vlan/">VLAN</a></li>
-                    <li><a href="/blog/mikrotik/route-static/">Routing Static</a></li>
-                    <li><a href="/blog/mikrotik/route-dynamic/">Routing Dynamic</a></li>
-                    <li><a href="/blog/mikrotik/hotspot/">Hotspot Login</a></li>
-                    <li><a href="/blog/mikrotik/block/">Blok SSH, Telnet, HTTP</a></li>
-                    <li><a href="/blog/mikrotik/bandwidth/">Bandwidth</a></li>
-                    <li><a href="/blog/mikrotik/load-balancing/">Load Balanding</a></li>
-                    <li><a href="/blog/mikrotik/bridge/">Bridge</a></li>
-                </ul>
-                <h1>AWS Cloud</h1>
-                <ul>
-                    <li><a href="/blog/aws/">Home Cloud</a></li>
-                    <li><a href="/blog/aws/cpanel/">Install cPanel</a></li>
-                    <li><a href="/blog/aws/wordpress/">Install Wordpress</a></li>
-                    <li><a href="/blog/aws/nginx/">Install NginX</a></li>
-                    <li><a href="/blog/aws/zabbix/">Install Zabbix & Database</a></li>
-                    <li><a href="/blog/aws/add-host-for-zabbix/">Add Host For Monitoring</a></li>
-                    <li><a href="/blog/aws/vpc/">Virtual Private Network</a></li>
-                    <li><a href="/blog/aws/webstatic/">Website Static</a></li>
-                    <li><a href="/blog/aws/nagios/">Install Nagios</a></li>
-                    <li><a href="/blog/aws/nagios-for-webserver/">Nagios at WebServer</a></li>
-                    <li><a href="/blog/aws/nagios-for-database/">Nagios at Database</a></li>
-                </ul>
-                <h1>Security</h1>
-                <ul>
-                    <li><a href="/blog/security/">Home Security</a></li>
-                    <li><a href="/blog/security/installation/">Installasi</a></li>
-                    <li><a href="/blog/security/iptables/">IP Tables</a></li>
-                    <li><a href="/blog/security/cracklib/">Craklib</a></li>
-                    <li><a href="/blog/security/port/">Port Forwarding</a></li>
-                    <li><a href="/blog/security/mitm-and-ddos/">MITM&DDOS</a></li>
-                    <li><a href="/blog/security/snort/">Snort</a></li>
-                    <li><a href="/blog/security/otp/">Generated OTP</a></li>
-                </ul>
-                <h1>Debian 11</h1>
-                <ul>
-                    <li><a href="/blog/debian11/">Home Debian11</a></li>
-                    <li><a href="/blog/debian11/installation/">Install 3VM</a></li>
-                    <li><a href="/blog/debian11/dns/">DNS</a></li>
-                    <li><a href="/blog/debian11/sftp/">SFTP</a></li>
-                    <li><a href="/blog/debian11/samba/">Samba</a></li>
-                    <li><a href="/blog/debian11/virtualhost/">VirtualHost</a></li>
-                    <li><a href="/blog/debian11/myweb/">MyWeb</a></li>
-                    <li><a href="/blog/debian11/static/">Static</a></li>
-                    <li><a href="/blog/debian11/dvwa/">DVWA</a></li>
-                    <li><a href="/blog/debian11/ansible/">Automation</a></li>
-                </ul>
-                <h1>Referensi</h1>
-                <ul>
-                    <li><a target="_blank" href="https://youtube.com/playlist?list=PL2O3HdJI4voFrbZ9a6S7U-ct4B074hnGv&si=ODprtrprb8aEHkd_">Playlist Youtube belajar Cloud Networking di AWS</a></li>
-                    <li><a target="_blank" href="https://docs.aws.amazon.com/id_id/vpc/latest/userguide/what-is-amazon-vpc.html">AWS-Apa itu VPC</a></li>
-                    <li><a target="_blank" href="https://docs.aws.amazon.com/id_id/vpc/latest/userguide/how-it-works.html">AWS-Bagaimana VPC berfungsi</a></li>
-                </ul>
-            </div>
-            <div class="content">
-                <div class="text" style="margin-inline: 20px;">
-                <h1>Apa Itu VPC</h1>
-                <p>Amazon Virtual Private Cloud (VPC) adalah layanan cloud yang disediakan oleh Amazon Web Services (AWS) untuk membuat dan mengelola jaringan virtual di lingkungan cloud AWS. Dengan Amazon VPC, Anda dapat mengisolasi sumber daya komputasi secara logis, seperti mesin virtual (Amazon EC2), dan layanan lainnya didalam jaringan virtual yang terisolasi sepenuhnya dari internet atau jaringan publik. Jaringan virtual yang dibuat sangat mirip dengan jaringan tradisional yang Anda operasikan di data center on-premises, dengan manfaatnya yaitu menggunakan infrastruktur AWS yang dapat di skalakan.</p>
-                <img src="/blog/aws/img/what-is-vpc.png" alt="" class="vpc">
-                <p>Diagram diatas menunjukan contoh VPC. VPC memiliki satu subnet disetiap Availibility Zone di Region dengan EC instance disetiap subnet, dan Internet Gateway untuk memungkinkan komunikasi antara sumber daya di VPC dengan Internet.</p>
-                <h1>Toppologi</h1>
-                <img src="/blog/aws/img/vpc1.webp" alt="" class="top1">
-                
-                <h2>Create VPC</h2>
-                <div class="daging">
-<p style="color: white; font-size: 16px;">
-Pilih : VPC Only <br>
-Name tag : VPC-Jakarta <br>
-IPv4 CIDR : 10.10.0.0/16 <br>
-</p>
-                </div>
-                <h2>Create Subnet</h2>
-                <div class="daging">
-<pre>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Article -->
+    <div class="all">
+      <div class="judul">
+        <hr />
+        <h1>Create a New VPC Connection</h1>
+        <hr />
+        <img src="../img/what-is-vpc.png" alt="" class="img-xl" />
+      </div>
+      <div class="article">
+        <h3>Introduction</h3>
+        <p>
+          Amazon Virtual Private Cloud (VPC) adalah layanan cloud yang disediakan oleh Amazon Web Services (AWS) untuk membuat dan mengelola jaringan virtual di lingkungan cloud AWS. Dengan Amazon VPC, Anda dapat mengisolasi sumber daya
+          komputasi secara logis, seperti mesin virtual (Amazon EC2), dan layanan lainnya didalam jaringan virtual yang terisolasi sepenuhnya dari internet atau jaringan publik. Jaringan virtual yang dibuat sangat mirip dengan jaringan
+          tradisional yang Anda operasikan di data center on-premises, dengan manfaatnya yaitu menggunakan infrastruktur AWS yang dapat di skalakan.
+        </p>
+
+        <hr />
+        <div class="gambar">
+          <h3>Toppologi</h3>
+          <img src="../img/top-vpc.jpg" alt="" class="img-xl-top" />
+        </div>
+
+        <hr />
+        <h2>Configuration AWS</h2>
+        <h3>Create a New VPC</h3>
+        <pre class="important">
+Pilih : VPC Only
+Name tag : VPC-Jakarta
+IPv4 CIDR : 10.10.0.0/16</pre
+        >
+        <h3>Create Subnet</h3>
+        <h4>Public Subnet</h4>
+        <pre class="important">
 #Public Subnet#
 VPC ID : VPC-Jakarta
 Subnet name : pub-subnet-jakarta
 Availibility Zone : us-east-1a
-IPv4 CIDR : 10.10.1.0/24
-    
+IPv4 CIDR : 10.10.1.0/24</pre
+        >
+        <h4>Private Subnet</h4>
+        <pre class="important">
 #Private Subnet#
 VPC ID : VPC-Jakarta
 Subnet name : priv-subnet-jakarta
 Availibility Zone : us-east-1a
-IPv4 CIDR : 10.10.2.0/24
-</pre>
-                </div>
-                <h2>Edit Public Subnet</h2>
-                <div class="daging">
-<p style="color: white; font-size: 15px;">
-Enable auto-assign public IPv4 address : yes <br>
-Enable resource name DNS A record on launch : yes
-</p>
-                </div>
-                <h2>Create Internet Gateway</h2>
-                <div class="daging">
-<pre>
+IPv4 CIDR : 10.10.2.0/24</pre
+        >
+        <h4>Edit Public Subnet</h4>
+        <pre class="important">
+Enable auto-assign public IPv4 address : yes
+Enable resource name DNS A record on launch : yes</pre
+        >
+        <h3>Create Internet Gateway</h3>
+        <pre class="important">
 Name tag : IGW-VPC-Jakarta
-Attach to VPC-Jakarta
-</pre>
-                </div>
-                <h2>Create NAT Gateway</h2>
-                <div class="daging">
-<pre>
+"Attach to VPC-Jakarta"</pre
+        >
+        <h3>Create NAT Gateway</h3>
+        <pre class="important">
 Name : NGW-VPC-Jakarta
 Subnet : pub-subnet-jakarta
 Connectivity type : Public
-Klik "Allocate Elastic IP"
-</pre>
-                </div>
-                <h2>Create Routes Table</h2>
-                <div class="daging">
-<pre>
+
+"Allocate Elastic IP"</pre
+        >
+        <h3>Create Routes Table</h3>
+        <h4>Public Routes Tables</h4>
+        <pre class="important">
 #Public Routes Table#
 Name : pub-route-jakarta
-VPC : VPC-Jakarta
-
+VPC : VPC-Jakarta</pre
+        >
+        <h4>Private Routes Tables</h4>
+        <pre class="important">
 #Private Routes Table#
 Name : priv-route-jakarta
-VPC : VPC-Jakarta
-</pre>
-                </div>
-                <h2>Edit Routes Table</h2>
-                <div class="daging">
-<pre>
+VPC : VPC-Jakarta</pre
+        >
+        <h3>Edit Routes Tables</h3>
+        <h4>Public Rotes Tables</h4>
+        <pre class="important">
 #Public Routes Table#
 10.10.0.0/16 : Local
-0.0.0.0/0 : Internet Gateway
-
+0.0.0.0/0 : Internet Gateway</pre
+        >
+        <h4>Private Routes Tables</h4>
+        <pre class="important">
 #Private Routes Table#
 10.10.0.0/16 : Local
-0.0.0.0/0 : NAT Gateway
-
-
-##Edit Subnet Associations##
+0.0.0.0/0 : NAT Gateway</pre
+        >
+        <h4>Edit Subnet Associations</h4>
+        <pre class="important">
 #Public#
 Explicit subnet associations : pub-subnet-jakarta
 
 #Private#
-Explicit subnet associations : priv-subnet-jakarta
-</pre>
-                </div>
-                <h2>Create Security Group</h2>
-                <div class="daging">
-<pre>
+Explicit subnet associations : priv-subnet-jakarta</pre
+        >
+        <h3>Create Security Group</h3>
+        <h4>Bastion Host</h4>
+        <pre class="important">
 Name : SG-BastionHost
 VPC : VPC-Jakarta
 Inbound Rules :
     - SSH | Any Where (IPv4)
 Outbound Rules : 
-    - All Trafic | Any Where (IPv4)
-
+    - All Trafic | Any Where (IPv4)</pre
+        >
+        <h4>WebServer</h4>
+        <pre class="important">
 Name : SG-WebServer
 VPC : VPC-Jakarta
 Inbound Rules :
@@ -198,20 +257,21 @@ Inbound Rules :
     - HTTP | Any Where (IPv4)
     - HTTPS | Any Where (IPv4)
 Outbound Rules : 
-    - All Trafic | Any Where (IPv4)
-
+    - All Trafic | Any Where (IPv4)</pre
+        >
+        <h4>Database</h4>
+        <pre class="important">
 Name : SG-DBServer
 VPC : VPC-Jakarta
 Inbound Rules :
     - SSH | Custom : SG-BastionHost
     - MySQL/Aurora | Custom : SG-WebServer
 Outbound Rules : 
-    - All Trafic | Any Where (IPv4)
-</pre>
-                </div>
-                <h2>Create EC2</h2>
-                <div class="daging">
-<pre>
+    - All Trafic | Any Where (IPv4)</pre
+        >
+        <h3>Create EC2 Instance</h3>
+        <h4>Bastion Host</h4>
+        <pre class="important">
 #Bastion Host#
 Name : Bastion Host
 OS : Ubuntu 22.04
@@ -222,8 +282,10 @@ Network Setting : klik Edit
 	Subnet = pub-subnet-jakarta
 	Auto-assign public IP : enable
 	Security Group : SG-BastionHost
-Storage / EBS : 8GB
-
+Storage / EBS : 8GB</pre
+        >
+        <h4>WebServer</h4>
+        <pre class="important">
 #WebServer#
 Name & Tag : WebServer
 OS : Debian 12
@@ -234,8 +296,10 @@ Network Setting : klik Edit
 	Subnet = pub-subnet-jakarta
 	Auto-assign public IP : enable
 	Security Group : SG-WebServer
-Storage / EBS : 10GB
-
+Storage / EBS : 10GB</pre
+        >
+        <h4>Database</h4>
+        <pre class="important">
 #Database#
 Name & Tag : DBInstance
 OS : Debian 12
@@ -246,64 +310,86 @@ Network Setting : klik Edit
 	Subnet = priv-subnet-jakarta
 	Auto-assign public IP : disable
 	Security Group : SG-DBServer
-Storage / EBS : 10GB
-</pre>
-                </div>
-                <h2>=== IP Address ===</h2>
-                <table border="1" cellpadding="10">
-                    <tr>
-                        <td>Instance</td>
-                        <td>IP Public</td>
-                        <td>IP Private</td>
-                    </tr>
-                    <tr>
-                        <td>Bastion Host</td>
-                        <td>3.82.107.26</td>
-                        <td>10.10.1.198</td>
-                    </tr>
-                    <tr>
-                        <td>Web Server</td>
-                        <td>52.91.87.14</td>
-                        <td>10.10.1.85</td>
-                    </tr>
-                    <tr>
-                        <td>DBInstance</td>
-                        <td >-</td>
-                        <td>10.10.2.107</td>
-                    </tr>
-                </table>
-                <h2>How to Connect SSH</h2>
-                <ol>
-                    <li>Open GitBash</li>
-                    <li>cd Downloads/</li>
-                    <li>ssh-agent bash</li>
-                    <li>ssh-add labsuser.pem</li>
-                </ol>
-                <p><strong>ssh -A -i labsuser username@ip-addr-pub-bastion</strong></p>
-    
-                <div class="daging">
-<p style="color: white; font-size: 16px;">
-ssh -A -i labsuser ubuntu@3.82.107.26
-</p>
-                </div>
-                <h2>SSH Jump to WebServer/DBInstance</h2>
-                <p><strong>Dari Bastion Host</strong></p>
-                <div class="daging">
-<pre>
-ssh username@ip-priv-ec2
+Storage / EBS : 10GB</pre
+        >
 
-ssh admin@10.10.1.85
-ssh admin@10.10.2.107
-</pre>
-                </div>
-            </div>
-            </div>
+        <hr />
+        <table class="table table-secondary table-striped table-bordered border-primary">
+          <tr>
+            <td>Instance</td>
+            <td>IP Public</td>
+            <td>IP Private</td>
+          </tr>
+          <tr>
+            <td>Bastion Host</td>
+            <td>3.82.107.26</td>
+            <td>10.10.1.198</td>
+          </tr>
+          <tr>
+            <td>Web Server</td>
+            <td>52.91.87.14</td>
+            <td>10.10.1.85</td>
+          </tr>
+          <tr>
+            <td>DBInstance</td>
+            <td>-</td>
+            <td>10.10.2.107</td>
+          </tr>
+        </table>
+        <h3>How to Connect SSH</h3>
+        <ol>
+          <li>Open GitBash</li>
+          <li>cd Downloads/</li>
+          <li>ssh-agent bash</li>
+          <li>ssh-add labsuser.pem</li>
+        </ol>
+        <pre class="important">ssh -A -i labsuser ubuntu@&lt;ip-addr-pub-bastion&gt;</pre>
+        <h3>Jump SSH to WebServer/DBInstance</h3>
+        <p>From Bastion-Host</p>
+        <pre class="important">
+ssh admin@&lt;ip-addr-priv-webserver&gt;
+ssh admin@&lt;ip-addr-priv-dbinstance&gt;</pre
+        >
+
+        <hr />
+        <h3>Reference :</h3>
+        <ul class="ul-list">
+          <li><a href="https://youtube.com/playlist?list=PL2O3HdJI4voFrbZ9a6S7U-ct4B074hnGv&si=UiZACZsbYVFBHh69" class="text-success">Playlist Youtube belajar Cloud Networking di AWS</a></li>
+          <li><a href="https://docs.aws.amazon.com/id_id/vpc/latest/userguide/what-is-amazon-vpc.html" class="text-success">AWS- Apa itu VPC</a></li>
+          <li><a href="https://docs.aws.amazon.com/id_id/vpc/latest/userguide/how-it-works.html" class="text-success">AWS- Bagaimana cara kerja VPC berfungsi</a></li>
+        </ul>
+      </div>
+      <!-- Article End -->
+
+      <!-- Footer -->
+      <div class="footer">
+        <hr />
+        <div class="name-footer">
+          <h2>Rizwan Fairuz Mamduh</h2>
+          <p>Contact me:</p>
         </div>
-        <div class="row">
-            <div class="footer">
-                <h1>Created By : Rizwan Fairuz Mamduh</h1>
-            </div>
+        <div class="icon-footer">
+          <div class="icon1">
+            <a href="https://wa.me/628979620353" target="_blank"><i class="bi bi-whatsapp text-success"></i></a>
+          </div>
+          <div class="icon2">
+            <a href="https://www.instagram.com/ryzwannn13/" target="_blank"><i class="bi bi-instagram text-danger"></i></a>
+          </div>
+          <div class="icon3">
+            <a href="https://www.linkedin.com/in/rizwan-fairuz-mamduh" target="_blank"><i class="bi bi-linkedin text-primary"></i></a>
+          </div>
+          <div class="icon4">
+            <a href="https://github.com/ryzwan29" target="_blank"><i class="bi bi-github text-primary"></i></a>
+          </div>
         </div>
+      </div>
+      <!-- Footer End -->
     </div>
-</body>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- JS Dark&Light Mode -->
+    <script src="/assets/js/mode.js"></script>
+  </body>
 </html>
