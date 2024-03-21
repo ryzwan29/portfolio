@@ -1,354 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security | IP Tables</title>
-    <link rel="stylesheet" href="/assets/css/dhcp.css">
-    <link rel="icon" href="/assets/img/hack.png">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="header">
-                <div class="judul">
-                    <h1>IP Tables</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="navigation">
-                <h1>Dokumentasi</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="sidebar">
-                <h1>Debian 10</h1>
-                <ul>
-                    <li><a href="/blog/debian10/">Home Debian</a></li>
-                    <li><a href="/blog/debian10/dhcp-server/">Superlab-DHCP Server</a></li>
-                    <li><a href="/blog/debian10/ssh/">Superlab-SSH</a></li>
-                    <li><a href="/blog/debian10/dns/">Superlab-DNS Server</a></li>
-                    <li><a href="/blog/debian10/ftp/">Superlab-FTP Server</a></li>
-                    <li><a href="/blog/debian10/apache2/">Superlab-Web Server</a></li>
-                    <li><a href="/blog/debian10/wordpress/">Superlab-Wordpress</a></li>
-                    <li><a href="/blog/debian10/phpmyadmin/">Superlab-PhpMyAdmin</a></li>
-                </ul>
-                <h1>Mikrotik</h1>
-                <ul>
-                    <li><a href="/blog/mikrotik/">Home Mikrotik</a></li>
-                    <li><a href="/blog/mikrotik/basic-config/">Basic Config</a></li>
-                    <li><a href="/blog/mikrotik/vlan/">VLAN</a></li>
-                    <li><a href="/blog/mikrotik/route-static/">Routing Static</a></li>
-                    <li><a href="/blog/mikrotik/route-dynamic/">Routing Dynamic</a></li>
-                    <li><a href="/blog/mikrotik/hotspot/">Hotspot Login</a></li>
-                    <li><a href="/blog/mikrotik/block/">Blok SSH, Telnet, HTTP</a></li>
-                    <li><a href="/blog/mikrotik/bandwidth/">Bandwidth</a></li>
-                    <li><a href="/blog/mikrotik/load-balancing/">Load Balanding</a></li>
-                    <li><a href="/blog/mikrotik/bridge/">Bridge</a></li>
-                </ul>
-                <h1>AWS Cloud</h1>
-                <ul>
-                    <li><a href="/blog/aws/">Home Cloud</a></li>
-                    <li><a href="/blog/aws/cpanel/">Install cPanel</a></li>
-                    <li><a href="/blog/aws/wordpress/">Install Wordpress</a></li>
-                    <li><a href="/blog/aws/nginx/">Install NginX</a></li>
-                    <li><a href="/blog/aws/zabbix/">Install Zabbix & Database</a></li>
-                    <li><a href="/blog/aws/add-host-for-zabbix/">Add Host For Monitoring</a></li>
-                    <li><a href="/blog/aws/vpc/">Virtual Private Network</a></li>
-                    <li><a href="/blog/aws/webstatic/">Website Static</a></li>
-                    <li><a href="/blog/aws/nagios/">Install Nagios</a></li>
-                    <li><a href="/blog/aws/nagios-for-webserver/">Nagios at WebServer</a></li>
-                    <li><a href="/blog/aws/nagios-for-database/">Nagios at Database</a></li>
-                </ul>
-                <h1>Security</h1>
-                <ul>
-                    <li><a href="/blog/security/">Home Security</a></li>
-                    <li><a href="/blog/security/installation/">Installasi</a></li>
-                    <li><a href="/blog/security/iptables/">IP Tables</a></li>
-                    <li><a href="/blog/security/cracklib/">Craklib</a></li>
-                    <li><a href="/blog/security/port/">Port Forwarding</a></li>
-                    <li><a href="/blog/security/mitm-and-ddos/">MITM&DDOS</a></li>
-                    <li><a href="/blog/security/snort/">Snort</a></li>
-                    <li><a href="/blog/security/otp/">Generated OTP</a></li>
-                </ul>
-                <h1>Debian 11</h1>
-                <ul>
-                    <li><a href="/blog/debian11/">Home Debian11</a></li>
-                    <li><a href="/blog/debian11/installation/">Install 3VM</a></li>
-                    <li><a href="/blog/debian11/dns/">DNS</a></li>
-                    <li><a href="/blog/debian11/sftp/">SFTP</a></li>
-                    <li><a href="/blog/debian11/samba/">Samba</a></li>
-                    <li><a href="/blog/debian11/virtualhost/">VirtualHost</a></li>
-                    <li><a href="/blog/debian11/myweb/">MyWeb</a></li>
-                    <li><a href="/blog/debian11/static/">Static</a></li>
-                    <li><a href="/blog/debian11/dvwa/">DVWA</a></li>
-                    <li><a href="/blog/debian11/ansible/">Automation</a></li>
-                </ul>
-            </div>
-            <div class="content">
-                <h1>Konfigurasi</h1>
-                <h2>Debian 10- Router</h2>
-                <h2 class="h2-wp">Interfaces</h2>
-                <p>
-                ens33 NAT : 192.168.91.0/24 <br>
-                ens36 LAN : 11.1.25.254/24 <br>
-                </p>
-                <h2 class="h2-wp">Package</h2>
-                <ul>
-                    <li>net-tools</li>
-                    <li>iptables-persistent</li>
-                    <li>netfilter-persistent</li>
-                    <li>proftpd (new)</li>
-                </ul>
-                <p>Kali ini kita akan menginstall FTP menggunakan software proftpd didalam <strong>Debian 10-Router</strong></p>
-                <div class="daging">
-<pre>
-apt install proftpd
-</pre>
-                </div>
-                <p>Setelah itu kita masuk dan mengganti isi file nya</p>
-                <div class="daging">
-<pre>
-nano /etc/proftpd/proftpd.conf
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security | IPTables</title>
 
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- Icon Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/dhcp.css" />
+
+    <!-- Icon HTML -->
+    <link rel="icon" href="/assets/img/hack.png" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top" style="background-color: #909294">
+      <div class="container-md">
+        <!-- Dark&Light Mode -->
+        <div class="dropdown">
+          <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sun-fill theme-icon-active" data-theme-icon-active="bi-sun-fill"></i></button>
+          <ul class="dropdown-menu">
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="light">
+                <i class="bi bi-sun-fill me-2 opacity-50" data-theme-icon="bi-sun-fill"></i>
+                Light
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="dark">
+                <i class="bi bi-moon-stars-fill me-2 opacity-50" data-theme-icon="bi-moon-stars-fill"></i>
+                Dark
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- Dark&Light Mode -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Rizwan <i class="bi bi-heart-fill text-danger"></i> AWS Cloud</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- Debian 10 -->
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 10 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian10/">Home-Debian 10</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dhcp-server/">1. DHCP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ssh/">2. SSH</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dns/">3. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ftp/">4. FTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/apache2/">5. Apache2 WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/wordpress/">6. Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/phpmyadmin/">7. PhpMyAdmin</a></li>
+                </ul>
+              </li>
+              <!-- Debian 11 -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 11 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian11/">Home-Debian 11</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/installation/">q. Install 3VM</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dns/">2. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/sftp/">3. SFTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/samba/">4. File Sharing Samba</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/virtualhost/">5. Virtual Host</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/myweb/">6. MyWeb</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/static/">7. Static Website</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dvwa/">8. Setup DVWA Web</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/ansible/">9. Automation With Ansible</a></li>
+                </ul>
+              </li>
+              <!-- Mikrotik -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Mikrotik </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/mikrotik/">Home-Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/basic-config/">1. Basic Config Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/vlan/">2. Configuration VLAN on the Swicth</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-static/">3. Routing Static; or</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-dynamic/">4. Routing Dynamic</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/hotspot/">5. Create Hotspot Login</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/block/">6. Block SSH, Telnet, and HTTP</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bandwidth/">7. Add Simple Queque (Bandwidth)</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/load-balancing/">8. Load Balancing</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bridge/">9. Bridge</a></li>
+                </ul>
+              </li>
+              <!-- AWS Cloud -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> AWS Cloud </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/aws/">Home-AWS Cloud</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/cpanel/">1. Install cPanel</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/wordpress/">2. Install Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nginx/">3. Install NginX</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/zabbix/">4. Install Zabbix & Database</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/add-host-for-zabbix/">5. Add Host For Monitoring</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/vpc/">6. Virtual Private Network</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/webstatic/">7. Website Static</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios/">8. Install Nagios in New EC2</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-webserver/">9. Nagios at WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-database/">10. Nagios at Database</a></li>
+                </ul>
+              </li>
+              <!-- Security -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Security </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/security/">Home-Security</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/installation/">1. Installasi</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/iptables/">2. IP Tables</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/cracklib/">3. Craklib</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/port/">4. Port Forwarding</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/mitm-and-ddos/">5. MITM & DDOS</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/snort/">6. Snort</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/otp/">7. Generated OTP</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Article -->
+    <div class="all">
+      <div class="judul">
+        <hr />
+        <h1>How to Block Internet Connection Using IPTables Tools</h1>
+        <hr />
+      </div>
+      <div class="gambar">
+        <img src="../img/iptables.png" alt="" class="img-xl" />
+      </div>
+      <div class="article">
+        <h3>Introduction</h3>
+        <p>
+          Iptables adalah tool atau aplikasi yang berfungsi sebagai firewall dalam sistem operasi Linux. Dengan iptables, Anda bisa mengatur lalu lintas jaringan dalam server seperti mengizinkan, memblokir atau melewatkan koneksi masuk dan
+          keluar, mengelola port dan lain sebagainya. Iptables adalah aplikasi firewall yang digunakan secara default pada bermacam distribusi Linux, khususnya pada server yang tidak menggunakan control panel grafis seperti cPanel atau
+          Plesk Panel.
+        </p>
+        <p>
+          Iptables bekerja dengan cara membaca lalu lintas jaringan dan membandingkannya dengan serangkaian aturan yang sudah dibuat. Aturan dalam iptables berbentuk table yang terdiri dari serangkaian rules atau aturan yang disebut chain.
+          Ada tiga table utama dalam Iptables, yaitu Filter, NAT dan Mangle. Pada artikel kali ini, kami akan fokus membahas table Filter karena paling sering digunakan dalam operasional server dengan sistem operasi Linux.
+        </p>
+
+        <hr />
+        <h2>Configuration</h2>
+        <h3>Debian 10-Server</h3>
+        <h4>Install Package</h4>
+        <pre class="important">apt install proftpd -y</pre>
+        <h4>Change the contents of the proftpd file</h4>
+        <p>nano /etc/proftpd/proftpd.conf</p>
+        <pre class="important">
 #DefautRoot
-Diubah menjadi
-DefautRoot
-</pre>
-                </div>
-                <p>Lalu restart service proftpd agar bisa berjalan disisi client dengan baik dan benar</p>
-                <div class="daging">
-<pre>
-/etc/init.d/proftpd restart
-</pre>
-                </div>
-                <p>Cek service dari browser client dengan mengetikan url : ftp://IP-Internet <br>
-                Contoh : <mark>ftp://192.168.91.150</mark></p>
-                <img src="/blog/security/img/test-ftp1.png" alt="" class="test-ftp1">
+*change to
+DefautRoot</pre
+        >
+        <h4>Restart proftpd Service</h4>
+        <pre class="important">/etc/init.d/proftpd restart</pre>
+        <p>
+          Cek service dari browser client dengan mengetikan url : ftp://IP-Internet <br />
+          <strong>Contoh : ftp://192.168.91.150</strong>
+        </p>
 
-                <h1>iptables-1</h1>
-                <p>iptables kali ini bertujuan untuk blok semua paket yang berasal dari ip pool 192.168.91.0/24</p>
-                <div class="daging">
-<pre>
-iptables -A INPUT -s 192.168.91.150/24 -j DROP
-</pre>
-                </div>
-                <p>untuk mengecek ada firewall apasaja di Virtual Machine kita ketikkan:</p>
-                <div class="daging">
-<pre>
-iptables -nvL
-</pre>
-                </div>
-                <p>Untuk cek apakah koneksi dari ip tersebut sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Debian 10- Router atau semua Virtual Machine yang kita punya</strong> lalu kita ping ke alamat ip 192.168.91.150</p>
-                <div class="daging">
-<pre>
-ping 192.168.91.150
+        <hr />
+        <h2>Configuration IPTables</h2>
+        <h3>Debian 10-Router</h3>
 
-pastikan hasilnya "Request Time Out"
-</pre>
-                </div>
-                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
-                <div class="daging">
-<pre>
-iptables -F
-</pre>
-                </div>
-                <h1>iptables-2</h1>
-                <p>iptables kali ini bertujuan untuk blok semua paket yang berasal dari Interfaces ens33 milik <strong>Debian 10- Router</strong></p>
-                <div class="daging">
-<pre>
-iptables -A INPUT -i ens33 -j DROP
-</pre>
-                </div>
-                <p>untuk mengecek ada firewall apasaja di Virtual Machine kita ketikkan:</p>
-                <div class="daging">
-<pre>
-iptables -nvL
-</pre>
-                </div>
-                <p>Untuk cek apakah koneksi dari ip tersebut sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Debian 10- Router atau semua Virtual Machine yang kita punya</strong> lalu kita ping ke alamat ip 192.168.91.150</p>
-                <div class="daging">
-<pre>
-ping 192.168.91.150
+        <h4>iptables 1</h4>
+        <p>iptables kali ini bertujuan untuk blok semua paket yang berasal dari ip pool 192.168.91.0/24</p>
+        <pre class="important">iptables -A INPUT -s 192.168.91.150/24 -j DROP</pre>
+        <p>untuk mengecek ada firewall apasaja di Virtual Machine kita ketikkan:</p>
+        <pre class="important">iptables -nvL</pre>
+        <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
+        <pre class="important">iptables -F</pre>
 
-pastikan hasilnya "Request Time Out"
-</pre>
-                </div>
-                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
-                <div class="daging">
-<pre>
-iptables -F
-</pre>
-                </div>
-                <h1>iptables-3</h1>
-                <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim ke ip local kita yaitu <mark>11.1.25.0/24</mark></p>
-                <div class="daging">
-<pre>
-iptables -A OUTPUT -s 11.1.25.1/24 -j DROP
-</pre>
-                </div>
-                <p>untuk mengecek ada firewall apasaja di Virtual Machine kita ketikkan:</p>
-                <div class="daging">
-<pre>
-iptables -nvL
-</pre>
-                </div>
-                <p>Untuk cek apakah koneksi dari ip tersebut sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Debian 10- Router</strong> lalu kita ping ke alamat ip local kita, yaitu <mark>11.1.25.0/24</mark></p>
-                <div class="daging">
-<pre>
-ping 11.1.25.1
-ping 11.1.25.2
-ping 11.1.25.3
-
-pastikan hasilnya "Operation not permitted"
-</pre>
-                </div>
-                <p>Lalu kita cek juga dari sisi client (Debian 10- Server, Kali Linux, Windows- Client) untuk cek apakah kita bisa berkomunikasi dengan Debian 10- Router atau tidak.</p>
-                <div class="daging">
-<pre>
-ping 11.1.25.1
-ping 11.1.25.2
-ping 11.1.25.3
-ping 11.1.25.254
-    
-pastikan hasilnya "Request Time Out"
-</pre>
-                </div>
-                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
-                <div class="daging">
-<pre>
-iptables -F
-</pre>
-                </div>
-                <h1>iptables-4</h1>
-                <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim ke Interfaces ens36 milik <strong>Debian 10- Router</strong></p>
-                <div class="daging">
-<pre>
-iptables -A OUTPUT -o ens36 -j DROP
-</pre>
-                </div>
-                <p>untuk mengecek ada firewall apasaja di Virtual Machine kita ketikkan:</p>
-                <div class="daging">
-<pre>
-iptables -nvL
-</pre>
-                </div>
-                <p>Untuk cek apakah koneksi dari ip tersebut sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Debian 10- Router</strong> lalu kita ping ke alamat ip Interfaces ens36 milik Debian 10- Router, yaitu <mark>11.1.25.0/24</mark></p>
-                <div class="daging">
-<pre>
-ping 11.1.25.1
-ping 11.1.25.2
-ping 11.1.25.3
-
-pastikan hasilnya "Operation not permitted"
-</pre>
-                </div>
-                <p>Lalu kita cek juga dari sisi client (Debian 10- Server, Kali Linux, Windows- Client) untuk cek apakah kita bisa berkomunikasi dengan Debian 10- Router atau tidak.</p>
-                <div class="daging">
-<pre>
-ping 11.1.25.1
-ping 11.1.25.2
-ping 11.1.25.3
-ping 11.1.25.254
-    
-pastikan hasilnya "Request Time Out"
-</pre>
-                </div>
-                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
-                <div class="daging">
-<pre>
-iptables -F
-</pre>
-                </div>
-                <h1>iptables-5</h1>
-                <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim menuju port 21 (Default port milik FTP) miliknya <strong>Debian 10- Router</strong></p>
-                <div class="daging">
-<pre>
-iptables –A INPUT –p tcp --dport 21 –j DROP
-</pre>
-                </div>
-                <p>Untuk cek apakah port 21 sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Windows- Client</strong> lalu kita browsing ke alamat service FTP milik <mark>Debian 10- Router</mark> dengan cara</p>
-                <div class="daging">
-<pre>
+        <h4>iptables 2</h4>
+        <p>iptables kali ini bertujuan untuk blok semua paket yang berasal dari Interfaces ens33 milik Debian 10- Router</p>
+        <pre class="important">iptables -A INPUT -i ens33 -j DROP</pre>
+        <h4>iptables 3</h4>
+        <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim ke ip local kita yaitu 11.1.25.0/24</p>
+        <pre class="important">iptables -A OUTPUT -s 11.1.25.1/24 -j DROP</pre>
+        <h4>iptables 4</h4>
+        <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim ke Interfaces ens36 milik Debian 10- Router</p>
+        <pre class="important">iptables -A OUTPUT -o ens36 -j DROP</pre>
+        <h4>iptables 5</h4>
+        <h4>Port 21</h4>
+        <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim menuju port 21 (Default port milik FTP) miliknya Debian 10- Router</p>
+        <pre class="important">iptables –A INPUT –p tcp --dport 21 –j DROP</pre>
+        <p>Untuk cek apakah port 21 sudah terblokir atau belum, bisa cek dengan cara masuk ke Windows- Client lalu kita browsing ke alamat service FTP milik Debian 10- Router dengan cara</p>
+        <pre class="important">
 ftp://11.1.25.254
-atau
-ftp://192.168.91.150
-</pre>
-                </div>
-                <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim menuju port 22 (Default port milik SSH) miliknya <strong>Debian 10- Router</strong></p>
-                <div class="daging">
-<pre>
-iptables –A INPUT –p tcp --dport 22–j DROP
-</pre>
-                </div>
-                <p>Untuk cek apakah port 22 sudah terblokir atau belum, bisa cek dengan cara masuk ke <strong>Windows- Client</strong> lalu SSH menggunakan putty/cmd menuju <mark>Debian 10- Router</mark> dengan cara</p>
-                <div class="daging">
-<pre>
-ssh rizwan@11.1.25.254
-
-pastikan hasilnya "Connection refused"
-</pre>
-                </div>
-                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
-                <div class="daging">
-<pre>
-iptables -F
-</pre>
-                </div>
-                <h1>iptables-6</h1>
-                <p>iptables kali ini bertujuan untuk blok paket ping yang akan dikirim menuju ens33 miliknya <strong>Debian 10- Router</strong></p>
-                <div class="daging">
-<pre>
-iptables –A INPUT –s ens33 –p icmp –j DROP
-</pre>
-                </div>
-                <p>Untuk cek apakah firewall blok ping sudah berhasil atau belum, bisa cek dengan cara masuk ke <strong>Windows- Client</strong> lalu ping menuju IP Internet miliknya <mark>Debian 10- Router</mark> dengan cara</p>
-                <div class="daging">
-<pre>
+*or
+ftp://192.168.91.150</pre
+        >
+        <h4>Port 22</h4>
+        <p>iptables kali ini bertujuan untuk blok semua paket yang akan dikirim menuju port 22 (Default port milik SSH) miliknya Debian 10- Router</p>
+        <pre class="important">iptables –A INPUT –p tcp --dport 22–j DROP</pre>
+        <p>Untuk cek apakah port 22 sudah terblokir atau belum, bisa cek dengan cara masuk ke Windows- Client lalu SSH menggunakan putty/cmd menuju Debian 10- Router dengan cara</p>
+        <pre class="important">ssh rizwan@11.1.25.254</pre>
+        <h4>iptables 6</h4>
+        <h4>Block Ping</h4>
+        <p>iptables kali ini bertujuan untuk blok paket ping yang akan dikirim menuju ens33 miliknya Debian 10- Router</p>
+        <pre class="important">iptables –A INPUT –s ens33 –p icmp –j DROP</pre>
+        <p>Untuk cek apakah firewall blok ping sudah berhasil atau belum, bisa cek dengan cara masuk ke Windows- Client lalu ping menuju IP Internet miliknya Debian 10- Router dengan cara</p>
+        <pre class="important">
 ping 192.168.91.150
-
-pastikan hasilnya "Request Time Out"
-</pre>
-                </div>
-                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
-                <div class="daging">
-<pre>
-iptables -F
-</pre>
-                </div>
-                <p>iptables kali ini bertujuan untuk <strong>menolak</strong> paket ping yang akan dikirim menuju ens33 miliknya <strong>Debian 10- Router</strong></p>
-                <p>Untuk cek apakah firewall menolak paket ping sudah berhasil atau belum, bisa cek dengan cara masuk ke <strong>Windows- Client</strong> lalu ping menuju IP Internet miliknya <mark>Debian 10- Router</mark> dengan cara</p>
-                <div class="daging">
-<pre>
+*pastikan hasilnya "Request Time Out"</pre
+        >
+        <h4>Reject Ping</h4>
+        <p>iptables kali ini bertujuan untuk menolak paket ping yang akan dikirim menuju ens33 miliknya Debian 10- Router</p>
+        <pre class="important">iptables –A INPUT –i ens33 –p icmp -j REJECT</pre>
+        <p>Untuk cek apakah firewall menolak paket ping sudah berhasil atau belum, bisa cek dengan cara masuk ke Windows- Client lalu ping menuju IP Internet miliknya Debian 10- Router dengan cara</p>
+        <pre class="important">
 ping 192.168.91.150
+*pastikan hasilnya "Destination Port Unreachable"</pre
+        >
 
-pastikan hasilnya "Destination Port Unreachable"
-</pre>
-                </div>
-                <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
-                <div class="daging">
-<pre>
-iptables -F
-</pre>
-                </div>
-                <p>Atau jika ingin menyimpan konfigurasinya bisa dengan mengetik command</p>
-                <div class="daging">
-<pre>
+        <hr />
+        <h2>Configuration is Completed</h2>
+        <p>Untuk menghapus semua firewall yang sudah kita buat, silahkan ketik:</p>
+        <pre class="important">iptables -F</pre>
+        <p>Atau jika ingin menyimpan konfigurasinya bisa dengan mengetik command</p>
+        <pre class="important">
 iptables-save
+*or
+netfilter-persistent save</pre
+        >
+      </div>
+      <!-- Article End -->
 
-atau
-
-netfilter-persistent save
-</pre>
-                </div>
-            </div>
+      <!-- Footer -->
+      <div class="footer">
+        <hr />
+        <div class="name-footer">
+          <h2>Rizwan Fairuz Mamduh</h2>
+          <p>Contact me:</p>
         </div>
-        <div class="row">
-            <div class="footer">
-                <h1>Created By : Rizwan Fairuz Mamduh</h1>
-            </div>
+        <div class="icon-footer">
+          <div class="icon1">
+            <a href="https://wa.me/628979620353" target="_blank"><i class="bi bi-whatsapp text-success"></i></a>
+          </div>
+          <div class="icon2">
+            <a href="https://www.instagram.com/ryzwannn13/" target="_blank"><i class="bi bi-instagram text-danger"></i></a>
+          </div>
+          <div class="icon3">
+            <a href="https://www.linkedin.com/in/rizwan-fairuz-mamduh" target="_blank"><i class="bi bi-linkedin text-primary"></i></a>
+          </div>
+          <div class="icon4">
+            <a href="https://github.com/ryzwan29" target="_blank"><i class="bi bi-github text-primary"></i></a>
+          </div>
         </div>
+      </div>
+      <!-- Footer End -->
     </div>
-</body>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- JS Dark&Light Mode -->
+    <script src="/assets/js/mode.js"></script>
+  </body>
 </html>

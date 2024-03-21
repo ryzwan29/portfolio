@@ -1,146 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security | Installasi</title>
-    <link rel="stylesheet" href="/assets/css/dhcp.css">
-    <link rel="icon" href="/assets/img/hack.png">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="header">
-                <div class="judul">
-                    <h1>Installasi</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="navigation">
-                <h1>Dokumentasi</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="sidebar">
-                <h1>Debian 10</h1>
-                <ul>
-                    <li><a href="/blog/debian10/">Home Debian</a></li>
-                    <li><a href="/blog/debian10/dhcp-server/">Superlab-DHCP Server</a></li>
-                    <li><a href="/blog/debian10/ssh/">Superlab-SSH</a></li>
-                    <li><a href="/blog/debian10/dns/">Superlab-DNS Server</a></li>
-                    <li><a href="/blog/debian10/ftp/">Superlab-FTP Server</a></li>
-                    <li><a href="/blog/debian10/apache2/">Superlab-Web Server</a></li>
-                    <li><a href="/blog/debian10/wordpress/">Superlab-Wordpress</a></li>
-                    <li><a href="/blog/debian10/phpmyadmin/">Superlab-PhpMyAdmin</a></li>
-                </ul>
-                <h1>Mikrotik</h1>
-                <ul>
-                    <li><a href="/blog/mikrotik/">Home Mikrotik</a></li>
-                    <li><a href="/blog/mikrotik/basic-config/">Basic Config</a></li>
-                    <li><a href="/blog/mikrotik/vlan/">VLAN</a></li>
-                    <li><a href="/blog/mikrotik/route-static/">Routing Static</a></li>
-                    <li><a href="/blog/mikrotik/route-dynamic/">Routing Dynamic</a></li>
-                    <li><a href="/blog/mikrotik/hotspot/">Hotspot Login</a></li>
-                    <li><a href="/blog/mikrotik/block/">Blok SSH, Telnet, HTTP</a></li>
-                    <li><a href="/blog/mikrotik/bandwidth/">Bandwidth</a></li>
-                    <li><a href="/blog/mikrotik/load-balancing/">Load Balanding</a></li>
-                    <li><a href="/blog/mikrotik/bridge/">Bridge</a></li>
-                </ul>
-                <h1>AWS Cloud</h1>
-                <ul>
-                    <li><a href="/blog/aws/">Home Cloud</a></li>
-                    <li><a href="/blog/aws/cpanel/">Install cPanel</a></li>
-                    <li><a href="/blog/aws/wordpress/">Install Wordpress</a></li>
-                    <li><a href="/blog/aws/nginx/">Install NginX</a></li>
-                    <li><a href="/blog/aws/zabbix/">Install Zabbix & Database</a></li>
-                    <li><a href="/blog/aws/add-host-for-zabbix/">Add Host For Monitoring</a></li>
-                    <li><a href="/blog/aws/vpc/">Virtual Private Network</a></li>
-                    <li><a href="/blog/aws/webstatic/">Website Static</a></li>
-                    <li><a href="/blog/aws/nagios/">Install Nagios</a></li>
-                    <li><a href="/blog/aws/nagios-for-webserver/">Nagios at WebServer</a></li>
-                    <li><a href="/blog/aws/nagios-for-database/">Nagios at Database</a></li>
-                </ul>
-                <h1>Security</h1>
-                <ul>
-                    <li><a href="/blog/security/">Home Security</a></li>
-                    <li><a href="/blog/security/installation/">Installasi</a></li>
-                    <li><a href="/blog/security/iptables/">IP Tables</a></li>
-                    <li><a href="/blog/security/cracklib/">Craklib</a></li>
-                    <li><a href="/blog/security/port/">Port Forwarding</a></li>
-                    <li><a href="/blog/security/mitm-and-ddos/">MITM&DDOS</a></li>
-                    <li><a href="/blog/security/snort/">Snort</a></li>
-                    <li><a href="/blog/security/otp/">Generated OTP</a></li>
-                </ul>
-                <h1>Debian 11</h1>
-                <ul>
-                    <li><a href="/blog/debian11/">Home Debian11</a></li>
-                    <li><a href="/blog/debian11/installation/">Install 3VM</a></li>
-                    <li><a href="/blog/debian11/dns/">DNS</a></li>
-                    <li><a href="/blog/debian11/sftp/">SFTP</a></li>
-                    <li><a href="/blog/debian11/samba/">Samba</a></li>
-                    <li><a href="/blog/debian11/virtualhost/">VirtualHost</a></li>
-                    <li><a href="/blog/debian11/myweb/">MyWeb</a></li>
-                    <li><a href="/blog/debian11/static/">Static</a></li>
-                    <li><a href="/blog/debian11/dvwa/">DVWA</a></li>
-                    <li><a href="/blog/debian11/ansible/">Automation</a></li>
-                </ul>
-            </div>
-            <div class="content">
-                <h1>Toppologi</h1>
-                <img src="/blog/security/img/Toppologi Security1.png" alt="" class="top-sec1">
-                <h2>Debian 10- Router</h2>
-                <h2 class="h2-wp">Interfaces</h2>
-                <p>
-                ens33 NAT : 192.168.91.0/24 <br>
-                ens36 LAN : 11.1.25.254/24 <br>
-                </p>
-                <h2 class="h2-wp">Package</h2>
-                <ul>
-                    <li>net-tools (new)</li>
-                    <li>iptables-persistent (new)</li>
-                    <li>netfilter-persistent (new)</li>
-                </ul>
-                    <h2>Debian 10- Server</h2>
-                    <h2 class="h2-wp">Interfaces</h2>
-                    <p>
-                    ens33 LAN : 11.1.25.1/24 <br>
-                    gateway : 11.1.25.254
-                    </p>
-                    <h2 class="h2-wp">Package</h2>
-                    <ul>
-                        <li>net-tools (new)</li>
-                        <li>iptables-persistent (new)</li>
-                        <li>netfilter-persistent (new)</li>
-                        <li>apache2 (new)</li>
-                        <li>proftpd (new)</li>
-                    </ul>
-                        <h2>Kali Linux</h2>
-                        <h2 class="h2-wp">Interfaces</h2>
-                        <p>
-                        eth0 LAN : 11.1.25.2/24 <br>
-                        gateway : 11.1.25.254
-                        </p>
-                            <h2>Windows- Client</h2>
-                            <h2 class="h2-wp">Interfaces</h2>
-                            <p>
-                            LAN : 11.1.25.3/24 <br>
-                            gateway : 11.1.25.254
-                            </p>
-                
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security | Installation</title>
 
-                <h1>Konfigurasi Awal</h1>
-                <h2>Debian 10- Router</h2>
-                <h2 class="h2-wp">IP Address</h2>
-                <p>Untuk ubah ip address kita harus menggunakan user root. Jika sudah dalam user root, maka kita ketik command</p>
-                <div class="daging">
-<pre>
-nano /etc/network/interfaces
-</pre>
-                </div>
-                <p>Lalu edit file nya menjadi</p>
-                <div class="daging">
-<pre>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- Icon Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/dhcp.css" />
+
+    <!-- Icon HTML -->
+    <link rel="icon" href="/assets/img/hack.png" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top" style="background-color: #909294">
+      <div class="container-md">
+        <!-- Dark&Light Mode -->
+        <div class="dropdown">
+          <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sun-fill theme-icon-active" data-theme-icon-active="bi-sun-fill"></i></button>
+          <ul class="dropdown-menu">
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="light">
+                <i class="bi bi-sun-fill me-2 opacity-50" data-theme-icon="bi-sun-fill"></i>
+                Light
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="dark">
+                <i class="bi bi-moon-stars-fill me-2 opacity-50" data-theme-icon="bi-moon-stars-fill"></i>
+                Dark
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- Dark&Light Mode -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Rizwan <i class="bi bi-heart-fill text-danger"></i> AWS Cloud</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- Debian 10 -->
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 10 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian10/">Home-Debian 10</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dhcp-server/">1. DHCP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ssh/">2. SSH</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dns/">3. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ftp/">4. FTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/apache2/">5. Apache2 WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/wordpress/">6. Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/phpmyadmin/">7. PhpMyAdmin</a></li>
+                </ul>
+              </li>
+              <!-- Debian 11 -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 11 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian11/">Home-Debian 11</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/installation/">q. Install 3VM</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dns/">2. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/sftp/">3. SFTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/samba/">4. File Sharing Samba</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/virtualhost/">5. Virtual Host</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/myweb/">6. MyWeb</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/static/">7. Static Website</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dvwa/">8. Setup DVWA Web</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/ansible/">9. Automation With Ansible</a></li>
+                </ul>
+              </li>
+              <!-- Mikrotik -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Mikrotik </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/mikrotik/">Home-Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/basic-config/">1. Basic Config Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/vlan/">2. Configuration VLAN on the Swicth</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-static/">3. Routing Static; or</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-dynamic/">4. Routing Dynamic</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/hotspot/">5. Create Hotspot Login</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/block/">6. Block SSH, Telnet, and HTTP</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bandwidth/">7. Add Simple Queque (Bandwidth)</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/load-balancing/">8. Load Balancing</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bridge/">9. Bridge</a></li>
+                </ul>
+              </li>
+              <!-- AWS Cloud -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> AWS Cloud </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/aws/">Home-AWS Cloud</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/cpanel/">1. Install cPanel</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/wordpress/">2. Install Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nginx/">3. Install NginX</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/zabbix/">4. Install Zabbix & Database</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/add-host-for-zabbix/">5. Add Host For Monitoring</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/vpc/">6. Virtual Private Network</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/webstatic/">7. Website Static</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios/">8. Install Nagios in New EC2</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-webserver/">9. Nagios at WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-database/">10. Nagios at Database</a></li>
+                </ul>
+              </li>
+              <!-- Security -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Security </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/security/">Home-Security</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/installation/">1. Installasi</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/iptables/">2. IP Tables</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/cracklib/">3. Craklib</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/port/">4. Port Forwarding</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/mitm-and-ddos/">5. MITM & DDOS</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/snort/">6. Snort</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/otp/">7. Generated OTP</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Article -->
+    <div class="all">
+      <div class="judul">
+        <hr />
+        <h1>Installation 3VM (Router, Server, Windows, and KaliLinux) and NAT Gateway Configuration</h1>
+        <hr />
+        <div class="gambar">
+          <h3>Toppologi</h3>
+          <img src="../img/Toppologi Security1.png" alt="" class="img-xl" />
+        </div>
+      </div>
+      <div class="article">
+        <h3>Introduction KaliLinux</h3>
+        <p>
+          Kali Linux adalah turunan dari sistem operasi BackTrack Linux yang dikembangkan oleh Offensive Security pada tahun 2013. Sebelumnya, BackTrack telah menjadi salah satu sistem operasi paling populer bagi para profesional keamanan.
+          Kali Linux berfungsi sebagai pengganti BackTrack yang lebih stabil dan berfitur lengkap, serta menyediakan dukungan untuk lebih banyak arsitektur hardware dan platform.
+        </p>
+        <h3>UseCase For KaliLinux</h3>
+        <p>
+          Dalam penggunaannya, Kali Linux dapat membantu para profesional keamanan dan hacker etis untuk melakukan pengujian penetrasi pada jaringan dan sistem komputer, sehingga dapat menemukan kelemahan dan kerentanan yang ada. Kali Linux
+          dilengkapi dengan berbagai alat bantu yang digunakan dalam pengujian penetrasi, seperti alat untuk pemindaian jaringan, pemecahan sandi, dan pengecekan kelemahan dalam sistem.
+        </p>
+
+        <hr />
+        <h2>Configuration</h2>
+        <h3>Debian 10-Router</h3>
+        <h4>Use RootUser</h4>
+        <p class="important">sudo -i</p>
+        <h4>Change the IP Address According to Topology</h4>
+        <p>nano /etc/network/interfaces</p>
+        <pre class="important">
 # The primary network interface
 auto ens33
 iface ens33 inet dhcp
@@ -148,186 +177,155 @@ iface ens33 inet dhcp
 auto ens36
 iface ens36 inet static
     address 11.1.25.254
-    network 255.255.255.0
-</pre>
-                </div>
-                <p>Lalu restart seluruh jaringan Debian 10-Router dengan command</p>
-                <div class="daging">
-<pre>
-/etc/init.d/networking restart
-</pre>
-                </div>
-                <h2 class="h2-wp">Install Package</h2>
-                <p>Sebelum itu kita harus update terlebih dahulu. Tujuan dari perintah apt update adalah untuk mengunduh bagi setiap sumber paket, berkas Packages (atau Sources ) yang sesuai dan menghapus versi lama dari paket yang diinstal atau yang dapat ditingkatkan pada sistem yang tidak lagi diperlukan saat melakukan pemutakhiran.</p>
-                <div class="daging">
-<pre>
-apt update && apt upgrade -y
-</pre>
-                </div>
-                <p>Setelah itu kita bisa install ketiga package yang akan digunakan</p>
-                <div class="daging">
-<p style="font-size: 16px; color: white;">
-apt install net-tools <br>
-apt install iptables-persistent <br>
-apt install netfilter-persistent
-</p>
-                </div>
-                <h2 class="h2-wp">Konfigurasi</h2>
-                <p>Kita akan Konfigurasi router agar bisa membagikan IP dan Internet kepada client.</p>
-                <div class="daging">
-<pre>
-nano /etc/sysctl.conf
-
-Mengganti pada baris:
+    network 255.255.255.0</pre
+        >
+        <h4>Restart Networking</h4>
+        <pre class="important">systemctl restart networking</pre>
+        <h4>Update Repository</h4>
+        <pre class="important">apt update && apt upgrade -y</pre>
+        <h4>Install Package</h4>
+        <pre class="important">
+apt install net-tools
+apt install iptables-persistent
+apt install netfilter-persistent</pre
+        >
+        <h4>Configuration NAT Gateway</h4>
+        <p>nano /etc/sysctl.conf</p>
+        <pre class="important">
 net.ipv4.ip_forward=0
-menjadi
-net.ipv4.ip_forward=1
-</pre>
-                </div> <br>
-                <div class="daging">
-<pre>
-nano /proc/sys/net/ipv4/ip_forward
-
-ganti
+*change to
+net.ipv4.ip_forward=1</pre
+        >
+        <p>nano /proc/sys/net/ipv4/ip_forward</p>
+        <pre class="important">
+*change :
 0
-menjadi
-1
-</pre>
-                </div> <br>
-                <div class="daging">
-<p style="color: white; font-size: 16px;">
-iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
-</p>
-                </div>
-                <p>lalu save konfigurasi iptables</p>
-                <div class="daging">
-<pre>
+*to :
+1</pre
+        >
+        <pre class="important">iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE</pre>
+        <h4>Save Configuration</h4>
+        <pre class="important">
 iptables-save
-netfilter-persistent save
-</pre>
-                </div>
-                <h2>Debian 10- Server</h2>
-                <h2 class="h2-wp">IP Address</h2>
-                <p>Untuk ubah ip address kita harus menggunakan user root. Jika sudah dalam user root, maka kita ketik command</p>
-                <div class="daging">
-<pre>
-nano /etc/network/interfaces
-</pre>
-                </div>
-                <p>Lalu edit file nya menjadi</p>
-                <div class="daging">
-<pre>
+netfilter-persistent save</pre
+        >
+        <h3>Debian 10-Server</h3>
+        <h4>User RootUser</h4>
+        <pre class="important">sudo -i</pre>
+        <h4>Change IP Address</h4>
+        <p>nano /etc/network/interfaces</p>
+        <pre class="important">
 # The primary network interface
 auto ens33
 iface ens33 inet static
     address 11.1.25.1
     netmask 255.255.255.0
-    gateway 11.1.25.254
-</pre>
-                </div>
-                <p>Lalu restart seluruh jaringan Debian 10-Server dengan command</p>
-                <div class="daging">
-<pre>
-/etc/init.d/networking restart
-</pre>
-                </div>
-                <h2 class="h2-wp">Install Package</h2>
-                <p>Sebelum itu kita harus update terlebih dahulu. Tujuan dari perintah apt update adalah untuk mengunduh bagi setiap sumber paket, berkas Packages (atau Sources ) yang sesuai dan menghapus versi lama dari paket yang diinstal atau yang dapat ditingkatkan pada sistem yang tidak lagi diperlukan saat melakukan pemutakhiran.</p>
-                <div class="daging">
-<pre>
-apt update && apt upgrade -y
-</pre>
-                </div>
-                <p>Setelah itu kita bisa install ketiga package yang akan digunakan</p>
-                <div class="daging">
-<p style="font-size: 16px; color: white;">
-apt install net-tools <br>
-apt install iptables-persistent <br>
-apt install netfilter-persistent <br>
-apt install apache2 <br>
-apt install proftpd
-</p>
-                </div>
-                <h2>Kali Linux</h2>
-                <h2 class="h2-wp">IP Address</h2>
-                <p>Untuk ubah ip address kita harus menggunakan user root. Jika sudah dalam user root, maka kita ketik command</p>
-                <div class="daging">
-<pre>
-nano /etc/network/interfaces
-</pre>
-                </div>
-                <p>Lalu edit file nya menjadi</p>
-                <div class="daging">
-<pre>
+    gateway 11.1.25.254</pre
+        >
+        <h4>Restart Networking</h4>
+        <pre class="important">systemctl restart networking</pre>
+        <h4>Update Repository</h4>
+        <pre class="important">apt update && apt upgrade -y</pre>
+        <h4>Install Package</h4>
+        <pre class="important">
+apt install net-tools
+apt install iptables-persistent
+apt install netfilter-persistent
+apt install apache2
+apt install proftpd</pre
+        >
+        <h3>KaliLinux</h3>
+        <h4>Use RootUser</h4>
+        <pre class="important">sudo -i</pre>
+        <h4>Change IP Address</h4>
+        <p>nano /etc/network/interfaces</p>
+        <pre class="important">
 # The primary network interface
 auto eth0
 iface eth0 inet static
     address 11.1.25.2
     netmask 255.255.255.0
-    gateway 11.1.25.254
-</pre>
-                </div>
-                <p>Lalu restart seluruh jaringan Kali Linux dengan command</p>
-                <div class="daging">
-<pre>
-/etc/init.d/networking restart
-</pre>
-            </div>
-            <h2>Windows- Client</h2>
-            <h2 class="h2-wp">IP Address</h2>
-            <p>Untuk mengganti ip pada windows bisa menekan tombol <mark>windows+R</mark> lalu ketik "ncpa.cpl" dan enter. Setelah itu kita akan masuk pada menu Control Panel Network Connection kita double click interfaces yang tersedia lalu <mark>properties> Internet Protocol Version 4> Use the Following IP address> Use the Following DNS server address</mark></p>
-            <div class="daging">
-<pre>
+    gateway 11.1.25.254</pre
+        >
+        <h3>Windows-Client</h3>
+        <h4>Change IP Address</h4>
+        <pre class="important">
+windows+s
+ncpa.cpl
+properties> Internet Protocol Version 4> Use the Following IP address> Use the Following DNS server address</pre
+        >
+        <pre class="important">
 Address : 11.1.25.3
 Netmask : 255.255.255.0
 Gateway : 11.1.25.254
 
 Preferred DNS : 8.8.8.8
-Alternate DNS : 8.8.4.4
-</pre>
-            </div>
-            <h1>Konfigurasi Selesai</h1>
-            <h2>Pengujian</h2>
-            <p>Untuk pengujian silahkan ping ke masing-masing Virtual Machine apakah sudah saling terhubung atau belum</p>
-            <h2 class="h2-wp">Debian 10-Router</h2>
-            <div class="daging">
-<pre>
+Alternate DNS : 8.8.4.4</pre
+        >
+
+        <hr />
+        <h2>Configuration is Completed</h2>
+        <h3>Test Connections Between All VMs</h3>
+        <h4>Debian 10-Router</h4>
+        <pre class="important">
 ping 11.1.25.1
 ping 11.1.25.2
 ping 11.1.25.3
-ping google.com
-</pre>
-            </div><h2 class="h2-wp">Debian Server</h2>
-            <div class="daging">
-<pre>
+ping google.com</pre
+        >
+        <h4>Debian 10-Server</h4>
+        <pre class="important">
 ping 11.1.25.254
 ping 11.1.25.2
 ping 11.1.25.3
-ping google.com
-</pre>
-            </div><h2 class="h2-wp">Kali Linux</h2>
-            <div class="daging">
-<pre>
+ping google.com</pre
+        >
+        <h4>KaliLinux</h4>
+        <pre class="important">
 ping 11.1.25.254
 ping 11.1.25.1
 ping 11.1.25.3
-ping google.com
-</pre>
-            </div><h2 class="h2-wp">Windows- Client</h2>
-            <div class="daging">
-<pre>
+ping google.com</pre
+        >
+        <h4>Windows-Client</h4>
+        <pre class="important">
 ping 11.1.25.254
 ping 11.1.25.1
 ping 11.1.25.2
-ping google.com
-</pre>
-            </div>
+ping google.com</pre
+        >
+      </div>
+      <!-- Article End -->
+
+      <!-- Footer -->
+      <div class="footer">
+        <hr />
+        <div class="name-footer">
+          <h2>Rizwan Fairuz Mamduh</h2>
+          <p>Contact me:</p>
         </div>
-        <div class="row">
-            <div class="footer">
-                <h1>Created By : Rizwan Fairuz Mamduh</h1>
-            </div>
+        <div class="icon-footer">
+          <div class="icon1">
+            <a href="https://wa.me/628979620353" target="_blank"><i class="bi bi-whatsapp text-success"></i></a>
+          </div>
+          <div class="icon2">
+            <a href="https://www.instagram.com/ryzwannn13/" target="_blank"><i class="bi bi-instagram text-danger"></i></a>
+          </div>
+          <div class="icon3">
+            <a href="https://www.linkedin.com/in/rizwan-fairuz-mamduh" target="_blank"><i class="bi bi-linkedin text-primary"></i></a>
+          </div>
+          <div class="icon4">
+            <a href="https://github.com/ryzwan29" target="_blank"><i class="bi bi-github text-primary"></i></a>
+          </div>
         </div>
+      </div>
+      <!-- Footer End -->
     </div>
-</body>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- JS Dark&Light Mode -->
+    <script src="/assets/js/mode.js"></script>
+  </body>
 </html>
