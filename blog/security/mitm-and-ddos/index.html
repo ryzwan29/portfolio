@@ -1,263 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security | MITM & DDOS</title>
-    <link rel="stylesheet" href="/assets/css/dhcp.css">
-    <link rel="icon" href="/assets/img/hack.png">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="header">
-                <div class="judul">
-                    <h1>MITM, DDOS</h1>
-                </div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security | Ethical Hacking</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- Icon Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/dhcp.css" />
+
+    <!-- Icon HTML -->
+    <link rel="icon" href="/assets/img/hack.png" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top" style="background-color: #909294">
+      <div class="container-md">
+        <!-- Dark&Light Mode -->
+        <div class="dropdown">
+          <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sun-fill theme-icon-active" data-theme-icon-active="bi-sun-fill"></i></button>
+          <ul class="dropdown-menu">
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="light">
+                <i class="bi bi-sun-fill me-2 opacity-50" data-theme-icon="bi-sun-fill"></i>
+                Light
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="dark">
+                <i class="bi bi-moon-stars-fill me-2 opacity-50" data-theme-icon="bi-moon-stars-fill"></i>
+                Dark
+              </button>
+            </li>
+          </ul>
         </div>
-        <div class="row">
-            <div class="navigation">
-                <h1>Dokumentasi</h1>
-            </div>
+        <!-- Dark&Light Mode -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Rizwan <i class="bi bi-heart-fill text-danger"></i> AWS Cloud</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- Debian 10 -->
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 10 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian10/">Home-Debian 10</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dhcp-server/">1. DHCP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ssh/">2. SSH</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dns/">3. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ftp/">4. FTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/apache2/">5. Apache2 WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/wordpress/">6. Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/phpmyadmin/">7. PhpMyAdmin</a></li>
+                </ul>
+              </li>
+              <!-- Debian 11 -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 11 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian11/">Home-Debian 11</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/installation/">q. Install 3VM</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dns/">2. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/sftp/">3. SFTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/samba/">4. File Sharing Samba</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/virtualhost/">5. Virtual Host</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/myweb/">6. MyWeb</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/static/">7. Static Website</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dvwa/">8. Setup DVWA Web</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/ansible/">9. Automation With Ansible</a></li>
+                </ul>
+              </li>
+              <!-- Mikrotik -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Mikrotik </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/mikrotik/">Home-Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/basic-config/">1. Basic Config Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/vlan/">2. Configuration VLAN on the Swicth</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-static/">3. Routing Static; or</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-dynamic/">4. Routing Dynamic</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/hotspot/">5. Create Hotspot Login</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/block/">6. Block SSH, Telnet, and HTTP</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bandwidth/">7. Add Simple Queque (Bandwidth)</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/load-balancing/">8. Load Balancing</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bridge/">9. Bridge</a></li>
+                </ul>
+              </li>
+              <!-- AWS Cloud -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> AWS Cloud </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/aws/">Home-AWS Cloud</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/cpanel/">1. Install cPanel</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/wordpress/">2. Install Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nginx/">3. Install NginX</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/zabbix/">4. Install Zabbix & Database</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/add-host-for-zabbix/">5. Add Host For Monitoring</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/vpc/">6. Virtual Private Network</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/webstatic/">7. Website Static</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios/">8. Install Nagios in New EC2</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-webserver/">9. Nagios at WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-database/">10. Nagios at Database</a></li>
+                </ul>
+              </li>
+              <!-- Security -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Security </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/security/">Home-Security</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/installation/">1. Installasi</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/iptables/">2. IP Tables</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/cracklib/">3. Craklib</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/port/">4. Port Forwarding</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/mitm-and-ddos/">5. MITM & DDOS</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/snort/">6. Snort</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/otp/">7. Generated OTP</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="row">
-            <div class="sidebar">
-                <h1>Debian 10</h1>
-                <ul>
-                    <li><a href="/blog/debian10/">Home Debian</a></li>
-                    <li><a href="/blog/debian10/dhcp-server/">Superlab-DHCP Server</a></li>
-                    <li><a href="/blog/debian10/ssh/">Superlab-SSH</a></li>
-                    <li><a href="/blog/debian10/dns/">Superlab-DNS Server</a></li>
-                    <li><a href="/blog/debian10/ftp/">Superlab-FTP Server</a></li>
-                    <li><a href="/blog/debian10/apache2/">Superlab-Web Server</a></li>
-                    <li><a href="/blog/debian10/wordpress/">Superlab-Wordpress</a></li>
-                    <li><a href="/blog/debian10/phpmyadmin/">Superlab-PhpMyAdmin</a></li>
-                </ul>
-                <h1>Mikrotik</h1>
-                <ul>
-                    <li><a href="/blog/mikrotik/">Home Mikrotik</a></li>
-                    <li><a href="/blog/mikrotik/basic-config/">Basic Config</a></li>
-                    <li><a href="/blog/mikrotik/vlan/">VLAN</a></li>
-                    <li><a href="/blog/mikrotik/route-static/">Routing Static</a></li>
-                    <li><a href="/blog/mikrotik/route-dynamic/">Routing Dynamic</a></li>
-                    <li><a href="/blog/mikrotik/hotspot/">Hotspot Login</a></li>
-                    <li><a href="/blog/mikrotik/block/">Blok SSH, Telnet, HTTP</a></li>
-                    <li><a href="/blog/mikrotik/bandwidth/">Bandwidth</a></li>
-                    <li><a href="/blog/mikrotik/load-balancing/">Load Balanding</a></li>
-                    <li><a href="/blog/mikrotik/bridge/">Bridge</a></li>
-                </ul>
-                <h1>AWS Cloud</h1>
-                <ul>
-                    <li><a href="/blog/aws/">Home Cloud</a></li>
-                    <li><a href="/blog/aws/cpanel/">Install cPanel</a></li>
-                    <li><a href="/blog/aws/wordpress/">Install Wordpress</a></li>
-                    <li><a href="/blog/aws/nginx/">Install NginX</a></li>
-                    <li><a href="/blog/aws/zabbix/">Install Zabbix & Database</a></li>
-                    <li><a href="/blog/aws/add-host-for-zabbix/">Add Host For Monitoring</a></li>
-                    <li><a href="/blog/aws/vpc/">Virtual Private Network</a></li>
-                    <li><a href="/blog/aws/webstatic/">Website Static</a></li>
-                    <li><a href="/blog/aws/nagios/">Install Nagios</a></li>
-                    <li><a href="/blog/aws/nagios-for-webserver/">Nagios at WebServer</a></li>
-                    <li><a href="/blog/aws/nagios-for-database/">Nagios at Database</a></li>
-                </ul>
-                <h1>Security</h1>
-                <ul>
-                    <li><a href="/blog/security/">Home Security</a></li>
-                    <li><a href="/blog/security/installation/">Installasi</a></li>
-                    <li><a href="/blog/security/iptables/">IP Tables</a></li>
-                    <li><a href="/blog/security/cracklib/">Craklib</a></li>
-                    <li><a href="/blog/security/port/">Port Forwarding</a></li>
-                    <li><a href="/blog/security/mitm-and-ddos/">MITM&DDOS</a></li>
-                    <li><a href="/blog/security/snort/">Snort</a></li>
-                    <li><a href="/blog/security/otp/">Generated OTP</a></li>
-                </ul>
-                <h1>Debian 11</h1>
-                <ul>
-                    <li><a href="/blog/debian11/">Home Debian11</a></li>
-                    <li><a href="/blog/debian11/installation/">Install 3VM</a></li>
-                    <li><a href="/blog/debian11/dns/">DNS</a></li>
-                    <li><a href="/blog/debian11/sftp/">SFTP</a></li>
-                    <li><a href="/blog/debian11/samba/">Samba</a></li>
-                    <li><a href="/blog/debian11/virtualhost/">VirtualHost</a></li>
-                    <li><a href="/blog/debian11/myweb/">MyWeb</a></li>
-                    <li><a href="/blog/debian11/static/">Static</a></li>
-                    <li><a href="/blog/debian11/dvwa/">DVWA</a></li>
-                    <li><a href="/blog/debian11/ansible/">Automation</a></li>
-                </ul>
-            </div>
-            <div class="content">
-                <h1>Pengertian</h1>
-                <h2>Man In The Middle</h2>
-                <img src="/blog/security/img/top-mitm.png" alt="" class="top-mitm">
-                <p>Man in the Middle Attack (MITM) adalah jenis serangan keamanan di mana seorang penyerang menyusup dan memanipulasi komunikasi antara dua pihak yang seharusnya saling tepercaya. Penyerang ini dapat memata-matai, mengubah, atau bahkan menyuntikkan data ke dalam komunikasi yang berlangsung tanpa diketahui oleh pengguna yang terlibat.</p>
-                <p>Serangan Man in the Middle memiliki potensi bahaya yang besar karena dapat menyebabkan pencurian informasi pribadi, seperti kata sandi, informasi keuangan, atau data sensitif lainnya. Selain itu, penyerang dapat memanipulasi komunikasi untuk merugikan salah satu atau kedua pihak yang terlibat.</p>
-                <p>Man in the Middle Attack dapat terjadi melalui berbagai teknik, tetapi pada dasarnya, penyerang menempatkan dirinya di antara komunikasi yang seharusnya aman. Ini dapat dilakukan dengan memanfaatkan celah keamanan atau menggunakan teknik tertentu yang akan kita bahas berikutnya.</p>
+      </div>
+    </nav>
+    <!-- Navbar End -->
 
-                <h2>Distributed Denial of Service</h2>
-                <img src="/blog/security/img/top-ddos.jpg" alt="" class="top-ddos">
-                <p>DDOS attack atau Distributed Denial of Service merupakan serangan cyber dengan cara mengirimkan fake traffic atau lalu lintas palsu ke suatu sistem atau server secara terus menerus. Dampaknya, server tersebut tidak dapat mengatur seluruh traffic sehingga menyebabkan down.</p>
-                <p>Umumnya serangan ini menyasar jaringan, layanan online, hingga website, dengan tujuan agar server tersebut tidak dapat mengakomodasi traffic atau lalu lintas sehingga website mengalami down dan tidak dapat beroperasi. Tak hanya menargetkan perseorangan atau perusahaan tertentu, serangan ini juga bisa menyasar sektor lebih tinggi seperti sektor pemerintahan.</p>
-                <p>Dalam prakteknya agar dapat menyerang suatu server, DDOS akan mengerahkan host dalam jumlah besar. Namun host yang dikerahkan tersebut adalah palsu, selanjutnya para hacker akan membanjiri lalu lintas server dengan host palsu tersebut. Sehingga ketika server berhasil dibanjiri oleh traffic hacker, dampaknya server akan lebih sulit diakses oleh host atau pengguna nyata.</p>
+    <!-- Article -->
+    <div class="all">
+      <div class="judul">
+        <hr />
+        <h1>Simulate MITM and DDOS attacks</h1>
+        <hr />
+      </div>
+      <div class="article">
+        <div class="gambar">
+          <img src="../img/top-mitm.png" alt="" class="img-xl-top" />
+        </div>
+        <h3>Introduction</h3>
+        <p>
+          Man in the Middle Attack (MITM) adalah jenis serangan keamanan di mana seorang penyerang menyusup dan memanipulasi komunikasi antara dua pihak yang seharusnya saling tepercaya. Penyerang ini dapat memata-matai, mengubah, atau
+          bahkan menyuntikkan data ke dalam komunikasi yang berlangsung tanpa diketahui oleh pengguna yang terlibat.
+        </p>
+        <p>
+          Serangan Man in the Middle memiliki potensi bahaya yang besar karena dapat menyebabkan pencurian informasi pribadi, seperti kata sandi, informasi keuangan, atau data sensitif lainnya. Selain itu, penyerang dapat memanipulasi
+          komunikasi untuk merugikan salah satu atau kedua pihak yang terlibat.
+        </p>
+        <p>
+          Man in the Middle Attack dapat terjadi melalui berbagai teknik, tetapi pada dasarnya, penyerang menempatkan dirinya di antara komunikasi yang seharusnya aman. Ini dapat dilakukan dengan memanfaatkan celah keamanan atau menggunakan
+          teknik tertentu yang akan kita bahas berikutnya.
+        </p>
 
-                <h1>Konfigurasi</h1>
-                <h2>1. Man In The Middle</h2>
-                
-                <h2>Melihat Tabel ARP sebelum proses poisioning</h2>
-                <p>Melihat Tabel ARP sebelum proses poisioning. ARP(Address Resolution Protocol) adalah protokol yang digunakan untuk menerjemah alamat IP menjadi alamat MAC pada Local Area Network. Sebuah host akan mengirimkan ARP request secara broadcast untuk mendapatkan alamat MAC host tujuan.</p>
-                <h2 class="h2-wp">Windows- Client</h2>
-                <p>Ketik:  <strong>arp –a</strong> pada Windows- Client melalui cmd. <br>
-                    (catat hasil arp  berupa ip address dan mac address dari Debian 10- Router )</p>
-                <pre><mark>11.1.25.254          00-0c-29-2e-cd-6d</mark></pre>
+        <hr />
+        <h2>Trying to Attack the Client With MITM</h2>
+        <h3>View the ARP Table Before the Positioning Process</h3>
+        <p>
+          Melihat Tabel ARP sebelum proses poisioning. ARP(Address Resolution Protocol) adalah protokol yang digunakan untuk menerjemah alamat IP menjadi alamat MAC pada Local Area Network. Sebuah host akan mengirimkan ARP request secara
+          broadcast untuk mendapatkan alamat MAC host tujuan.
+        </p>
+        <pre class="important">arp -a</pre>
+        <h4>Windows-Client</h4>
+        <p>
+          Catat hasil arp berupa ip address dan mac address dari Debian 10- Router <br />
+          <strong>11.1.25.254 00-0c-29-2e-cd-6d </strong>
+        </p>
+        <h4>Debian 10-Router</h4>
+        <p>
+          Catat hasil arp berupa ip address dan mac address dari Windows- Client <br />
+          <strong>11.1.25.2 00:0c:29:f5:1e:f6 </strong>
+        </p>
+        <h4>KaliLinux</h4>
+        <p>
+          Catat hasil arp berupa ip address dan mac address dari Windows- Client& Debian 10- Router <br />
+          <strong>
+            11.1.25.2 00:0c:29:f5:1e:f6 (Windows) <br />
+            11.1.25.254 00:0c:29:2e:cd:6d (Router)
+          </strong>
+        </p>
 
-                <h2 class="h2-wp">Debian 10- Router</h2>
-                <p>Ketik: <stong>arp –a</stong> pada Debian 10- Router <br> 
-                    (catat hasil arp  berupa ip address dan mac address dari Windows- Client )</p>
-                <pre><mark>11.1.25.2              00:0c:29:f5:1e:f6</mark></pre>
+        <h3>ARP Posisioning Attack From KaliLinux</h3>
+        <pre class="important">
+application>sniffing&spoofing>ettercap-graphical
 
-                <h2 class="h2-wp">KaliLinux</h2>
-                <p>Ketik: <stong>arp –a</stong> pada Kali Linux <br> 
-                    (catat hasil arp  berupa ip address dan mac address dari Windows- Client& Debian 10- Router )</p>
-<pre><mark>
-11.1.25.2               00:0c:29:f5:1e:f6 (Windows)
-11.1.25.254           00:0c:29:2e:cd:6d (Router)
-</pre></mark>
+*Pada ethercap pilih tab menu :
+Sniff>unifield sniffing..
 
-                <h1>ARP Poisioning</h1>
-                <p>Selanjutnya kita akan melakukan Man In Midle Attack melalui Kalilinux</p>
-                <div class="daging">
-<p style="color: white; font-size: 15px;">
-Pada kalilinux, pilih <mark>application>sniffing&spoofing>ettercap-graphical </mark> <br><br>
+*pada ettercap primary interfaces pilih:
+eth0
 
-Pada ethercap pilih tab menu : <br>
-Sniff>unifield sniffing.. <br><br>
+*Pilih tab menu host:
+Scan for host
 
-pada ettercap primary interfaces pilih: <br>
-eth0 <br><br>
+*Pada host list, terdapat 2 alamat ip dan mac address hasil scan
+a. Klik untuk pilih ip computer target dan klik add to target 1 (memasukan pc target yaitu Windows kedalam target1.)
+b. Klik untuk pilih ip computer router dan klik add to target 2 (memasukan pc router kedalam target2)
+Pilih tab menu MITM >ARP Poisioning
 
-Pilih tab menu host: <br>
-Scan for host <br><br>
+*Pada optimal parameter pilih
+Beri tanda check pada “sniff remote connection”</pre
+        >
+        <h3>View the ARP Table After the Positioning Process</h3>
+        <pre class="important">arp -a</pre>
+        <h4>Windows-Client</h4>
+        <p>
+          Catat hasil arp berupa ip address dan mac address dari Debian 10- Router <br />
+          <strong>11.1.25.254 00-0c-29-be-b6-b6 </strong>
+        </p>
+        <h4>Debian 10-Router</h4>
+        <p>
+          Catat hasil arp berupa ip address dan mac address dari Windows- Client <br />
+          <strong>11.1.25.2 00:0c:29:be:b6:b6 </strong>
+        </p>
+        <h4>KaliLinux</h4>
+        <p>
+          Catat hasil arp berupa ip address dan mac address dari Windows- Client& Debian 10- Router <br />
+          <strong>
+            11.1.25.2 00:0c:29:f5:1e:f6 (Windows) <br />
+            11.1.25.254 00:0c:29:2e:cd:6d (Router)
+          </strong>
+        </p>
+        <h3>Information</h3>
+        <p>
+          Sebelum proses ARP, Windows- Client memberikan semua informasi kepada Mac Address Router Tetapi setelah proses ARP dilakukan, Windows- Client memberikan informasi kepada Mac Address KaliLinux baru setelah itu KaliLinux akan
+          meneruskan informasi tersebut kepada Router.
+        </p>
+        <p><strong>Jadi, KaliLinux akan mendapatkan semua informasi dari Windows- Client yang melalui Router </strong></p>
 
-Pada host list, terdapat 2 alamat ip dan mac address hasil scan <br><br>
-<img src="/blog/security/img/arp1.png" alt="" class="arp1"> <br><br>
-
-a. Klik untuk pilih ip computer target dan klik add to target 1 (memasukan pc target yaitu Windows kedalam target1.) <br>
-b. Klik untuk pilih ip computer router dan klik add to target 2 (memasukan pc router kedalam target2) <br><br>
-
-Pilih tab menu <mark>MITM >ARP Poisioning</mark> <br>
-Pada optimal parameter pilih <br>
-Beri tanda check pada “sniff remote connection” <br><br>
-
-<img src="/blog/security/img/arp2.png" alt="" class="arp2">
-
-</p>
-                </div>
-                <h2>Melihat Tabel ARP setelah proses poisioning</h2>
-                <h2 class="h2-wp">Windows- Client</h2>
-                <p>Ketik:  <strong>arp –a</strong> pada Windows- Client melalui cmd. <br>
-                    (catat hasil arp  berupa ip address dan mac address dari Debian 10- Router )</p>
-                <pre><mark>11.1.25.254         00-0c-29-be-b6-b6</mark></pre>
-
-                <h2 class="h2-wp">Debian 10- Router</h2>
-                <p>Ketik: <stong>arp –a</stong> pada Debian 10- Router <br> 
-                    (catat hasil arp  berupa ip address dan mac address dari Windows- Client )</p>
-                <pre><mark>11.1.25.2            00:0c:29:be:b6:b6</mark></pre>
-
-                <h2 class="h2-wp">KaliLinux</h2>
-                <p>Ketik: <stong>arp –a</stong> pada Kali Linux <br> 
-                    (catat hasil arp  berupa ip address dan mac address dari Windows- Client& Debian 10- Router )</p>
-<pre><mark>
-11.1.25.2               00:0c:29:f5:1e:f6 (Windows)
-11.1.25.254           00:0c:29:2e:cd:6d (Router)
-</pre></mark>
-                <h2 class="h2-wp">Penjelasan</h2>
-                <p>Sebelum proses ARP, Windows- Client memberikan semua informasi kepada Mac Address Router <br>
-                    Tetapi setelah proses ARP dilakukan, Windows- Client memberikan informasi kepada Mac Address KaliLinux baru setelah itu KaliLinux akan meneruskan informasi tersebut kepada Router. <br><br>
-                    
-                    Jadi, KaliLinux akan mendapatkan semua informasi dari Windows- Client
-                    </p>
-                <h2>Pengujian ARP</h2>
-                <h2 class="h2-wp">FTP</h2>
-                <p>Pengujian password FTP Dari Windows- Client , coba lakukan FTP ke router melalui perintah pada cmd</p>
-                <div class="daging">
-<pre>
+        <hr />
+        <h2>Testing Man In The Middle Attack</h2>
+        <h3>Record FTP Connection</h3>
+        <p>Pengujian password FTP Dari Windows- Client , coba lakukan FTP ke router melalui perintah pada cmd</p>
+        <pre class="important">
 ftp 11.1.25.254
 username : rizwan1
 password : 123
 
-<img src="/blog/security/img/arp-ftp1.png" alt="" class="arp-ftp1">
-</pre>
-                </div>
-                <p>Pada Kali Linux lihat pada ethercap username password FTP yang terekam.</p>
-                <img src="/blog/security/img/arp-ftp2.png" alt="" class="arp-ftp2">
-                <h2 class="h2-wp">Web HTTP</h2>
-                <p>Pengujian password Web Server/HTTP server dari Windows- Client dengan cara browsing database .php untuk pengetesan bisa ke website <a href="http://testphp.vulnweb.com/login.php"><u>http://testphp.vulnweb.com/login.php</u></a></p>
-                <div class="daging">
-<pre>
-username : rizwan1
+*results of ftp user & password records from the client
+<img src="../img/arp-ftp2.png" alt="" class="img-top"></pre>
+        <h3>Record HTTP Connection to Database / Sensitive Data</h3>
+        <p>Pengujian password Web Server/HTTP server dari Windows- Client dengan cara browsing database .php untuk pengetesan bisa ke website <a href="http://testphp.vulnweb.com/login.php">http://testphp.vulnweb.com/login.php</a></p>
+        <pre class="important">username : rizwan1
 password : rizwanpemula
-</pre>
-                </div>
-                <p>Pada Kali Linux lihat pada ethercap username password .php yang terekam.</p>
-                <img src="/blog/security/img/arp-http.png" alt="" class="arp-http">
 
-                <h2>2. Distributed Denial Of Service</h2>
-                <h2 class="h2-wp">Debian 10- Server</h2>
-                <p>Kali ini kita ganti Interfaces Network untuk <strong>Debian 10- Server</strong> menjadi NAT atau Bridge. Ini artinya dia akan mendapatkan IP Internet yang satu segment dengan Router, yaitu : 192.168.91.0/24</p>
-                <h2 class="h2-wp">Package</h2>
-                    <ul>
-                        <li>net-tools</li>
-                        <li>iptables-persistent</li>
-                        <li>netfilter-persistent</li>
-                        <li>apache2</li>
-                        <li>proftpd</li>
-                        <li>libpam-cracklib</li>
-                        <li>tshark (new)</li>
-                    </ul>
-                <img src="/blog/security/img/top-hack.png" alt="" class="top-hack">
-                <p>Masuk ke <strong>Debian 10- Server</strong> lalu install package <mark>tshark</mark></p>
-                <div class="daging">
-<pre>
-apt install tshark
+*result of username & password database from client
+<img src="../img/arp-http.png" alt="" class="img-top"></pre>
+      </div>
+      <!-- Article End -->
 
-non super user be able capture paket ? no
-</pre>
-                </div>
-                <p>tshark adalah alat penganalisis protokol berbasis baris perintah yang digunakan untuk menangkap dan menganalisis lalu lintas jaringan dari jaringan langsung. </p>
-                <p>Selanjutnya kita bisa jalankan tshark ini dengan command</p>
-                <div class="daging">
-<pre>
-tshark
-</pre>
-                </div>
-                <p>Lalu kita buka <mark>Windows- Client</mark> gunakan browser untuk buka web server milik Debian 10- Server</p>
-                <img src="/blog/security/img/cek-tshark1.png" alt="" class="cek-tshark1">
-                <p>Buka KaliLinux lalu ketik command</p>
-                <div class="daging">
-<pre>
-hping3 -S --flood -V -p 80 (IP Debian 10- Server)
-
-hping3 -S --flood -V -p 80 192.168.91.130
-</pre>
-                </div>
-                <p>Lalu di Kali Linux buka cmd yang baru untuk melancarkan aksi DDOS secara bersamaan</p>
-                <div class="daging">
-<p style="color: white; font-size: 15px;">
-hping3 -c 10000 -d 120 -S -w 64 -p 80 --flood --rand-source (IP Debian 10- Server) <br><br>
-
-hping3 -c 10000 -d 120 -S -w 64 -p 80 --flood --rand-source 192.168.91.130
-</p>
-                </div> <br>
-                <img src="/blog/security/img/ddos.png" alt="" class="ddos">
-                <p>Lalu kita tunggu saja hingga Service Web Server dari Debian 10- Server itu down</p> <br>
-                <img src="/blog/security/img/cek-tshark2.png" alt="" class="cek-tshark2">
-            </div>
+      <!-- Footer -->
+      <div class="footer">
+        <hr />
+        <div class="name-footer">
+          <h2>Rizwan Fairuz Mamduh</h2>
+          <p>Contact me:</p>
         </div>
-        <div class="row">
-            <div class="footer">
-                <h1>Created By : Rizwan Fairuz Mamduh</h1>
-            </div>
+        <div class="icon-footer">
+          <div class="icon1">
+            <a href="https://wa.me/628979620353" target="_blank"><i class="bi bi-whatsapp text-success"></i></a>
+          </div>
+          <div class="icon2">
+            <a href="https://www.instagram.com/ryzwannn13/" target="_blank"><i class="bi bi-instagram text-danger"></i></a>
+          </div>
+          <div class="icon3">
+            <a href="https://www.linkedin.com/in/rizwan-fairuz-mamduh" target="_blank"><i class="bi bi-linkedin text-primary"></i></a>
+          </div>
+          <div class="icon4">
+            <a href="https://github.com/ryzwan29" target="_blank"><i class="bi bi-github text-primary"></i></a>
+          </div>
         </div>
+      </div>
+      <!-- Footer End -->
     </div>
-</body>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- JS Dark&Light Mode -->
+    <script src="/assets/js/mode.js"></script>
+  </body>
 </html>
