@@ -1,267 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debian | Wordpress</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debian 10 | Wordpress</title>
 
-    <link rel="stylesheet" href="/assets/css/dhcp.css">
-    <link rel="icon" href="/assets/img/linux.png">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="header">
-                <div class="judul">
-                    <h1>Wordpress</h1>
-                </div>
-            </div>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- Icon Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/dhcp.css" />
+
+    <!-- Icon HTML -->
+    <link rel="icon" href="/assets/img/linux.png" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top" style="background-color: #909294">
+      <div class="container-md">
+        <!-- Dark&Light Mode -->
+        <div class="dropdown">
+          <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sun-fill theme-icon-active" data-theme-icon-active="bi-sun-fill"></i></button>
+          <ul class="dropdown-menu">
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="light">
+                <i class="bi bi-sun-fill me-2 opacity-50" data-theme-icon="bi-sun-fill"></i>
+                Light
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="dark">
+                <i class="bi bi-moon-stars-fill me-2 opacity-50" data-theme-icon="bi-moon-stars-fill"></i>
+                Dark
+              </button>
+            </li>
+          </ul>
         </div>
-        <div class="row">
-            <div class="navigation">
-                <h1>Dokumentasi</h1>
-            </div>
+        <!-- Dark&Light Mode -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Rizwan <i class="bi bi-heart-fill text-danger"></i> AWS Cloud</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- Debian 10 -->
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 10 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian10/">Home-Debian 10</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dhcp-server/">1. DHCP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ssh/">2. SSH</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dns/">3. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ftp/">4. FTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/apache2/">5. Apache2 WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/wordpress/">6. Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/phpmyadmin/">7. PhpMyAdmin</a></li>
+                </ul>
+              </li>
+              <!-- Debian 11 -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 11 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian11/">Home-Debian 11</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/installation/">1. Install 3VM</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dns/">2. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/sftp/">3. SFTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/samba/">4. File Sharing Samba</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/virtualhost/">5. Virtual Host</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/myweb/">6. MyWeb</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/static/">7. Static Website</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dvwa/">8. Setup DVWA Web</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/ansible/">9. Automation With Ansible</a></li>
+                </ul>
+              </li>
+              <!-- Mikrotik -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Mikrotik </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/mikrotik/">Home-Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/basic-config/">1. Basic Config Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/vlan/">2. Configuration VLAN on the Swicth</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-static/">3. Routing Static; or</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-dynamic/">4. Routing Dynamic</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/hotspot/">5. Create Hotspot Login</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/block/">6. Block SSH, Telnet, and HTTP</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bandwidth/">7. Add Simple Queque (Bandwidth)</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/load-balancing/">8. Load Balancing</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bridge/">9. Bridge</a></li>
+                </ul>
+              </li>
+              <!-- AWS Cloud -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> AWS Cloud </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/aws/">Home-AWS Cloud</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/cpanel/">1. Install cPanel</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/wordpress/">2. Install Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nginx/">3. Install NginX</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/zabbix/">4. Install Zabbix & Database</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/add-host-for-zabbix/">5. Add Host For Monitoring</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/vpc/">6. Virtual Private Network</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/webstatic/">7. Website Static</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios/">8. Install Nagios in New EC2</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-webserver/">9. Nagios at WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-database/">10. Nagios at Database</a></li>
+                </ul>
+              </li>
+              <!-- Security -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Security </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/security/">Home-Security</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/installation/">1. Installasi</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/iptables/">2. IP Tables</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/cracklib/">3. Craklib</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/port/">4. Port Forwarding</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/mitm-and-ddos/">5. MITM & DDOS</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/snort/">6. Snort</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/otp/">7. Generated OTP</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="row">
-            <div class="sidebar">
-                <h1>Debian 10</h1>
-                <ul>
-                    <li><a href="/blog/debian10/">Home Debian</a></li>
-                    <li><a href="/blog/debian10/dhcp-server/">Superlab-DHCP Server</a></li>
-                    <li><a href="/blog/debian10/ssh/">Superlab-SSH</a></li>
-                    <li><a href="/blog/debian10/dns/">Superlab-DNS Server</a></li>
-                    <li><a href="/blog/debian10/ftp/">Superlab-FTP Server</a></li>
-                    <li><a href="/blog/debian10/apache2/">Superlab-Web Server</a></li>
-                    <li><a href="/blog/debian10/wordpress/">Superlab-Wordpress</a></li>
-                    <li><a href="/blog/debian10/phpmyadmin/">Superlab-PhpMyAdmin</a></li>
-                </ul>
-                <h1>Mikrotik</h1>
-                <ul>
-                    <li><a href="/blog/mikrotik/">Home Mikrotik</a></li>
-                    <li><a href="/blog/mikrotik/basic-config/">Basic Config</a></li>
-                    <li><a href="/blog/mikrotik/vlan/">VLAN</a></li>
-                    <li><a href="/blog/mikrotik/route-static/">Routing Static</a></li>
-                    <li><a href="/blog/mikrotik/route-dynamic/">Routing Dynamic</a></li>
-                    <li><a href="/blog/mikrotik/hotspot/">Hotspot Login</a></li>
-                    <li><a href="/blog/mikrotik/block/">Blok SSH, Telnet, HTTP</a></li>
-                    <li><a href="/blog/mikrotik/bandwidth/">Bandwidth</a></li>
-                    <li><a href="/blog/mikrotik/load-balancing/">Load Balanding</a></li>
-                    <li><a href="/blog/mikrotik/bridge/">Bridge</a></li>
-                </ul>
-                <h1>AWS Cloud</h1>
-                <ul>
-                    <li><a href="/blog/aws/">Home Cloud</a></li>
-                    <li><a href="/blog/aws/cpanel/">Install cPanel</a></li>
-                    <li><a href="/blog/aws/wordpress/">Install Wordpress</a></li>
-                    <li><a href="/blog/aws/nginx/">Install NginX</a></li>
-                    <li><a href="/blog/aws/zabbix/">Install Zabbix & Database</a></li>
-                    <li><a href="/blog/aws/add-host-for-zabbix/">Add Host For Monitoring</a></li>
-                    <li><a href="/blog/aws/vpc/">Virtual Private Network</a></li>
-                    <li><a href="/blog/aws/webstatic/">Website Static</a></li>
-                    <li><a href="/blog/aws/nagios/">Install Nagios</a></li>
-                    <li><a href="/blog/aws/nagios-for-webserver/">Nagios at WebServer</a></li>
-                    <li><a href="/blog/aws/nagios-for-database/">Nagios at Database</a></li>
-                </ul>
-                <h1>Security</h1>
-                <ul>
-                    <li><a href="/blog/security/">Home Security</a></li>
-                    <li><a href="/blog/security/installation/">Installasi</a></li>
-                    <li><a href="/blog/security/iptables/">IP Tables</a></li>
-                    <li><a href="/blog/security/cracklib/">Craklib</a></li>
-                    <li><a href="/blog/security/port/">Port Forwarding</a></li>
-                    <li><a href="/blog/security/mitm-and-ddos/">MITM&DDOS</a></li>
-                    <li><a href="/blog/security/snort/">Snort</a></li>
-                    <li><a href="/blog/security/otp/">Generated OTP</a></li>
-                </ul>
-                <h1>Debian 11</h1>
-                <ul>
-                    <li><a href="/blog/debian11/">Home Debian11</a></li>
-                    <li><a href="/blog/debian11/installation/">Install 3VM</a></li>
-                    <li><a href="/blog/debian11/dns/">DNS</a></li>
-                    <li><a href="/blog/debian11/sftp/">SFTP</a></li>
-                    <li><a href="/blog/debian11/samba/">Samba</a></li>
-                    <li><a href="/blog/debian11/virtualhost/">VirtualHost</a></li>
-                    <li><a href="/blog/debian11/myweb/">MyWeb</a></li>
-                    <li><a href="/blog/debian11/static/">Static</a></li>
-                    <li><a href="/blog/debian11/dvwa/">DVWA</a></li>
-                    <li><a href="/blog/debian11/ansible/">Automation</a></li>
-                </ul>
-            </div>
-            <div class="content">
-                <h1>Install Package</h1>
-                <h2 class="h2-wp">Package yang dibutuhkan adalah</h2>
-                <ul>
-                    <li>Php</li>
-                    <li>MySql</li>
-                    <li>Mariadb</li>
-                    <li>Unzip</li>
-                </ul>
-                <div class="daging">
-<pre>
-apt install php7.3 php7.3-mysql mariadb-server unzip
-</pre>
-                </div>
-                <h1>Konfigurasi Database</h1>
-                <p>setelah semua paket yang dibutuhkan telah terinstall, berikutnya adalah melakukan konfigurasi keamanan mysql dan database serta user yang menggunakan database nantinya. caranya adalah :</p>
-                <div class="daging">
-<pre>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Article -->
+    <div class="all">
+      <div class="judul">
+        <hr />
+        <h1>How to Install Wordpress on Server and Configuration Virtual Host</h1>
+        <hr />
+      </div>
+      <div class="gambar">
+        <img src="../../aws/img/wordpress.png" alt="" class="img-xl" />
+      </div>
+      <div class="article">
+        <h3>Introduction</h3>
+        <p>
+          WordPress adalah Content Management System (CMS) yang diluncurkan oleh Matt Mullenweg dan Mike Little pada tahun 2004. Sebagai sebuah CMS, WordPress bisa membantu Anda membuat dan mengelola website tanpa coding. Anda bisa menata
+          tampilan, menambahkan fitur, dan membuat konten di website dengan mudah. Jadi, cocok untuk digunakan pemula sekalipun. Tak hanya itu, WordPress juga bisa Anda gunakan secara gratis karena bersifat open-source. Saat ini wordpress
+          sudah di gunakan oleh lebih dari 455 juta website.CyberPanel merupakan web panel yang kita akan pakai pada handout kali ini karena gratis, mudah di gunakan dan memiliki fitur yang lengkap. Salah satunya adalah fitur Auto Installer
+          WordPress yang memungkinkan kita melakukan installasi dengan sekali klik. Bagaimana caranya ? mari ikuti langkah berikut.
+        </p>
+
+        <hr />
+        <h2>Configuration</h2>
+        <h3>Install Package</h3>
+        <pre class="important">apt install php7.3 php7.3-mysql mariadb-server unzip</pre>
+        <h3>Configuration Database</h3>
+        <h4>Set Password for User Root</h3>
+        <pre class="important">
 mysql_secure_installation
 
-(Set password root : 123 = agar mudah di ingat)
-
 Enter current password for root (enter for none): 123
-    
 Set root password? [Y/n] y
 New password: 123
 Re-enter new password: 123
-    
 Remove anonymous users? [Y/n] y
-    
 Disallow root login remotely? [Y/n] y
-    
 Remove test database and access to it? [Y/n] y
-    
-Reload privilege tables now? [Y/n] y
-</pre>
-                </div>
-                <p>Ini berfungsi untuk mengatur kembali mysql yang telah terinstall dan membuat password baru untuk kemanan database pada mysql.</p>
-
-                <p>Selanjutnya kita membuat database dan user di mysql. Untuk masuk ke menu sql ketikan</p>
-                <div class="daging">
-<pre>
-mysql -u root -p
-</pre>
-                </div>
-                <p>Contoh : saya akan membuat database dengan nama "db_pemula" dan user "rizwanpemula" dengan password "123". Maka ini command yang harus dijalankan.</p>
-                <div class="daging">
-<pre>
+Reload privilege tables now? [Y/n] y</pre
+        >
+        <h4>Create Database</h4>
+        <pre class="important">mysql -u root -p</pre>
+        <pre class="important">
 CREATE DATABASE db_pemula;
-
 CREATE USER 'rizwanpemula'@'localhost' IDENTIFIED BY '123';
-
 GRANT ALL PRIVILEGES ON *.* TO 'rizwanpemula'@'localhost';
-
 FLUSH PRIVILEGES;
-
-EXIT;
-</pre>
-                </div>
-                <h2>Install Wordpress</h2>
-                <p>Buatlah direktory untuk tempat kita menyimpan file wordpress</p>
-                <div class="daging">
-<pre>
+EXIT;</pre
+      >
+      <h3>Create Directory For Wordpress</h3>
+      <pre class="important">
 mkdir /var/www/wordpress
-
-mkdir /var/www/wordpress/log
-</pre>
-                </div>
-                <p>Setelah itu Ubah owner dan permission DocumentRoot wordpress</p>
-                <div class="daging">
-<pre>
-chmod 777 /var/www/wordpress
-</pre>
-                </div>
-                <p>Pindah ke folder wordpress lalu lanjut menginstall wordpressnya. <mark>cd /var/www/wordpress</mark></p>
-                <div class="daging">
-<pre>
-wget https://wordpress.org/latest.zip
-</pre>
-                </div>
-                <p>setelah itu kita ekstarak zip wordpress yang telah kita install</p>
-                <div class="daging">
-<pre>
-unzip latest.zip
-</pre>
-                </div>
-                <p>Pindahkan file yang ada di dalam direktori wordpress ke direktori kita saat ini (/var/www/wordpress)</p>
-                <div class="daging">
-<pre>
-mv wordpress/* .
-</pre>
-                </div>
-                <h1>Virtual Host</h1>
-                <p>Tahap berikutnya kita akan membuat file VirtualHost untuk php. masuk terlebih dahulu ke <mark>/var/www/</mark><br>
-                lalu kita akan membuat folder untuk php</p>
-                <div class="daging">
-<pre>
-mkdir /php
-
-mkdir /php/log
-</pre>
-                </div>
-                <p>Masuk ke folder php <mark>cd /php</mark><br>
-                lalu kita buat file untuk VirtualHost. <mark>nano index.php</mark></p>
-                
-                <div class="daging">
-<pre>
+mkdir /var/www/wordpress/log</pre
+      >
+      <h4>Change Permission</h4>
+      <pre class="important">chmod 777 /var/www/wordpress</pre>
+      <h4>Go to Wordpress Directory</h4>
+      <pre class="important">cd /var/www/wordpress</pre>
+      <h3>Install Package</h3>
+      <pre class="important">wget https://wordpress.org/latest.zip</pre>
+      <h4>Extract File Wordpress</h4>
+      <pre class="important">unzip latest.zip</pre>
+      <h4>Move the Wordpress File to the Current Directory</h4>
+      <pre class="important">mv wordpress/* .</pre>
+      <h3>VirtualHost</h3>
+      <p>
+        Virtual host adalah konfigurasi pada webserver yang memungkinan anda menggunakan lebih dari satu domain pada sebuah server. Dengan virtual host anda dapat membuat lebih dari satu website dengan konten yang berbeda dalam sebuah server.
+      </p>
+      <h4>Create Directory for PHP</h4>
+      <pre class="important">
+mkdir /var/www/php
+mkdir /var/www/php/log</pre
+      >
+      <h4>Create File php.info</h4>
+      <pre class="important">nano /var/www/php/index.php</pre>
+      <pre class="important">
 &lt;?php
 phpinfo();
-?&gt;
-</pre>
-                        
-                </div>
-                <p>lalu masuk kedalam folder apache2 untuk menambahkan file VirtualHost untuk php dan wordpress. <mark>cd /etc/apache2/sites-available/</mark></p>
-                <div class="daging">
-<pre>
-nano php.conf
-</pre>
-                </div>
-                <p>lalu isi file php.conf seperti ini</p>
-                <div class="daging">
-<pre>
+?&gt;</pre
+      >
+      <h3>Create File VirtualHost</h3>
+      <h4>VirtualHost php</h4>
+      <pre class="important">nano /etc/apache2/sites-available/php.conf</pre>
+      <pre class="important">
 &lt;VirtualHost *:80&gt;
     ServerName php.rizwanpemula.com
     DocumentRoot /var/www/php
     ErrorLog /var/www/php/log/error.log
     CustomLog /var/www/php/log/requests.log combined
-&lt;/VirtualHost&gt;
-</pre>
-                </div>
-                <p>Selanjutnya kita akan membuat file VirtualHost untuk wordpress</p>
-                <div class="daging">
-<pre>
-nano wordpress.conf
-</pre>
-                </div>
-                <p>lalu isi file wordpress.conf seperti ini</p>
-                <div class="daging">
-<pre>
+&lt;/VirtualHost&gt;</pre
+      >
+      <h4>VirtualHost Wordpress</h4>
+      <pre class="important">nano /etc/apache2/sites-available/wordpress.conf</pre>
+      <pre class="important">
 &lt;VirtualHost *:80&gt;
     ServerName wordpress.rizwanpemula.com
     DocumentRoot /var/www/wordpress
     ErrorLog /var/www/wordpress/log/error.log
     CustomLog /var/www/wordpress/log/requests.log combined
-&lt;/VirtualHost&gt;
-</pre>
-                </div>
-                <p>Setelah itu aktifkan file VirtualHost yang tadi kita telah buat.</p>
-                <div class="daging">
-<pre>
+&lt;/VirtualHost&gt;</pre
+      >
+      <h3>Enable File VirtualHost</h3>
+      <pre class="important">
 a2ensite wordpress.conf
+a2ensite php.conf</pre
+      >
+      <h3>Restart Service</h3>
+      <pre class="important">systemctl reload apache2</pre>
 
-a2ensite php.conf
+      <hr>
+      <h2>Configuration is Completed</h2>
+      <h3>Setup Wordpress</h3>
+      <p><strong>wordpress.rizwanpemula.com</strong></p>
+      <pre class="important">
+Database Name : db_pemula
+Username : rizwanpemula
+Password : 123
+Database Host : localhost
+Table Prefix : wp_</pre>
+      <pre class="important">
+Site Title : wp-pemula
+Username : rizwan
+Password : 123
+*confirm use of weak password
+Your Email : bebas.aja.boleh@gmail.com</pre>
+      </div>
+      <!-- Article End -->
 
-systemctl reload apache2
-</pre>
-                </div>
-                <h1>Setup Wordpress</h1>
-                <p>Buka aplikasi web lalu buka subdomain untuk wordpress. Disini saya menggunakan subdomain <mark>wordpress.rizwanpemula.com</mark></p>
-                <img src="/blog/debian10/img/wp install-1.png" alt="" class="wp-install1">
-                <p>Gunakan database dan user yang telah kita buat di mysql tadi.</p>
-                <img src="/blog/debian10/img/wp install-2.png" alt="" class="wp-install2">
-                <img src="/blog/debian10/img/wp install-3.png" alt="" class="wp-install3">
-
-                <h1>Konfigurasi Selesai</h1>
-                <p>Selamat kita telah selesai konfigurasi wordpress di Debian 10. Buka wp admin menuju dashboard wordpress dengan user yang telah kita buat tadi, dan keluar dari menu wp adminn untuk melihat progres website wordpress kita.</p>
-                <img src="/blog/debian10/img/dashboard wp.png" alt="" class="dsb-wp">
-                <h2 class="h2-wp">Ini adalah menu dashboard wordpress.</h2>
-                <img src="/blog/debian10/img/content wp.png" alt="" class="cnt-wp">
-            </div>
-        <div class="row">
-            <div class="footer">
-                <h1>Created By : Rizwan Fairuz Mamduh</h1>
-            </div>
+      <!-- Footer -->
+      <div class="footer">
+        <hr />
+        <div class="name-footer">
+          <h2>Rizwan Fairuz Mamduh</h2>
+          <p>Contact me:</p>
         </div>
+        <div class="icon-footer">
+          <div class="icon1">
+            <a href="https://wa.me/628979620353" target="_blank"><i class="bi bi-whatsapp text-success"></i></a>
+          </div>
+          <div class="icon2">
+            <a href="https://www.instagram.com/ryzwannn13/" target="_blank"><i class="bi bi-instagram text-danger"></i></a>
+          </div>
+          <div class="icon3">
+            <a href="https://www.linkedin.com/in/rizwan-fairuz-mamduh" target="_blank"><i class="bi bi-linkedin text-primary"></i></a>
+          </div>
+          <div class="icon4">
+            <a href="https://github.com/ryzwan29" target="_blank"><i class="bi bi-github text-primary"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
     </div>
-</body>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- JS Dark&Light Mode -->
+    <script src="/assets/js/mode.js"></script>
+  </body>
 </html>

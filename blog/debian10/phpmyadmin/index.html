@@ -1,226 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debian | PhpMyAdmin</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debian 10 | PhpMyAdmin</title>
 
-    <link rel="stylesheet" href="/assets/css/dhcp.css">
-    <link rel="icon" href="/assets/img/linux.png">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="header">
-                <div class="judul">
-                    <h1>PhpMyAdmin</h1>
-                </div>
-            </div>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- Icon Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/dhcp.css" />
+
+    <!-- Icon HTML -->
+    <link rel="icon" href="/assets/img/linux.png" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top" style="background-color: #909294">
+      <div class="container-md">
+        <!-- Dark&Light Mode -->
+        <div class="dropdown">
+          <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-sun-fill theme-icon-active" data-theme-icon-active="bi-sun-fill"></i></button>
+          <ul class="dropdown-menu">
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="light">
+                <i class="bi bi-sun-fill me-2 opacity-50" data-theme-icon="bi-sun-fill"></i>
+                Light
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="dark">
+                <i class="bi bi-moon-stars-fill me-2 opacity-50" data-theme-icon="bi-moon-stars-fill"></i>
+                Dark
+              </button>
+            </li>
+          </ul>
         </div>
-        <div class="row">
-            <div class="navigation">
-                <h1>Dokumentasi</h1>
-            </div>
+        <!-- Dark&Light Mode -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Rizwan <i class="bi bi-heart-fill text-danger"></i> AWS Cloud</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- Debian 10 -->
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 10 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian10/">Home-Debian 10</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dhcp-server/">1. DHCP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ssh/">2. SSH</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/dns/">3. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/ftp/">4. FTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/apache2/">5. Apache2 WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/wordpress/">6. Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian10/phpmyadmin/">7. PhpMyAdmin</a></li>
+                </ul>
+              </li>
+              <!-- Debian 11 -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Debian 11 </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/debian11/">Home-Debian 11</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/installation/">1. Install 3VM</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dns/">2. Domain Name Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/sftp/">3. SFTP Server</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/samba/">4. File Sharing Samba</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/virtualhost/">5. Virtual Host</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/myweb/">6. MyWeb</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/static/">7. Static Website</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/dvwa/">8. Setup DVWA Web</a></li>
+                  <li><a class="dropdown-item" href="/blog/debian11/ansible/">9. Automation With Ansible</a></li>
+                </ul>
+              </li>
+              <!-- Mikrotik -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Mikrotik </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/mikrotik/">Home-Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/basic-config/">1. Basic Config Mikrotik</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/vlan/">2. Configuration VLAN on the Swicth</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-static/">3. Routing Static; or</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/route-dynamic/">4. Routing Dynamic</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/hotspot/">5. Create Hotspot Login</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/block/">6. Block SSH, Telnet, and HTTP</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bandwidth/">7. Add Simple Queque (Bandwidth)</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/load-balancing/">8. Load Balancing</a></li>
+                  <li><a class="dropdown-item" href="/blog/mikrotik/bridge/">9. Bridge</a></li>
+                </ul>
+              </li>
+              <!-- AWS Cloud -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> AWS Cloud </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/aws/">Home-AWS Cloud</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/cpanel/">1. Install cPanel</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/wordpress/">2. Install Wordpress</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nginx/">3. Install NginX</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/zabbix/">4. Install Zabbix & Database</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/add-host-for-zabbix/">5. Add Host For Monitoring</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/vpc/">6. Virtual Private Network</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/webstatic/">7. Website Static</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios/">8. Install Nagios in New EC2</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-webserver/">9. Nagios at WebServer</a></li>
+                  <li><a class="dropdown-item" href="/blog/aws/nagios-for-database/">10. Nagios at Database</a></li>
+                </ul>
+              </li>
+              <!-- Security -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Security </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/blog/security/">Home-Security</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/installation/">1. Installasi</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/iptables/">2. IP Tables</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/cracklib/">3. Craklib</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/port/">4. Port Forwarding</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/mitm-and-ddos/">5. MITM & DDOS</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/snort/">6. Snort</a></li>
+                  <li><a class="dropdown-item" href="/blog/security/otp/">7. Generated OTP</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="row">
-            <div class="sidebar">
-                <h1>Debian 10</h1>
-                <ul>
-                    <li><a href="/blog/debian10/">Home Debian</a></li>
-                    <li><a href="/blog/debian10/dhcp-server/">Superlab-DHCP Server</a></li>
-                    <li><a href="/blog/debian10/ssh/">Superlab-SSH</a></li>
-                    <li><a href="/blog/debian10/dns/">Superlab-DNS Server</a></li>
-                    <li><a href="/blog/debian10/ftp/">Superlab-FTP Server</a></li>
-                    <li><a href="/blog/debian10/apache2/">Superlab-Web Server</a></li>
-                    <li><a href="/blog/debian10/wordpress/">Superlab-Wordpress</a></li>
-                    <li><a href="/blog/debian10/phpmyadmin/">Superlab-PhpMyAdmin</a></li>
-                </ul>
-                <h1>Mikrotik</h1>
-                <ul>
-                    <li><a href="/blog/mikrotik/">Home Mikrotik</a></li>
-                    <li><a href="/blog/mikrotik/basic-config/">Basic Config</a></li>
-                    <li><a href="/blog/mikrotik/vlan/">VLAN</a></li>
-                    <li><a href="/blog/mikrotik/route-static/">Routing Static</a></li>
-                    <li><a href="/blog/mikrotik/route-dynamic/">Routing Dynamic</a></li>
-                    <li><a href="/blog/mikrotik/hotspot/">Hotspot Login</a></li>
-                    <li><a href="/blog/mikrotik/block/">Blok SSH, Telnet, HTTP</a></li>
-                    <li><a href="/blog/mikrotik/bandwidth/">Bandwidth</a></li>
-                    <li><a href="/blog/mikrotik/load-balancing/">Load Balanding</a></li>
-                    <li><a href="/blog/mikrotik/bridge/">Bridge</a></li>
-                </ul>
-                <h1>AWS Cloud</h1>
-                <ul>
-                    <li><a href="/blog/aws/">Home Cloud</a></li>
-                    <li><a href="/blog/aws/cpanel/">Install cPanel</a></li>
-                    <li><a href="/blog/aws/wordpress/">Install Wordpress</a></li>
-                    <li><a href="/blog/aws/nginx/">Install NginX</a></li>
-                    <li><a href="/blog/aws/zabbix/">Install Zabbix & Database</a></li>
-                    <li><a href="/blog/aws/add-host-for-zabbix/">Add Host For Monitoring</a></li>
-                    <li><a href="/blog/aws/vpc/">Virtual Private Network</a></li>
-                    <li><a href="/blog/aws/webstatic/">Website Static</a></li>
-                    <li><a href="/blog/aws/nagios/">Install Nagios</a></li>
-                    <li><a href="/blog/aws/nagios-for-webserver/">Nagios at WebServer</a></li>
-                    <li><a href="/blog/aws/nagios-for-database/">Nagios at Database</a></li>
-                </ul>
-                <h1>Security</h1>
-                <ul>
-                    <li><a href="/blog/security/">Home Security</a></li>
-                    <li><a href="/blog/security/installation/">Installasi</a></li>
-                    <li><a href="/blog/security/iptables/">IP Tables</a></li>
-                    <li><a href="/blog/security/cracklib/">Craklib</a></li>
-                    <li><a href="/blog/security/port/">Port Forwarding</a></li>
-                    <li><a href="/blog/security/mitm-and-ddos/">MITM&DDOS</a></li>
-                    <li><a href="/blog/security/snort/">Snort</a></li>
-                    <li><a href="/blog/security/otp/">Generated OTP</a></li>
-                </ul>
-                <h1>Debian 11</h1>
-                <ul>
-                    <li><a href="/blog/debian11/">Home Debian11</a></li>
-                    <li><a href="/blog/debian11/installation/">Install 3VM</a></li>
-                    <li><a href="/blog/debian11/dns/">DNS</a></li>
-                    <li><a href="/blog/debian11/sftp/">SFTP</a></li>
-                    <li><a href="/blog/debian11/samba/">Samba</a></li>
-                    <li><a href="/blog/debian11/virtualhost/">VirtualHost</a></li>
-                    <li><a href="/blog/debian11/myweb/">MyWeb</a></li>
-                    <li><a href="/blog/debian11/static/">Static</a></li>
-                    <li><a href="/blog/debian11/dvwa/">DVWA</a></li>
-                    <li><a href="/blog/debian11/ansible/">Automation</a></li>
-                </ul>
-            </div>
-            <div class="content">
-                <h1>Install Package</h1>
-                <h2 class="h2-wp">PHP</h2>
-                <div class="daging">
-                    <p style="color: white; font-size: 15px;">
-                        apt install php php-cgi php-mysqli php-pear php-mbstring php-gettext libapache2-mod-php php-common php-phpseclib php-mysql -y
-                    </p>
-                </div>
-                <p>Untuk mengecek versi php kita bisa menggunakan command</p>
-                <p style="font-style: italic;"><mark>php --version</mark></p>
-                <h2 class="h2-wp">MariaDB</h2>
-                <div class="daging">
-                    <p style="color: white; font-size: 16px;">apt install mariadb-server mariadb-client -y</p>
-                </div>
-                <h1>Konfigurasi Database</h1>
-                <p>Selanjutnya kita lakukan konfigurasi awal database MariaDB menggunakan perintah berikut:</p>
-                <div class="daging">
-<pre>
-mysql_secure_installation
+      </div>
+    </nav>
+    <!-- Navbar End -->
 
-(Set password root : 123 = agar mudah di ingat)
+    <!-- Article -->
+    <div class="all">
+      <div class="judul">
+        <hr />
+        <h1>How to Install PhpMyAdmin to Manage the Database Using User Interfaces</h1>
+        <hr />
+      </div>
+      <div class="gambar">
+        <img src="../img/phpmyadmin.jpg" alt="" class="img-xl" />
+      </div>
+      <div class="article">
+        <h3>Introduction</h3>
+        <p>
+          PhpMyAdmin adalah salah satu software gratis yang ditulis dalam bahasa PHP dan merupakan software yang paling populer digunakan untuk mengelola tabel dan data pada database melalui web. PhpMyAdmin mendukung berbagai operasi
+          database seperti MySQL maupun MariaDB. Tugas yang dimaksudkan seperti untuk mengelola database, tabel, kolom, indeks, user, permission, dan lain-lain. Seluruh tugas ini dapat di eksekusi melalui user interface yang user-friendly.
+          Namun, walau phpMyAdmin memiliki user interface kamu juga masih bisa mengeksekusi MySQL statement dan query secara langsung.
+        </p>
+        <p>
+          PhpMyadmin sangat populer digunakan untuk mengelola database karena bisa diakses melalui web browser. Selain yang sudah disebutkan sebelumnya kita juga dapat membuat, memperbarui, mengubah, menghapus, mengimpor, dan mengekspor
+          tabel database MySQL dengan menggunakan software ini. Kamu juga dapat menjalankan query MySQL, memperbaiki, mengoptimalkan, memeriksa tabel, dan juga menjalankan perintah manajemen database lainnya. PhpMyAdmin juga dapat digunakan
+          untuk melakukan tugas administratif seperti pembuatan database dan eksekusi query.
+        </p>
 
+        <hr />
+        <h2>Configuration</h2>
+        <h3>Install Package</h3>
+        <h4>php</h4>
+        <pre class="important">apt install php php-cgi php-mysqli php-pear php-mbstring php-gettext libapache2-mod-php php-common php-phpseclib php-mysql -y</pre>
+        <h4>MariaDB</h4>
+        <pre class="important">apt install mariadb-server mariadb-client -y</pre>
+
+        <h3>Configuration Database</h3>
+        <h4>Create Password For Root User</h4>
+        <pre class="important">mysql_secure_installation</pre>
+        <pre class="important">
 Enter current password for root (enter for none): 123
-
 Set root password? [Y/n] y
 New password: 123
 Re-enter new password: 123
-
 Remove anonymous users? [Y/n] y
-
 Disallow root login remotely? [Y/n] y
-
 Remove test database and access to it? [Y/n] y
-
-Reload privilege tables now? [Y/n] y
-</pre>
-                </div>
-                <h1>Membuat Database</h1>
-                <p>Kali ini kita akan membuat database baru di MariaDB dengan menggunakan command</p>
-                <div class="daging">
-<pre>
-mysql -u root -p
-</pre>
-                </div>
-                <p>Contoh : saya akan membuat database dengan nama "db_pemula" dan user "rizwanpemula" dengan password "123". Maka ini command yang harus dijalankan.
-                </p>
-                <div class="daging">
-<pre>
-CREATE DATABASE db_pemula;
-
-CREATE USER 'rizwanpemula'@'localhost' IDENTIFIED BY '123';
-    
-GRANT ALL PRIVILEGES ON *.* TO 'rizwanpemula'@'localhost';
-    
+Reload privilege tables now? [Y/n] y</pre
+        >
+        <h4>Create Database</h4>
+        <pre class="important">mysql -u root -p</pre>
+        <pre class="important">
+CREATE DATABASE db_phpmyadmin;
+CREATE USER 'adminrizwan'@'localhost' IDENTIFIED BY '123';
+GRANT ALL PRIVILEGES ON *.* TO 'adminrizwan'@'localhost';
 FLUSH PRIVILEGES;
-    
-EXIT;
-</pre>
-                </div>
-                <h2 class="h2-wp">Install gnupg</h2>
-                <div class="daging">
-<pre>
-apt-get -y install gnupg
-</pre>
-                </div>
-                <h2 class="h2-wp">Membuat Directory</h2>
-                <p>Kita akan membuat direktori untuk menyimpan file phpmyadmin</p>
-                <div class="daging">
-<pre>
-mkdir /var/www/phpmyadmin
+EXIT;</pre
+        >
+        <h4>Install gnupg</h4>
+        <pre class="important">apt-get -y install gnupg</pre>
+        <h3>Create Directory</h3>
+        <pre class="important">mkdir /var/www/phpmyadmin</pre>
+        <h3>Move to phpmyadmin Directory</h3>
+        <pre class="important">cd /var/www/phpmyadmin</pre>
 
-(lalu masuk ke direktori yang telah dibuat)
-
-cd /var/www/phpmyadmin
-</pre>
-                </div>
-                <h1>Install paket installer phpMyAdmin</h1>
-                <div class="daging">
-<p style="color: white; font-size: 13px;">
+        <h3>Install Package</h3>
+        <h4>Installer PhpMyAdmin</h4>
+        <pre class="important">
 wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz --no-check-certificate
-<br><br>
-wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz.asc --no-check-certificate
-</p>
-                </div>
-                <p>Cek digital signature file installernya menggunakan gpg/gnupg</p>
-                <div class="daging">
-<p style="color: white; font-size: 14px;">
+wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz.asc --no-check-certificate</pre
+        >
+        <h4>Check Digital Signature File Installer</h4>
+        <pre class="important">
 wget https://files.phpmyadmin.net/phpmyadmin.keyring --no-check-certificate
-<br><br>
-gpg --import phpmyadmin.keyring
-</p>
-                </div>
-                <p>Unpack file installer konfigurasi phpMyAdmin</p>
-                <div class="daging">
-<p style="color: white; font-size: 15px;">
-tar xvf phpMyAdmin-latest-all-languages.tar.gz --strip-components=1 -C /var/www/phpmyadmin
-</p>
-                </div>
-                <h1>Konfigurasi virtualhost untuk PhpMyAdmin</h1>
-                <p>Buat dan Konfigurasi file virtualhost phpmyadmin.conf</p>
-                <p><mark>nano /etc/apache2/sites-available/phpmyadmin.conf</mark></p>
-                <div class="daging">
-<pre>
+gpg --import phpmyadmin.keyring</pre
+        >
+        <h4>Unpack File Installer</h4>
+        <pre class="important">tar xvf phpMyAdmin-latest-all-languages.tar.gz --strip-components=1 -C /var/www/phpmyadmin</pre>
+        <h3>VirtualHost For PhpMyAdmin</h3>
+        <h4>Create File VirtualHost</h4>
+        <pre class="important">nano /etc/apache2/sites-available/phpmyadmin.conf</pre>
+        <pre class="important">
 &lt;VirtualHost *:80&gt;
     ServerAdmin rizwan@rizwanpemula.com
     ServerName phpmyadmin.rizwanpemula.com
     DocumentRoot /var/www/phpmyadmin
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
-&lt;/VirtualHost&gt;
-</pre>
-                </div>
-                <p>Aktifkan virtualhost phpmyadmin.conf</p>
-                <div class="daging">
-<pre>
-a2ensite phpmyadmin.conf
+&lt;/VirtualHost&gt;</pre
+        >
+        <h4>Enable File VirtualHost</h4>
+        <pre class="important">a2ensite phpmyadmin.conf</pre>
+        <h3>Restart Service Apache2</h3>
+        <pre class="important">systemctl reload apache2 && systemctl restart apache2</pre>
 
-systemctl reload apache2
-</pre>
-                </div>
-                <h1>Konfigurasi Selesai</h1>
-                <p>Untuk pengetesan gunakan domain yang kalian pakai. Disini saya menggunakan sub domain <mark>phpmyadmin.rizwanpemula.com</mark></p>
-                <p>Login menggunakan user dan password yang kita sudah buat di mysql</p>
-                <img src="/blog/debian10/img/log phpmyadmin.png" alt="" class="log-php">
-                
-                <p>Ini adalah tampilan dashboard phpmyadmin ketika kita telah berhasil login</p>
-                <img src="/blog/debian10/img/dash phpmyadmin.png" alt="" class="dash-php">
-            </div>
+        <hr />
+        <h2>Configuration is Completed</h2>
+        <h3>Check WebServer</h3>
+        <p><strong>phpmyadmin.rizwanpemula.com</strong></p>
+        <pre class="important">
+username : adminrizwan
+password : 123</pre
+        >
+      </div>
+      <!-- Article End -->
+
+      <!-- Footer -->
+      <div class="footer">
+        <hr />
+        <div class="name-footer">
+          <h2>Rizwan Fairuz Mamduh</h2>
+          <p>Contact me:</p>
         </div>
-        <div class="row">
-            <div class="footer">
-                <h1>Created By : Rizwan Fairuz Mamduh</h1>
-            </div>
+        <div class="icon-footer">
+          <div class="icon1">
+            <a href="https://wa.me/628979620353" target="_blank"><i class="bi bi-whatsapp text-success"></i></a>
+          </div>
+          <div class="icon2">
+            <a href="https://www.instagram.com/ryzwannn13/" target="_blank"><i class="bi bi-instagram text-danger"></i></a>
+          </div>
+          <div class="icon3">
+            <a href="https://www.linkedin.com/in/rizwan-fairuz-mamduh" target="_blank"><i class="bi bi-linkedin text-primary"></i></a>
+          </div>
+          <div class="icon4">
+            <a href="https://github.com/ryzwan29" target="_blank"><i class="bi bi-github text-primary"></i></a>
+          </div>
         </div>
+      </div>
+      <!-- Footer End -->
     </div>
-</body>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- JS Dark&Light Mode -->
+    <script src="/assets/js/mode.js"></script>
+  </body>
 </html>

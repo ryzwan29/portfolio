@@ -143,10 +143,111 @@
     <div class="all">
       <div class="judul">
         <hr />
-        <h1>Judul</h1>
+        <h1>How to Install and Configure a Domain Name Server (DNS)</h1>
         <hr />
       </div>
-      <div class="article"></div>
+      <div class="gambar">
+        <img src="../img/DNS.png" alt="" class="img-xl" />
+      </div>
+      <div class="article">
+        <h3>Introduction</h3>
+        <p>
+          DNS server adalah server yang digunakan sebagai penerjemah IP Address menjadi nama host agar lebih efisien dan mudah diingat. Selain itu juga, DNS digunakan untuk mengidentifikasi komputer, layanan, dan sumber daya lain yang dapat
+          dijangkau melalui Internet atau jaringan Internet Protocol (IP) lainnya.
+        </p>
+        <p>
+          Contoh sederhana dari implementasi DNS misalnya, ketika Anda ingin mengakses website seperti Google. Dengan konfigurasi DNS server, maka Anda cukup mengetikkan alamat <strong>google.com</strong>, dan bukan
+          <strong>IP 216.239.38.120</strong>, namun Anda tetap masih bisa akses IP diatas untuk menampilkan halaman dari google.com.
+        </p>
+
+        <hr />
+        <h2>Configuration</h2>
+        <h3>Install Package</h3>
+        <pre class="important">apt install bind9 dnsutils</pre>
+        <h3>Change Directory</h3>
+        <pre class="important">cd /etc/bind</pre>
+        <h3>Copy File</h3>
+        <p>Copy file db.local (File Forward) dan db.127 (File Reverse) menjadi sebuah file baru. Hal ini bertujuan agar jika nanti ada salah config kita masih mempunyai file backup.</p>
+        <pre class="important">cp db.local db.rizwan</pre>
+        <pre class="important">cp db.127 db.10.1.31</pre>
+        <h4>*information</h4>
+        <p>
+          - File Forward berfungsi untuk konversi dari DNS ke IP Address. <br />
+          - Sedangkan File Reverse berfungsi untuk konversi IP Address ke DNS.
+        </p>
+        <h3>Edit File</h3>
+        <h4>File Forward</h4>
+        <p><strong>nano db.rizwan</strong></p>
+        <pre class="important">
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     rizwanpemula.com. root.rizwanpemula.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      rizwanpemula.com.
+@       IN      A       10.1.31.1
+@       IN      MX 0    10.1.31.1
+mail    IN      A       10.1.31.1
+www     IN      A       10.1.31.1
+php     IN      A       10.1.31.1
+wordpress       IN      A       10.1.31.1
+phpmyadmin      IN      A       10.1.31.1</pre
+        >
+        <h4>File Reverse</h4>
+        <p><strong>nano db.10.1.31</strong></p>
+        <pre class="important">
+;
+; BIND reverse data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     rizwanpemula.com. root.rizwanpemula.com. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      rizwanpemula.com.
+1       IN      PTR     rizwanpemula.com.
+1       IN      PTR     www.rizwanpemula.com.
+1       IN      PTR     mail.rizwanpemula.com.
+1       IN      PTR     php.rizwanpemula.com.
+1       IN      PTR     wordpress.rizwanpemula.com.
+1       IN      PTR     phpmyadmin.rizwanpemula.com.</pre
+        >
+        <h4>File Default Zone</h4>
+        <p><strong>nano named.conf.default-zones</strong></p>
+        <pre class="important">
+zone "rizwanpemula.com" {
+        type master;
+        file "/etc/bind/db.rizwan";
+};
+
+zone "1.31.1" {
+        type master;
+        file "/etc/bind/db.10.1.31";
+};</pre
+        >
+        <h4>File Resolv</h4>
+        <p><strong>nano /etc/resolv.conf</strong></p>
+        <pre class="important">
+search rizwanpemula.com
+nameserver 10.1.31.1</pre
+        >
+        <h3>Restart Service</h3>
+        <pre class="important">/etc/init.d/bind9 restart</pre>
+
+        <hr />
+        <h2>Configuration is Completed</h2>
+        <h3>Check DNS Name</h3>
+        <pre class="important">nslookup rizwanpemula.com</pre>
+      </div>
       <!-- Article End -->
 
       <!-- Footer -->
